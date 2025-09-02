@@ -290,8 +290,8 @@ export default function ContactComponent() {
 
           <div className="contact-hero">
             <Image
-              src="/Contact/ContactImage.png"
-              alt="Zespół"
+              src="/Contact/person.png"
+              alt="Portret osoby"
               width={620}
               height={560}
               priority
