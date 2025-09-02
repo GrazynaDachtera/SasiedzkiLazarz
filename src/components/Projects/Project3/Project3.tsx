@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import "./Project3.scss";
 
-/** ---- Content types ---- */
 type Paragraph = { t: "p"; text: string };
 type Heading = { t: "h3"; text: string };
 type Link = { t: "a"; text: string; href: string };
@@ -41,7 +40,6 @@ const DESCRIPTION: Block[] = [
   },
 ];
 
-/** ---- Tiny renderer: maps typed blocks to your styled HTML ---- */
 function RichText({ blocks }: { blocks: Block[] }) {
   return (
     <>
@@ -89,55 +87,72 @@ function RichText({ blocks }: { blocks: Block[] }) {
 const IMAGES = [
   {
     src: "/Projects/Project3/image1.jpeg",
-    alt: "Zieleń w kwartale Hetmańska–Dmowskiego",
+    alt: "Plakat wydarzenia „Sąsiedzkie Pikniki” na tablicy ogłoszeń w parku",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image2.jpeg",
-    alt: "Dojrzałe drzewa i krzewy",
+    alt: "Prowadząca rozmawia z mieszkańcami podczas spotkania na trawie",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image3.jpeg",
-    alt: "Przestrzeń rekreacyjna",
+    alt: "Mieszkańcy siedzą na kocach i krzesłach podczas prelekcji w plenerze",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image4.jpeg",
-    alt: "Ścieżka pieszo-rowerowa",
+    alt: "Strażacy prowadzą pokaz dla mieszkańców na osiedlowej polanie",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image5.jpeg",
-    alt: "Dzika roślinność",
+    alt: "Wóz strażacki i tłum uczestników podczas pikniku sąsiedzkiego",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image6.jpeg",
-    alt: "Połączenie ze skwerem Jacka Hałasika",
+    alt: "Zbliżenie na plakietkę Ognioodporny Łazarz na teczce z materiałami",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image7.jpeg",
-    alt: "Połączenie ze skwerem Jacka Hałasika",
+    alt: "Pączki i maliny – poczęstunek przygotowany dla uczestników wydarzenia",
     w: 1600,
     h: 1067,
   },
   {
     src: "/Projects/Project3/image8.jpeg",
-    alt: "Połączenie ze skwerem Jacka Hałasika",
+    alt: "Dzieci i rodzice słuchają strażaków podczas pokazu bezpieczeństwa",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project3/image9.jpeg",
+    alt: "Strażak trzyma czujnik dymu – prezentacja sprzętu przeciwpożarowego",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project3/image10.jpeg",
+    alt: "Uczestniczka czyta ulotkę z instrukcjami bezpieczeństwa pożarowego",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project3/image11.jpeg",
+    alt: "Wóz strażacki i mieszkańcy na terenie zielonym podczas pikniku",
     w: 1600,
     h: 1067,
   },
 ] as const;
 
-/** ---- Page ---- */
 export default function Project3Page() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState<number | null>(null);
