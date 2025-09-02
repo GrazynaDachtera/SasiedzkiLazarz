@@ -27,6 +27,15 @@ export default function AbcPage() {
     { title: "Park-sad przy Hetmańskiej", href: "/Projects/Project1" },
     { title: "Sąsiedzkie sprzątanie Łazarza", href: "/Projects/Project2" },
     { title: "Ognioodporny Łazarz", href: "/Projects/Project3" },
+    { title: "Blajba na łazarskim fyrtlu", href: "/Projects/Project4" },
+    {
+      title: "Spotkania sąsiedzkie przy wspólnym stole",
+      href: "/Projects/Project5",
+    },
+    {
+      title: "Wiosenne nasadzenia drzew owocowych",
+      href: "/Projects/Project6",
+    },
   ];
 
   return (

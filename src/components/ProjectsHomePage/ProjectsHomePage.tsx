@@ -42,6 +42,24 @@ export default function ProjectsHomePage() {
         "Ognioodporny Łazarz to projekt, którego celem jest wyposażenie mieszkańców Osiedla Święty Łazarz w wiedzę oraz sprzęt do zapobiegania i reagowania na zagrożenia – pożary.",
       link: "/Projects/Project3",
     },
+    {
+      title: "Blajba na łazarskim fyrtlu",
+      description:
+        "Blajba na łazarskim fyrtlu to ekskluzywny serwis kulturalny – tworzony specjalnie dla mieszkańców Osiedla Święty Łazarz. Pojawia się w każdą środę z listą wydarzeń weekendowych w naszej okolicy, często też w mieście.",
+      link: "/Projects/Project4",
+    },
+    {
+      title: "Spotkania sąsiedzkie przy wspólnym stole",
+      description:
+        "Stowarzyszenie Sąsiedzki Łazarz zaprasza wszystkich mieszkańców dzielnicy Św. Łazarz do wspólnego spędzania czasu i rozmów w miłej atmosferze.",
+      link: "/Projects/Project5",
+    },
+    {
+      title: "Wiosenne nasadzenia drzew owocowych",
+      description:
+        "Z inicjatywy naszej członkini Pauliny Prusieckiej Stowarzyszenie Sąsiedzki Łazarz zrealizowało piękną, wiosenną akcję – nasadzenia drzew owocowych.",
+      link: "/Projects/Project6",
+    },
   ];
 
   return (
