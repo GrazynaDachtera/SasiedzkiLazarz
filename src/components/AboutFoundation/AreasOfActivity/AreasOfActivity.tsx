@@ -54,8 +54,8 @@ export default function AreasOfActivity({
   title = "Obszary działalności",
   items = DEFAULT_ITEMS,
   image = {
-    src: "/News/matejki-poznan.png",
-    alt: "obszary działalności",
+    src: "/AboutFoundation/person1.png",
+    alt: "Portret osoby",
     width: 652,
     height: 336,
     priority: true,
