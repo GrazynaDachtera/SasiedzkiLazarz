@@ -2,7 +2,7 @@
 
 :root { --nav-h: 80px; }
 @media (max-width: 1024px) { :root { --nav-h: 72px; } }
-@media (max-width: 480px) { :root { --nav-h: 86px; } }
+@media (max-width: 480px)  { :root { --nav-h: 86px; } }
 
 html { scroll-padding-top: calc(var(--nav-h) + 2rem); }
 
@@ -22,17 +22,6 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: $text;
 }
-
-.project2-title {
-  width: 100%;
-  padding: clamp(1.25rem, 2.5vw, 2.5rem) $pad-desktop;
-  font-weight: 800;
-  font-size: clamp(2rem, 4vw + 1rem, 3rem);
-  color: $text;
-  background: #f1f1f1;
-  padding-top: calc(var(--nav-h) + 4rem);
-}
-
 .project2-content {
   width: min(100vw, 65rem);
   margin-top: clamp(2rem, 3.5vw, 3.5rem);
@@ -46,7 +35,6 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   font-size: clamp(1.3rem, 2.2vw + 0.5rem, 1.9rem);
   color: $brand !important;
 }
-
 .project2-subheading {
   padding: 0 $pad-desktop;
   margin-top: 2rem;
@@ -54,7 +42,6 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   font-size: clamp(1.05rem, 1.5vw + 0.5rem, 1.3rem);
   color: $brand;
 }
-
 .project2-paragraph {
   margin: 1rem $pad-desktop;
   font-weight: 400;
@@ -62,14 +49,12 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   line-height: 1.75;
   max-width: 72ch;
 }
-
 .project2-link {
   color: $brand;
   font-weight: 700;
   text-decoration: underline;
   &:hover { color: $brand-dark; }
 }
-
 .project2-list {
   list-style: decimal;
   margin: 1.25rem $pad-desktop 1rem;
@@ -77,6 +62,7 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   font-size: $body-fs;
 }
 
+/* Gallery grid */
 .project2-gallery {
   padding: 0 $pad-desktop;
   margin-top: 1rem;
@@ -84,45 +70,93 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: clamp(0.6rem, 1.2vw, 1rem);
 }
-
 .project2-gallery-item {
+  position: relative;
+  display: block;
   border: none;
+  padding: 0;
+  margin: 0;
   cursor: zoom-in;
   background: #f7f7f7;
   border-radius: 1rem;
   overflow: hidden;
-}
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02) inset;
+  transition: transform .15s ease, box-shadow .15s ease;
 
+  &:hover { transform: translateY(-1px); }
+  &:focus-visible {
+    outline: 3px solid rgba($brand, 0.3);
+    outline-offset: 2px;
+  }
+}
 .project2-gallery-img {
   width: 100%;
   height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  aspect-ratio: 4/3;
 }
 
+/* Modal + viewer (centered, with controls) */
 .project2-dialog::backdrop { background: rgba(0,0,0,.6); }
-
+.project2-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: min(92vw, 1100px);
+}
 .project2-viewer {
+  position: relative;
+  margin: 0 auto;
   background: #000;
   border-radius: 1rem;
   overflow: hidden;
 }
-
 .project2-viewer-img {
   width: 100%;
+  height: auto;
+  display: block;
   max-height: 85vh;
   object-fit: contain;
+  background: #000;
 }
-
 .project2-viewer-close,
 .project2-viewer-nav {
   position: absolute;
+  z-index: 2;
   border: none;
   background: rgba(255,255,255,.1);
   color: #fff;
   font-size: 2rem;
+  line-height: 1;
+  border-radius: .5rem;
+  padding: .15rem .5rem;
   cursor: pointer;
 }
-
+.project2-viewer-close {
+  top: .5rem;
+  right: .75rem;
+}
+.project2-viewer-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: .75rem;
+  padding: .25rem .6rem;
+}
 .project2-viewer-nav.prev { left: .5rem; }
 .project2-viewer-nav.next { right: .5rem; }
+
+@media (max-width: 1024px) {
+  .project2-subtitle,
+  .project2-subheading { padding-left: $pad-tablet; padding-right: $pad-tablet; }
+  .project2-paragraph,
+  .project2-list { margin-left: $pad-tablet; margin-right: $pad-tablet; }
+  .project2-gallery { padding-left: $pad-tablet; padding-right: $pad-tablet; }
+}
+@media (max-width: 480px) {
+  .project2-subtitle,
+  .project2-subheading { padding-left: $pad-phone; padding-right: $pad-phone; }
+  .project2-paragraph,
+  .project2-list { margin-left: $pad-phone; margin-right: $pad-phone; }
+  .project2-gallery { padding-left: $pad-phone; padding-right: $pad-phone; }
+}

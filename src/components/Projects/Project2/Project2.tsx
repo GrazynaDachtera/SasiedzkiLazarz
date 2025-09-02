@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import "./Project2.scss";
 
@@ -81,8 +80,26 @@ function RichText({ blocks }: { blocks: Block[] }) {
 
 const IMAGES = [
   {
+    src: "/Projects/Project2/image4.jpeg",
+    alt: "Mieszkańcy w akcji",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project2/image5.jpeg",
+    alt: "Mieszkańcy w akcji",
+    w: 1600,
+    h: 1067,
+  },
+  {
     src: "/Projects/Project2/image1.jpeg",
     alt: "Sprzątanie Łazarza",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project2/image7.jpeg",
+    alt: "Mieszkańcy w akcji",
     w: 1600,
     h: 1067,
   },
@@ -99,25 +116,7 @@ const IMAGES = [
     h: 1067,
   },
   {
-    src: "/Projects/Project2/image4.jpeg",
-    alt: "Mieszkańcy w akcji",
-    w: 1600,
-    h: 1067,
-  },
-  {
-    src: "/Projects/Project2/image5.jpeg",
-    alt: "Mieszkańcy w akcji",
-    w: 1600,
-    h: 1067,
-  },
-  {
     src: "/Projects/Project2/image6.jpeg",
-    alt: "Mieszkańcy w akcji",
-    w: 1600,
-    h: 1067,
-  },
-  {
-    src: "/Projects/Project2/image7.jpeg",
     alt: "Mieszkańcy w akcji",
     w: 1600,
     h: 1067,
