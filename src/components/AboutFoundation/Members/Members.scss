@@ -105,33 +105,46 @@
 .members-nav-right { right: 8px; }
 .members-nav.is-disabled { opacity: .4; pointer-events: none; }
 
-/* MODAL: centered with internal scrolling */
+/* Modal */
 .members-dialog::backdrop { background: rgba(0,0,0,.6); }
 .members-dialog {
   border: none;
   padding: 0;
   background: transparent;
   position: fixed;
-  inset: 0;                 /* take full screen */
-  display: grid;            /* center the content */
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  display: grid;
   place-items: center;
 }
 .members-dialog-content {
   position: relative;
   width: min(92vw, 720px);
-  max-height: 85vh;         /* internal scroll */
-  overflow: auto;
   background: #fff;
   border-radius: 18px;
-  padding: 20px;
-  font-family: inherit; color: var(--text-dark);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden; /* ensures rounded corners on all sides */
+}
+.members-dialog-scroll {
+  max-height: 85dvh;
+  overflow: auto;
+  padding: 20px 20px 24px;
 }
 .members-dialog-close {
-  position: sticky; top: 8px; float: right;
-  border: none; background: rgba(0,0,0,.06);
-  color: var(--text-dark); font-family: inherit;
-  font-size: 24px; line-height: 1;
-  border-radius: 8px; padding: 4px 8px; cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: rgba(0,0,0,.06);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 24px;
+  line-height: 1;
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
 }
 .members-dialog-header {
   display: grid; grid-template-columns: 96px 1fr;

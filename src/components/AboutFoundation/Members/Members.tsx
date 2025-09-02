@@ -44,7 +44,7 @@ const defaultMembers: Member[] = [
     name: "Roman Modrzyński",
     role: "Członek Stowarzyszenia",
     bio: "Członek stowarzyszenia, działacz społeczny od wielu lat związany z Łazarzem, trzykrotnie wybrany na radnego osiedlowego. W 2022 roku uhonorowany tytułem Człowieka Roku Łazarza. Aktywnie działa na rzecz mieszkańców, organizując i współorganizując wydarzenia społeczne, historyczne i zdrowotne, takie jak festyny, pokazy filmowe czy wystawy. Współtworzył m.in. pokaz filmu „Błogosławiona”, wystawę witrynową „Dawny Łazarz”, Niedzielę Palmową na Rynku Łazarskim czy Targ Różności w ramach obchodów 125. rocznicy przyłączenia Łazarza do Poznania. Pomysłodawca przejażdżki dla osób z niepełnosprawnością „Tramwaj Św. Mikołaja”. Jest członkiem Stowarzyszenia Wirtualny Łazarz, współpracuje z lokalnymi klubami seniora, a także angażuje się w działania integracyjne na rzecz osób z niepełnosprawnościami, współpracując m.in. ze ŚDS „Kamyk”, Stowarzyszeniem Na Tak oraz PSONI Poznań.",
-    image: { src: "/AboutFoundation/Roman.jpeg", alt: "Roman Modrzyński" },
+    image: { src: "/AboutFoundation/Roman.JPEG", alt: "Roman Modrzyński" },
   },
   {
     name: "Joanna Kamińska",
@@ -272,30 +272,32 @@ export default function Members({
             >
               ×
             </button>
-            <div className="members-dialog-header">
-              <div className="members-dialog-avatar">
-                {active.image?.src ? (
-                  <Image
-                    src={active.image.src}
-                    alt={active.image.alt || active.name}
-                    fill
-                    sizes="96px"
-                    className="members-dialog-avatar-img"
-                  />
-                ) : (
-                  <div className="members-dialog-avatar-fallback">
-                    {initialsOf(active.name)}
-                  </div>
-                )}
+            <div className="members-dialog-scroll">
+              <div className="members-dialog-header">
+                <div className="members-dialog-avatar">
+                  {active.image?.src ? (
+                    <Image
+                      src={active.image.src}
+                      alt={active.image.alt || active.name}
+                      fill
+                      sizes="96px"
+                      className="members-dialog-avatar-img"
+                    />
+                  ) : (
+                    <div className="members-dialog-avatar-fallback">
+                      {initialsOf(active.name)}
+                    </div>
+                  )}
+                </div>
+                <div className="members-dialog-meta">
+                  <h3 id="members-dialog-title" className="members-dialog-name">
+                    {active.name}
+                  </h3>
+                  <p className="members-dialog-role">{active.role}</p>
+                </div>
               </div>
-              <div className="members-dialog-meta">
-                <h3 id="members-dialog-title" className="members-dialog-name">
-                  {active.name}
-                </h3>
-                <p className="members-dialog-role">{active.role}</p>
-              </div>
+              <p className="members-dialog-bio">{active.bio}</p>
             </div>
-            <p className="members-dialog-bio">{active.bio}</p>
           </div>
         )}
       </dialog>
