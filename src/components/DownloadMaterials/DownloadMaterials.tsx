@@ -4,7 +4,7 @@ import "./DownloadMaterials.scss";
 
 const MATERIALS = [
   {
-    text: "Regulamin Stowarzyszenia Sąsiedzki Łazarz (w wersji pdf)",
+    text: "Regulamin Stowarzyszenia Sąsiedzki Łazarz w wersji pdf",
     link: "",
   },
   {
