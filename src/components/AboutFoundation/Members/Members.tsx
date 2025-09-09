@@ -50,6 +50,10 @@ const defaultMembers: Member[] = [
     name: "Joanna Kamińska",
     role: "Członkini Stowarzyszenia",
     bio: "Członkini stowarzyszenia, radna osiedlowa, absolwentka wydziałowych studiów tłumaczeń konferencyjnych filologii germańskiej i angielskiej Uniwersytetu Adama Mickiewicza w Poznaniu oraz trzyletniego programu „Zarządzanie kształceniem grup młodzieży i dorosłych” prowadzonego przez Fundację Otto Benecke. W ramach kilkuletniej współpracy z organizacjami związanymi z Mniejszością Niemiecką w Polsce edukuje w zakresie efektywnej pracy w grupie, koordynacji projektu, zarządzania sobą w czasie, produktywności oraz aktywizacji społeczności lokalnej, tak młodzież, jak i seniorów. Doświadczenie zdobyte w tej pracy chce przenieść i skutecznie zaimplementować na Łazarskim Fyrtlu. Kocha historię łazarskich kamienic i stara się zarażać tym uczuciem, organizując spacery z lokalnymi przewodnikami.",
+    image: {
+      src: "/AboutFoundation/JoannaKaminska.jpg",
+      alt: "Joanna Kamińska",
+    },
   },
   {
     name: "Michał Frankiewicz",
