@@ -39,6 +39,10 @@ const defaultMembers: Member[] = [
     name: "Agnieszka Michalak",
     role: "Członkini Zarządu Stowarzyszenia",
     bio: "Członkini zarządu stowarzyszenia, radna osiedlowa (3 kadencja), magister gospodarki przestrzennej, wytrwały bojownik o poprawę infrastruktury i bezpieczeństwa w okolicy: podjęła skuteczne starania o przejście dla pieszych przez ulicę Kasprzaka koło Morawskiego, o fotoradar na ulicy Hetmańskiej (po serii wypadków, w tym śmiertelnych), a także wpisanie do Studium uwarunkowań i kierunków zagospodarowania przestrzennego miasta Poznania łączników zieleni i terenu zieleni działkowej w okolicach ulicy Hetmańskiej. Współorganizatorka wielu wydarzeń osiedlowych: „Łazarskiego pożegnania lata”, Eko pikniku na Rynku Łazarskim, obecnie w trakcie realizacji jest grant NIW z FIO na Konwent Rad Rodziców, którego jest jedną z inicjatorek. To forum wymiany wiedzy i doświadczeń, oferujący cykliczne spotkania i szkolenia.",
+    image: {
+      src: "/AboutFoundation/AgmieszkaMichalak.png",
+      alt: "Agnieszka Michalak",
+    },
   },
   {
     name: "Roman Modrzyński",
@@ -59,6 +63,10 @@ const defaultMembers: Member[] = [
     name: "Michał Frankiewicz",
     role: "Członek Stowarzyszenia",
     bio: "Członek stowarzyszenia, radny osiedlowy. Organizator cyklicznych akcji Sąsiedzkiego Sprzątania Łazarza, które za każdym razem zyskują więcej uczestników i wsparcie kolejnych lokalnych biznesów. Działa w Poznańskiej Sieci Dostępności od początku jej istnienia, organizował na Łazarzu spotkanie z seniorami, na którym opowiadał o usługach Poznańskiego Centrum Dostępności. Bliskie są mu tematy czystości, dostępności przestrzennej i infrastruktury rowerowej.",
+    image: {
+      src: "/AboutFoundation/MichałFrankiewicz.png",
+      alt: "Michał Frankiewicz",
+    },
   },
   {
     name: "Paulina Prusiecka",
@@ -74,6 +82,10 @@ const defaultMembers: Member[] = [
     name: "Michał Turno",
     role: "Członek Stowarzyszenia",
     bio: "Członek stowarzyszenia, radny osiedlowy, pracownik Wydziału Sportu Urzędu Miasta Poznania. Świetnie zna strukturę i funkcjonowanie miejskich jednostek. Posiada doświadczenie w działalności w samorządach szkolnych, Młodzieżowej Radzie Miasta Poznania, Stowarzyszeniu Młodzi Demokraci, kółkach studenckich oraz Stowarzyszeniu Nowa Generacja.",
+    image: {
+      src: "/AboutFoundation/MichałTurno.png",
+      alt: "Michał Turno",
+    },
   },
 ];
 
