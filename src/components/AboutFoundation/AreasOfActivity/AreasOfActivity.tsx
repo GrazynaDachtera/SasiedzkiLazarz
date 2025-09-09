@@ -54,7 +54,7 @@ export default function AreasOfActivity({
   title = "Obszary działalności",
   items = DEFAULT_ITEMS,
   image = {
-    src: "/AboutFoundation/person1.png",
+    src: "/AboutFoundation/person.png",
     alt: "Portret osoby",
     width: 652,
     height: 336,
