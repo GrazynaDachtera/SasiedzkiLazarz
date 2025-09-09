@@ -138,6 +138,10 @@ p {
   opacity: 1;
 }
 
+.slider--single .dots {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .slide__text {
     flex-basis: 60%;

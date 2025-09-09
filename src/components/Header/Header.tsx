@@ -14,25 +14,21 @@ const slides: Slide[] = [
   {
     titleLines: ["Sąsiedzki", "Łazarz"],
     cta: { label: "Sprawdź", href: "/AboutFoundation" },
-    img: { src: "/Header/2.jpg", alt: "z", width: 1600, height: 1067 },
-  },
-  {
-    titleLines: ["KULTURA", "HISTORIA I SPORT"],
-    cta: { label: "Wesprzyj", href: "/Help" },
-    img: { src: "/Header/2.jpg", alt: "z", width: 1600, height: 1067 },
+    img: { src: "/Header/header.jpg", alt: "z", width: 1600, height: 1067 },
   },
 ];
 
 export default function HeroSlider() {
   const [index, setIndex] = useState<number>(0);
+  const isMulti = slides.length > 1;
 
   return (
-    <section className="slider">
+    <section className={`slider ${!isMulti ? "slider--single" : ""}`}>
       <div
         className="slides"
         style={{
           width: `${slides.length * 100}vw`,
-          transform: `translateX(-${index * 100}vw)`,
+          transform: `translateX(-${(isMulti ? index : 0) * 100}vw)`,
         }}
       >
         {slides.map((s, i) => (
@@ -60,16 +56,18 @@ export default function HeroSlider() {
         ))}
       </div>
 
-      <div className="dots">
-        {slides.map((_, i) => (
-          <button
-            key={`dot-${i}`}
-            className={`dot ${i === index ? "active" : ""}`}
-            aria-label={`Przejdź do slajdu ${i + 1}`}
-            onClick={() => setIndex(i)}
-          />
-        ))}
-      </div>
+      {isMulti && (
+        <div className="dots">
+          {slides.map((_, i) => (
+            <button
+              key={`dot-${i}`}
+              className={`dot ${i === index ? "active" : ""}`}
+              aria-label={`Przejdź do slajdu ${i + 1}`}
+              onClick={() => setIndex(i)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
