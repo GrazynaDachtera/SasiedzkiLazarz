@@ -78,23 +78,28 @@ $pad-phone: 1rem;
 .contact-hero {
   position: relative;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
 }
 .contact-hero :where(img, span, picture) { pointer-events: none; }
-.contact-hero img {
+.contact-hero__img {
   width: 100%;
-  max-width: min(46vw, 620px);
+  max-width: clamp(560px, 54vw, 760px);
   height: auto;
-  object-fit: contain;
   display: block;
+  border-radius: clamp(16px, 1.2vw + 10px, 28px);
+  box-shadow: 0 16px 40px rgba(25, 35, 60, 0.12);
+  object-fit: cover;
   margin-top: clamp(.25rem, 1.5vw, .75rem);
 }
 
 @media (max-width: 1200px) {
-  .contact-hero img { max-width: min(50vw, 560px); }
+  .contact-hero__img { max-width: clamp(520px, 52vw, 700px); }
 }
 @media (max-width: 992px) {
   .contact-grid { grid-template-columns: 1fr; gap: clamp(1rem, 4vw, 2rem); }
   .contact-hero { justify-self: center; }
+  .contact-hero__img { max-width: min(90vw, 760px); }
 }
 
 .form {

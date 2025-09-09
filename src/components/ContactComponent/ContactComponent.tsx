@@ -161,7 +161,6 @@ export default function ContactComponent() {
       formRef.current.reset();
       setStatus("sent");
     } catch (err) {
-      console.error("EmailJS error:", err);
       setErrorMsg("Ups… Nie udało się wysłać wiadomości. Spróbuj ponownie.");
       setStatus("error");
     } finally {
@@ -290,12 +289,13 @@ export default function ContactComponent() {
 
           <div className="contact-hero">
             <Image
-              src="/Contact/person.png"
-              alt="Portret osoby"
-              width={620}
-              height={560}
+              src="/Contact/building.jpeg"
+              alt="Budynek siedziby stowarzyszenia"
+              width={960}
+              height={868}
               priority
-              sizes="(max-width: 992px) 90vw, 620px"
+              className="contact-hero__img"
+              sizes="(max-width: 992px) 90vw, min(54vw, 760px)"
             />
           </div>
         </div>
