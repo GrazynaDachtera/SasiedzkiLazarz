@@ -10,69 +10,59 @@ type Img = {
   priority?: boolean;
 };
 
-type MissionItem = {
-  title: string;
-  text?: string;
-};
-
 type MissionProps = {
   title?: string;
-  items?: MissionItem[];
-  image?: Img;
+  missionImg?: Img;
+  visionImg?: Img;
 };
 
-const DEFAULT_ITEMS: MissionItem[] = [
-  {
-    title: "Misja",
-    text: "Jako Stowarzyszenie Sąsiedzki Łazarz działamy na rzecz mieszkańców Osiedla Święty Łazarz, organizując wydarzenia, spotkania oraz działania edukacyjne i kanały komunikacyjne, aby zachęcić do aktywnej partycypacji w życiu społecznym.",
-  },
-  {
-    title: "Wizja",
-    text: "Wierzymy, że każdy ma prawo żyć w bezpiecznym, nowoczesnym, zielonym i przyjaznym miejscu, dlatego łączymy nasze siły i doświadczenia jako społecznicy mieszkający tutaj, by skutecznie reprezentować potrzeby naszych sąsiadów.",
-  },
-  {
-    title: "Święty Łazarz naszym okiem",
-    text: "W naszych oczach Święty Łazarz to dzielnica przyjazna do życia, w której każdy mieszkaniec ma łatwy dostęp do terenów zielonych i kultury oraz możliwość integracji z sąsiadami i pełnej partycypacji w życiu społecznym osiedla.",
-  },
-];
+const DEFAULT_MISSION_IMG: Img = {
+  src: "/AboutFoundation/Mission.png",
+  alt: "Misja — grafika",
+  priority: true,
+};
+
+const DEFAULT_VISION_IMG: Img = {
+  src: "/AboutFoundation/Vision.png",
+  alt: "Wizja — grafika",
+  priority: false,
+};
 
 export default function Mission({
   title = "Misja i wizja",
-  items = DEFAULT_ITEMS,
-  image = {
-    src: "/AboutFoundation/person.png",
-    alt: "portret osoby",
-    priority: true,
-  },
+  missionImg = DEFAULT_MISSION_IMG,
+  visionImg = DEFAULT_VISION_IMG,
 }: MissionProps) {
   return (
-    <section className="mission-top-wrapper">
+    <section
+      className="mission-top-wrapper"
+      aria-labelledby="mission-vision-heading"
+    >
+      <h2 id="mission-vision-heading" className="sr-only">
+        {title}
+      </h2>
       <div className="mission-container">
-        <div className="mission-top">
-          <div className="mission-content">
-            <h2 className="mission-title">{title}</h2>
-            <div className="mission-description">
-              <ul className="mission-list" role="list">
-                {items.map((item, idx) => (
-                  <li key={idx} className="mission-item">
-                    <h3 className="mission-item-title">{item.title}</h3>
-                    {item.text ? (
-                      <div className="mission-item-text">{item.text}</div>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mission-image-wrapper">
+        <div className="mv-grid">
+          <div className="mv-card">
             <Image
-              src={image.src}
-              alt={image.alt}
+              src={missionImg.src}
+              alt={missionImg.alt}
               fill
-              priority={image.priority}
+              priority={missionImg.priority}
               quality={90}
-              sizes="(max-width: 991px) 90vw, 520px"
-              className="mission-image"
+              sizes="(max-width: 768px) 92vw, (max-width: 1200px) 44vw, 560px"
+              className="mv-image"
+            />
+          </div>
+          <div className="mv-card">
+            <Image
+              src={visionImg.src}
+              alt={visionImg.alt}
+              fill
+              priority={visionImg.priority}
+              quality={90}
+              sizes="(max-width: 768px) 92vw, (max-width: 1200px) 44vw, 560px"
+              className="mv-image"
             />
           </div>
         </div>

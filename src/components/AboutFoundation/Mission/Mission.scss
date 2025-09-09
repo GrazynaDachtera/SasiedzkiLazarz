@@ -1,120 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 :root {
-  --section-py: clamp(2rem, 5vw, 6rem);
-  --brand-green: #2e9c6a;
-  --text-color: #6a7280;
-  --body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
+  --section-py: clamp(2rem, 4vw, 5rem);
+  --mv-bg: #114538;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .mission-top-wrapper {
-  width: 100%;
-  background: #fff;
-  padding-block: var(--section-py);
+  background: var(--mv-bg);
+  color: #fff;
   font-family: "Poppins", sans-serif;
-  color: var(--text-color);
+  padding-block: 0 var(--section-py) !important;
+  margin: 0 !important;
+  display: flow-root;
 }
 
 .mission-container {
-  width: min(90%, 1200px);
+  width: min(96%, 1320px);
   margin: 0 auto;
-  padding-inline: 2rem;
-}
-
-.mission-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(16px, 3.5vw, 24px);
-  text-align: center;
-}
-
-.mission-content {
-  max-width: 560px;
-}
-
-.mission-title {
-  font-weight: 800;
-  font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.8rem);
-  color: var(--brand-green);
-  margin-bottom: 1.5rem;
-}
-
-.mission-description {
-  font-weight: 400;
-  font-size: var(--body-fs);
-  line-height: 1.7;
-  margin: 0;
-  color: var(--text-color);
-}
-
-.mission-list {
-  list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.mission-item {
-  margin: 0.5rem 0;
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 32px);
+  justify-items: center;
 }
 
-.mission-item-title {
-  margin: 0;
-  font-weight: 700;
-  font-size: inherit;
-  line-height: 1.5;
-  color: var(--brand-green);
-}
-
-.mission-item-text {
-  margin-top: 2px;
-}
-
-.mission-image-wrapper {
+.mv-card {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: clamp(260px, 80vw, 480px);
-  margin: 12px auto 0;
+  max-width: 620px;
+  aspect-ratio: 1545 / 2000;
+  overflow: hidden;
 }
 
-.mission-image {
+.mv-image {
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center;
   display: block;
+  background: transparent;
 }
 
-@media (min-width: 992px) {
-  .mission-top {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    text-align: left;
-  }
-
-  .mission-content {
-    order: 2;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .mission-image-wrapper {
-    order: 1;
-    flex: 0 0 50%;
-    max-width: 50%;
-    height: clamp(320px, 32vw, 520px);
-    margin: 0;
+@media (min-width: 820px) {
+  .mv-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
   }
 }
 
-@media (max-width: 480px) {
-  .mission-container {
-    padding-inline: 1rem;
+@media (min-width: 1280px) {
+  .mv-card {
+    max-width: 680px;
   }
-}
-
-.mission-description strong {
-  font-weight: 700;
-  color: var(--brand-green);
 }
