@@ -132,7 +132,7 @@ const FooterSecondSection = () => {
             </div>
           ))}
         </div>
-        <div className="footer-copyright">© {year} SasiedzkiLazarz.</div>
+        <div className="footer-copyright">© {year} SąsiedzkiŁazarz.</div>
       </div>
     </div>
   );
