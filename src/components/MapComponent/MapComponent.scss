@@ -1,5 +1,6 @@
+/* MapComponent.scss */
 :root {
-  --accent: #3da575; /* green */
+  --accent: #3da575;
   --text: #6b7280;
 }
 
@@ -21,9 +22,6 @@
 .leaflet-container { width: 100%; height: 100%; }
 
 .leaflet-tile-pane { filter: grayscale(100%) brightness(1.05) contrast(0.92); }
-
-/* Pin color for L.divIcon (uses currentColor in SVG) */
-.custom-pin { color: var(--accent); }
 
 .info-card {
   position: absolute;
@@ -72,7 +70,6 @@
 
 .list > div { margin-top: 8px; font-size: 15px; }
 
-/* Zoom controls */
 .leaflet-right .leaflet-control-zoom { margin: 0 18px 18px 0; }
 
 .leaflet-control-zoom {

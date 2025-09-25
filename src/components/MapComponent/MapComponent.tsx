@@ -1,3 +1,4 @@
+// MapComponent.tsx
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -58,14 +59,12 @@ export default function MapComponent({
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // ⬇️ Updated: free-form query for Łazarz with postal code
       const geocodeAddress = async () => {
         const params = new URLSearchParams({
           format: "jsonv2",
           q: "Łazarz, 61-001 Poznań",
           countrycodes: "pl",
           limit: "1",
-          // Keep the Poznań bounding box so the result stays inside the city
           viewbox: "16.75,52.55,17.10,52.29",
           bounded: "1",
         });
@@ -75,7 +74,6 @@ export default function MapComponent({
           {
             headers: {
               "Accept-Language": "pl",
-              // polite header; some services prefer an explicit UA
               "User-Agent": "MapComponent/1.0 (contact: example@example.com)",
             },
           }
@@ -84,28 +82,11 @@ export default function MapComponent({
         if (data[0]) {
           return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
         }
-        // Fallback: Poznań center if geocode fails
         return { lat: 52.4064, lng: 16.9252 };
       };
 
       const { lat, lng } = await geocodeAddress();
       map.setView([lat, lng], 17);
-
-      const pinSvg = `
-        <svg width="56" height="72" viewBox="0 0 56 72" xmlns="http://www.w3.org/2000/svg">
-          <path d="M28 72c8-14 28-27 28-44C56 12.54 43.46 0 28 0S0 12.54 0 28c0 17 20 30 28 44z" fill="currentColor"/>
-          <circle cx="28" cy="28" r="10" fill="#fff"/>
-        </svg>
-      `;
-
-      const pin = L.divIcon({
-        className: "custom-pin",
-        html: pinSvg,
-        iconSize: [56, 72],
-        iconAnchor: [28, 64],
-      });
-
-      L.marker([lat, lng], { icon: pin }).addTo(map);
     };
 
     void init();
