@@ -10,7 +10,6 @@ interface IFooterMenu {
 
 type AddressItem = {
   header: string;
-  address: string;
   NIP: string;
   phoneNumbers: string[];
   email: string;
@@ -103,7 +102,6 @@ const FooterSecondSection = () => {
   const address: AddressItem[] = [
     {
       header: "Sąsiedzki Łazarz",
-      address: "ul. Ułańska 5, 60-748 Poznań",
       NIP: "NIP: 7792584284 REGON: 540869932",
       phoneNumbers: ["tel. 605 550 370"],
       email: "kontakt@sasiedzkilazarz.pl",
@@ -119,7 +117,6 @@ const FooterSecondSection = () => {
           {address.map((item, idx) => (
             <div key={idx}>
               <h4 className="footer-address-header">{item.header}</h4>
-              <p className="footer-address-line">{item.address}</p>
               <p className="footer-nip">{item.NIP}</p>
               <div className="footer-phone-numbers">
                 {item.phoneNumbers.map((phone, i) => (

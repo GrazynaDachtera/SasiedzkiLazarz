@@ -6,7 +6,6 @@ import Header from "../components/Header/Header";
 import Reviews from "../components/Reviews/Reviews";
 import ProjectsHomePage from "../components/ProjectsHomePage/ProjectsHomePage";
 import News from "../components/News/News";
-import CtaContact from "../components/CtaContact/CtaContact";
 import Footer from "../components/Footer/Footer";
 import Cookies from "../components/Cookies/Cookies";
 import "../app/globals.css";
@@ -34,7 +33,6 @@ export default function Home() {
           <Reviews />
           <ProjectsHomePage />
           <News />
-          <CtaContact />
           <Footer />
         </section>
       </div>
