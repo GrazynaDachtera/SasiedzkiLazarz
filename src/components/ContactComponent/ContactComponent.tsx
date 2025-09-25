@@ -1,3 +1,4 @@
+// ContactComponent.tsx
 "use client";
 
 import React, { useRef, useState } from "react";
@@ -160,7 +161,7 @@ export default function ContactComponent() {
       );
       formRef.current.reset();
       setStatus("sent");
-    } catch (err) {
+    } catch {
       setErrorMsg("Ups… Nie udało się wysłać wiadomości. Spróbuj ponownie.");
       setStatus("error");
     } finally {
@@ -170,7 +171,7 @@ export default function ContactComponent() {
   }
 
   const mapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=ul.+U%C5%82a%C5%84ska+5%2C+60-748+Pozna%C5%84";
+    "https://www.google.com/maps/search/?api=1&query=ul.+U%C5%81a%C5%84ska+5%2C+60-748+Pozna%C5%84";
 
   return (
     <section className={`Contact ${poppins.className}`}>
@@ -308,7 +309,7 @@ export default function ContactComponent() {
               <PhoneIcon />
             </div>
             <div className="meta">
-              <p className="label">Biuro:</p>
+              <p className="label">Telefon:</p>
               <a href="tel:605550370" className="value">
                 605 550 370
               </a>
@@ -329,20 +330,17 @@ export default function ContactComponent() {
               itemScope
               itemType="https://schema.org/PostalAddress"
             >
+              <p className="label">Adres korespondencyjny:</p>
               <a
                 className="value"
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                itemProp="name"
               >
-                Sąsiedzki Łazarz
-              </a>
-              <p className="label" aria-label="Adres">
                 <span itemProp="streetAddress">ul. Ułańska 5</span>,{" "}
                 <span itemProp="postalCode">60-748</span>{" "}
                 <span itemProp="addressLocality">Poznań</span>
-              </p>
+              </a>
             </div>
           </div>
 

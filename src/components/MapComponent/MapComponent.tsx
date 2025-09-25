@@ -10,7 +10,6 @@ const poppins = Poppins({
 });
 
 type Props = {
-  address?: string;
   company?: string;
   nip?: string;
   regon?: string;
@@ -21,7 +20,6 @@ type Props = {
 type LeafletModule = typeof import("leaflet");
 
 export default function MapComponent({
-  address = "ul. Ułańska 5, 60-748 Poznań",
   company = "Sąsiedzki Łazarz",
   nip = "7792584284",
   regon = "540869932",
@@ -104,7 +102,7 @@ export default function MapComponent({
     };
 
     void init();
-  }, [address]);
+  }, []);
 
   return (
     <section className={`MapComponent ${poppins.className} ${className}`}>
@@ -131,8 +129,6 @@ export default function MapComponent({
           </span>
           <h3>{company}</h3>
         </div>
-
-        <p className="address">{address}</p>
 
         <div className="list">
           <div>
