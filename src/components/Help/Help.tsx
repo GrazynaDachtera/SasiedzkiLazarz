@@ -69,7 +69,7 @@ export default function HelpPage() {
 
   return (
     <main className="help-wrapper">
-      <h1 className="help-title">Wesprzyj Stowarzyszenie Sąsiedzki Łazarz</h1>
+      <h1 className="help-title">Ty też możesz pomóc</h1>
 
       <section className="help-content">
         <h2 className="help-subtitle">
