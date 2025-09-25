@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Navbar from "@/components/Navbar/Navbar";
-import Help from "@/components/Help/Help";
+import Donation from "@/components/Donation/Donation";
 import Footer from "@/components/Footer/Footer";
 import Cookies from "@/components/Cookies/Cookies";
 import "@/app/globals.css";
@@ -18,7 +18,7 @@ export default function HelpPage() {
         <section className="kuziSport">
           <div className="main">
             <Navbar />
-            <Help />
+            <Donation />
           </div>
           <Footer />
         </section>

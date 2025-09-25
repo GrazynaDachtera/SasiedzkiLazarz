@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import "./Help.scss";
+import "./Donation.scss";
 
 type Line =
   | { kind: "text"; text: string }
@@ -44,7 +44,7 @@ const RULES: Line[] = [
   },
 ];
 
-export default function HelpPage() {
+export default function DonationPage() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = useCallback(async (val: string) => {

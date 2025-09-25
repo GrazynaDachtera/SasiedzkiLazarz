@@ -62,7 +62,7 @@ export default function NavBar() {
     { label: "Aktualności", path: "/NewsPage" },
     { label: "Osiedlowe ABC", path: "/Abc" },
     { label: "Projekty", path: "/Projects" },
-    { label: "Ty też możesz pomóc", path: "/Help" },
+    { label: "Ty też możesz pomóc", path: "/Donation" },
     { label: "Kontakt", path: "/Contact" },
   ];
 
