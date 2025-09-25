@@ -58,26 +58,33 @@ export default function MapComponent({
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
+      // ⬇️ Updated: free-form query for Łazarz with postal code
       const geocodeAddress = async () => {
         const params = new URLSearchParams({
           format: "jsonv2",
-          street: "Ułańska 5",
-          city: "Poznań",
-          postalcode: "60-748",
+          q: "Łazarz, 61-001 Poznań",
           countrycodes: "pl",
           limit: "1",
+          // Keep the Poznań bounding box so the result stays inside the city
           viewbox: "16.75,52.55,17.10,52.29",
           bounded: "1",
         });
 
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?${params.toString()}`,
-          { headers: { "Accept-Language": "pl" } }
+          {
+            headers: {
+              "Accept-Language": "pl",
+              // polite header; some services prefer an explicit UA
+              "User-Agent": "MapComponent/1.0 (contact: example@example.com)",
+            },
+          }
         );
         const data: Array<{ lat: string; lon: string }> = await res.json();
         if (data[0]) {
           return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
         }
+        // Fallback: Poznań center if geocode fails
         return { lat: 52.4064, lng: 16.9252 };
       };
 
