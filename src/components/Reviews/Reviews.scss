@@ -1,3 +1,4 @@
+/* Reviews.scss */
 :root {
   --line: #e8e8ee;
   --bg: #f4f6f9;
@@ -79,6 +80,7 @@
   font-size: 0.85rem;
   color: #6a7280;
 }
+
 .strip-item .meta .value {
   margin: 0;
   font-weight: 700;
@@ -86,6 +88,7 @@
   text-decoration: none;
   word-break: break-word;
 }
+
 .strip-item .meta .value:hover {
   text-decoration: underline;
 }

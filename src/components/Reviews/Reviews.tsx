@@ -1,3 +1,4 @@
+// Reviews.tsx
 "use client";
 
 import "./Reviews.scss";
@@ -88,20 +89,17 @@ export default function Reviews() {
             itemScope
             itemType="https://schema.org/PostalAddress"
           >
+            <p className="label">Adres korespondencyjny:</p>
             <a
               className="value"
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              itemProp="name"
             >
-              Sąsiedzki Łazarz
-            </a>
-            <p className="label" aria-label="Adres">
               <span itemProp="streetAddress">ul. Ułańska 5</span>,{" "}
               <span itemProp="postalCode">60-748</span>{" "}
               <span itemProp="addressLocality">Poznań</span>
-            </p>
+            </a>
           </div>
         </div>
 
