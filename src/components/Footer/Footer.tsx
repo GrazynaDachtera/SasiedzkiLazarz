@@ -50,18 +50,20 @@ const FooterFirstSection = () => {
       header: "Sąsiedzki Łazarz",
       links: [
         { text: "O nas", to: "/AboutFoundation" },
+        { text: "Aktualności", to: "/NewsPage" },
         { text: "Osiedlowe ABC", to: "/Abc" },
-        { text: "Materiały do pobrania", to: "/DownloadMaterials" },
-        { text: "Ty też możesz pomóc", to: "/Help" },
+        { text: "Projekty", to: "/Projects" },
+        { text: "Ty też możesz pomóc", to: "/Donation" },
       ],
     },
     {
       header: "Informacje prawne",
       links: [
         { text: "RODO", to: "/Rodo" },
+        { text: "Regulamin", to: "/Regulations" },
         { text: "Polityka prywatności", to: "/PrivacyPolicy" },
         { text: "Deklaracja dostępności", to: "/AccDeclaration" },
-        { text: "Regulamin", to: "/Regulations" },
+        { text: "Materiały do pobrania", to: "/DownloadMaterials" },
       ],
     },
     {
