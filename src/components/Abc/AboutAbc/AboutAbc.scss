@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 :root {
   --brand-green: #2e9c6a;
@@ -109,7 +109,7 @@
 
 .abc-cats-header h2 {
   margin: 0 0 .25rem;
-  color: var(--title-color);
+  color: var(--brand-green);
   font-weight: 800;
   font-size: clamp(1.25rem, .6vw + 1.1rem, 1.6rem);
 }
@@ -118,6 +118,7 @@
   margin: 0;
   color: var(--text-color);
   font-size: clamp(1rem, .3vw + 1rem, 1.08rem);
+  font-weight: 600;
 }
 
 .abc-cats-grid {
