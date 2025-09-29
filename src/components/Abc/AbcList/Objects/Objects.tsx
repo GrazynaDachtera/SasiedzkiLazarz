@@ -23,24 +23,61 @@ const ArrowIcon = () => (
 
 export default function ObjectsPage() {
   const items = [
-    { title: "Hala widowiskowo-sportowa Arena", contact: "", address: "" },
+    {
+      title: "Hala Widowiskowo-Sportowa ARENA",
+      address: "ul. Wyspiańskiego 33, 60-751 Poznań",
+      contact: "https://arenapoznan.pl/pl/kontakt/",
+    },
     {
       title: "Palmiarnia Poznańska",
-      contact: "sekretariat@palmiarnia.poznan.pl",
       address: "ul. Matejki 18, 60-767 Poznań",
+      contact: "https://palmiarnia.poznan.pl",
     },
     {
       title: "Centrum wystawiennicze Międzynarodowe Targi Poznańskie",
-      contact: "",
-      address: "",
+      address: "ul. Głogowska 10, 60-734 Poznań, wejście na Zieloną Rzekę",
+      contact: "https://www.mtp.pl/pl/uslugi/zielona-rzeka/",
     },
-    { title: "Biuro strefy płatnego parkowania", contact: "", address: "" },
     {
-      title: "Biuro obsługi programu Poznań Kontakt",
-      contact: "",
-      address: "",
+      title: "Rynek Łazarski",
+      address: "Rynek Łazarski",
+      contact: "https://www.targowiska.com.pl/lokalizacje/rynek-lazarski-2/",
     },
-    { title: "Rynek Łazarski", contact: "", address: "" },
+    {
+      title: "Skwer Eki z Małeki, a tam Krawatto",
+      address: "ul. Łukaszewicza 1a, 61-001 Poznań",
+      contact:
+        "https://www.otwartastrefakultury.pl/losk/instalacja-artystyczna-krawatto/",
+    },
+    {
+      title: "Rower Kazimierza Nowaka – Otwarty Pomnik",
+      address: "ul. Małeckiego 36, 60-707 Poznań",
+      contact:
+        "https://www.otwartastrefakultury.pl/losk/otwarty-pomnik-kazimierza-nowaka/",
+    },
+    {
+      title: "Łazarskie Kandelabry",
+      address: "ul. Mottego 10, 60-723 Poznań",
+      contact:
+        "https://www.lepszypoznan.pl/poznanskie-kandelabry-22-07-2024.html",
+    },
+    {
+      title: "Totemy Alicji Białej",
+      address: "ul. Bukowska 3, 60-809 Poznań",
+      contact:
+        "https://gloswielkopolski.pl/poznan-tajemnicze-rzezby-przy-baltyku-to-totemy-alicji-bialej-ktore-mowia-jak-zapobiec-katastrofie-zdjecia/ar/c13-14122249",
+    },
+    {
+      title: "Zespół Johow-Gelände",
+      address: "Matejki/Wyspiańskiego/Grottgera",
+      contact: "https://pl.wikipedia.org/wiki/Johow-Gel%C3%A4nde_w_Poznaniu",
+    },
+    {
+      title: "Łazarskie Bunkry",
+      address:
+        "Park Wilsona: 2 szczeliny przeciwlotnicze; Berwińskiego 5: schron Arthura Greisera",
+      contact: "dostępne co roku podczas Dni Twierdzy Poznań",
+    },
   ];
 
   const [open, setOpen] = React.useState<Set<number>>(new Set());

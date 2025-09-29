@@ -24,19 +24,29 @@ const ArrowIcon = () => (
 export default function ParksPage() {
   const items = [
     {
-      title: "park Kasprowicza",
-      contact: "",
-      address: "",
+      title: "Park Kasprowicza",
+      contact: "otwarty całą dobę",
+      address: "wejścia od Reymonta, Wyspiańskiego, Jarochowskiego",
     },
     {
-      title: "park Wilsona",
-      contact: "",
-      address: "",
+      title: "Park Wilsona",
+      contact: "otwarty od 5:00–22:00",
+      address: "wejścia od Głogowskiej, Matejki, Śniadeckich",
     },
     {
-      title: "RODy przy Hetmańskiej (dostęp wiosną i latem)",
-      contact: "",
-      address: "",
+      title: "ROD im. Marii Skłodowskiej-Curie",
+      contact: "ogólnodostępne w wyznaczonych godzinach od wiosny do jesieni",
+      address: "ul. Potockiej 50, 60-211 Poznań",
+    },
+    {
+      title: "ROD im. O. Kopczyńskiego",
+      contact: "ogólnodostępne w wyznaczonych godzinach od wiosny do jesieni",
+      address: "ul. Hetmańska, 60-905 Poznań",
+    },
+    {
+      title: "Ogród Społeczny Kolektyw Kąpielisko",
+      contact: "https://www.facebook.com/kolektywkapielisko",
+      address: "Park Kasprowicza, teren wzdłuż basenu letniego",
     },
   ];
 

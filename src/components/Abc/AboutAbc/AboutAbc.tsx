@@ -28,11 +28,18 @@ export default function AbcPage() {
     { title: "Szkoły", href: "/Abc/List/School" },
     { title: "Przedszkola", href: "/Abc/List/Kindergarten" },
     { title: "Żłobki", href: "/Abc/List/Nurseries" },
-    { title: "SOR-wieczorynka", href: "/Abc/List/SOR" },
-    { title: "Ośrodki kultury i sportu", href: "/Abc/List/SportsCenter" },
+    { title: "Szpitale, SOR", href: "/Abc/List/SOR" },
+    { title: "Biblioteki", href: "/Abc/List/Libraries" },
+    { title: "Sport", href: "/Abc/List/SportsCenter" },
+    { title: "Miejsca kultu religijnego", href: "/Abc/List/Religion" },
+    { title: "Media", href: "/Abc/List/Media" },
     { title: "Parki, tereny zielone", href: "/Abc/List/Parks" },
-    { title: "Muzea, galerie", href: "/Abc/List/Museums" },
-    { title: "Ważne obiekty", href: "/Abc/List/Objects" },
+    { title: "Kultura", href: "/Abc/List/Museums" },
+    {
+      title: "Urzędy, jednostki miejskie, służby mundurowe",
+      href: "/Abc/List/Offices",
+    },
+    { title: "Trzeba zobaczyć!", href: "/Abc/List/Objects" },
   ];
 
   return (

@@ -7,35 +7,32 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Base */
-.Nurseries {
+.Offices {
   width: 100%;
   font-family: "Poppins", sans-serif;
   color: var(--brand-green);
 }
 
-.nurseries-top-wrapper {
-  background-color: #fff;
-}
+.offices-top-wrapper { background-color: #fff; }
 
-.nurseries-top-wrapper .nurseries-container {
+.offices-top-wrapper .offices-container {
   padding-block: var(--section-py);
   padding-inline: 4rem;
 }
 
-.nurseries-grid-wrapper {
+.offices-grid-wrapper {
   background-color: #ffffff;
   padding: 32px 0 48px;
   width: 100%;
 }
 
-.nurseries-container {
+.offices-container {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 4rem;
 }
 
-.nurseries-top {
+.offices-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,26 +40,24 @@
 }
 
 @media (max-width: 992px) {
-  .nurseries-top {
+  .offices-top {
     flex-direction: column;
     text-align: left;
     align-items: flex-start;
   }
 }
 
-.nurseries-content {
+.offices-content {
   flex: 1;
   max-width: 500px;
 }
 
 @media (min-width: 992px) {
-  .nurseries-content {
-    max-width: 50%;
-  }
+  .offices-content { max-width: 50%; }
 }
 
 @media (max-width: 992px) {
-  .nurseries-content {
+  .offices-content {
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -70,34 +65,32 @@
   }
 }
 
-.nurseries-title {
+.offices-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--brand-green);
 }
 
-.nurseries-description {
+.offices-description {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 16px;
   color: #555;
 }
 
-/* Grid */
-.nurseries-grid {
+.offices-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px 24px;
 }
 
-.nurseries-grid-block {
+.offices-grid-block {
   display: flex;
   flex-direction: column;
 }
 
-/* Item */
-.Nurseries .nurseries-grid .nurseries-grid-item {
+.Offices .offices-grid .offices-grid-item {
   display: flex;
   align-items: flex-start;
   gap: var(--kg-gap);
@@ -112,24 +105,18 @@
   text-align: left;
 }
 
-.Nurseries .nurseries-grid .nurseries-grid-item:hover,
-.Nurseries .nurseries-grid .nurseries-grid-item:focus-visible {
+.Offices .offices-grid .offices-grid-item:hover,
+.Offices .offices-grid .offices-grid-item:focus-visible {
   color: #2b7a55 !important;
   outline: none;
 }
 
-.Nurseries
-  .nurseries-grid
-  .nurseries-grid-item:hover
-  .nurseries-grid-item-title,
-.Nurseries
-  .nurseries-grid
-  .nurseries-grid-item:focus-visible
-  .nurseries-grid-item-title {
+.Offices .offices-grid .offices-grid-item:hover .offices-grid-item-title,
+.Offices .offices-grid .offices-grid-item:focus-visible .offices-grid-item-title {
   text-decoration: underline;
 }
 
-.nurseries-grid-item-icon-wrapper {
+.offices-grid-item-icon-wrapper {
   width: var(--kg-icon-w);
   padding: 4px;
   display: inline-flex;
@@ -139,43 +126,32 @@
   margin-top: 5px;
 }
 
-.nurseries-arrow-icon {
+.offices-arrow-icon {
   width: 20px;
   height: 20px;
   color: currentColor;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.Nurseries
-  .nurseries-grid
-  .nurseries-grid-item:hover
-  .nurseries-grid-item-icon-wrapper
-  .nurseries-arrow-icon,
-.Nurseries
-  .nurseries-grid
-  .nurseries-grid-item:focus-visible
-  .nurseries-grid-item-icon-wrapper
-  .nurseries-arrow-icon {
+.Offices .offices-grid .offices-grid-item:hover .offices-grid-item-icon-wrapper .offices-arrow-icon,
+.Offices .offices-grid .offices-grid-item:focus-visible .offices-grid-item-icon-wrapper .offices-arrow-icon {
   transform: translateX(2px);
 }
 
-.nurseries-grid-item[aria-expanded="true"] .nurseries-arrow-icon {
+.offices-grid-item[aria-expanded="true"] .offices-arrow-icon {
   transform: translateX(2px);
 }
 
-.nurseries-grid-item-text {
-  flex: 1;
-}
+.offices-grid-item-text { flex: 1; }
 
-.nurseries-grid-item-title {
+.offices-grid-item-title {
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0 0 6px 0;
   color: currentColor;
 }
 
-/* Details */
-.nurseries-details {
+.offices-details {
   margin: 6px 0 14px calc(var(--kg-icon-w) + var(--kg-gap));
   padding-left: 0;
   list-style: none;
@@ -187,64 +163,31 @@
   transition: max-height 220ms ease, opacity 180ms ease;
 }
 
-.nurseries-details.open {
+.offices-details.open {
   max-height: 200px;
   opacity: 1;
 }
 
-.nurseries-details li + li {
-  margin-top: 6px;
-}
+.offices-details li + li { margin-top: 6px; }
+.offices-details a { text-decoration: underline; color: inherit; }
 
-.nurseries-details a {
-  text-decoration: underline;
-  color: inherit;
-}
-
-/* Responsive */
 @media (max-width: 992px) {
-  .nurseries-top-wrapper .nurseries-container {
-    padding-inline: 2rem;
-  }
+  .offices-top-wrapper .offices-container { padding-inline: 2rem; }
 }
 
 @media (max-width: 768px) {
-  .nurseries-top {
-    align-items: center;
-    text-align: center;
-  }
-  .nurseries-content {
-    align-items: center;
-    text-align: center;
-  }
-  .nurseries-top-wrapper .nurseries-container {
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-  .nurseries-description {
-    margin-bottom: 16px;
-  }
-  .nurseries-grid-wrapper {
-    padding: 16px 0 56px;
-  }
-  .nurseries-grid {
-    grid-template-columns: 1fr;
-    gap: 16px 0;
-  }
-  .Nurseries .nurseries-grid .nurseries-grid-item {
-    padding: 0.15rem 0;
-  }
-  .nurseries-details {
-    margin: 0 0 0 calc(var(--kg-icon-w) + var(--kg-gap));
-  }
-  .nurseries-details.open {
-    margin: 6px 0 12px calc(var(--kg-icon-w) + var(--kg-gap));
-  }
+  .offices-top { align-items: center; text-align: center; }
+  .offices-content { align-items: center; text-align: center; }
+  .offices-top-wrapper .offices-container { padding-top: 16px; padding-bottom: 16px; }
+  .offices-description { margin-bottom: 16px; }
+  .offices-grid-wrapper { padding: 16px 0 56px; }
+  .offices-grid { grid-template-columns: 1fr; gap: 16px 0; }
+  .Offices .offices-grid .offices-grid-item { padding: 0.15rem 0; }
+  .offices-details { margin: 0 0 0 calc(var(--kg-icon-w) + var(--kg-gap)); }
+  .offices-details.open { margin: 6px 0 12px calc(var(--kg-icon-w) + var(--kg-gap)); }
 }
 
 @media (max-width: 480px) {
-  .nurseries-top-wrapper .nurseries-container,
-  .nurseries-container {
-    padding-inline: 1rem;
-  }
+  .offices-top-wrapper .offices-container,
+  .offices-container { padding-inline: 1rem; }
 }

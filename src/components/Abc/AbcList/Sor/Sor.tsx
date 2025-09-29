@@ -24,19 +24,35 @@ const ArrowIcon = () => (
 export default function SorPage() {
   const items = [
     {
-      title: "Szpital Wojskowy z Przychodnią SP ZOZ w Poznaniu",
-      contact: "szpital@111szw.poznan.pl",
-      address: "ul. Grunwaldzka 16/18, 60-780 Poznań",
+      title:
+        "SOR (nagłe przypadki 24/7) — Uniwersytecki Szpital Kliniczny w Poznaniu",
+      contact: "https://pacjent.gov.pl/szpitalny-oddzial-ratunkowy-sor",
+      address: "ul. Grunwaldzka 55, 60-953 Poznań",
     },
     {
-      title: "Szpital św. Rodziny",
-      contact: "",
-      address: "Jarochowskiego 18, 60-214 Poznań",
+      title: "Apteka całodobowa — Dr. Max",
+      contact: "https://www.drmax.pl/",
+      address: "ul. Głogowska 120, Poznań",
+    },
+    {
+      title: "Szpital Ginekologiczno-Położniczy św. Rodziny",
+      contact: "https://szpz.pl/poloznictwo-ginekologia/",
+      address: "ul. Jarochowskiego 18, 60-214 Poznań",
     },
     {
       title: "Uniwersytecki Szpital Kliniczny w Poznaniu",
-      contact: "szpital@usk.poznan.pl",
+      contact: "https://www.usk.poznan.pl/",
       address: "ul. Przybyszewskiego 49, 60-355 Poznań",
+    },
+    {
+      title: "Wojskowa Specjalistyczna Przychodnia Lekarska SPZOZ Poznań",
+      contact: "https://wspl.info.pl/",
+      address: "ul. Szylinga 1, 60-787 Poznań",
+    },
+    {
+      title: "Uniwersyteckie Centrum Stomatologii i Medycyny Specjalistycznej",
+      contact: "https://ucs.poznan.pl/",
+      address: "ul. Bukowska 70, 60-812 Poznań",
     },
   ];
 
@@ -68,9 +84,8 @@ export default function SorPage() {
             <div className="sor-content">
               <h2 className="sor-title">SOR - wieczorynka</h2>
               <p className="sor-description">
-                Tu znajdziesz pełną listę SORów działających na obszarze
-                Łazarza. Kliknij w wybraną placówkę, by rozwinąć kontakt i
-                adres.
+                Tu znajdziesz SOR, całodobową aptekę i inne placówki na Łazarzu.
+                Kliknij w wybraną placówkę, by rozwinąć kontakt i adres.
               </p>
             </div>
           </div>

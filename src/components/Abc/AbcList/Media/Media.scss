@@ -1,0 +1,183 @@
+:root {
+  --section-py: clamp(0, 2vw, 5rem);
+  --brand-green: #3da575;
+  --cta-green-hover: #276b49;
+  --kg-gap: 15px;
+  --kg-icon-w: 28px;
+  font-family: "Poppins", sans-serif;
+}
+
+.Media {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: var(--brand-green);
+}
+
+.media-top-wrapper { background-color: #fff; }
+
+.media-top-wrapper .media-container {
+  padding-block: var(--section-py);
+  padding-inline: 4rem;
+}
+
+.media-grid-wrapper {
+  background-color: #ffffff;
+  padding: 32px 0 48px;
+  width: 100%;
+}
+
+.media-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.media-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+@media (max-width: 992px) {
+  .media-top {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.media-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+@media (min-width: 992px) { .media-content { max-width: 50%; } }
+
+@media (max-width: 992px) {
+  .media-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.media-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--brand-green);
+}
+
+.media-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 24px;
+}
+
+.media-grid-block { display: flex; flex-direction: column; }
+
+.Media .media-grid .media-grid-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--kg-gap);
+  color: var(--brand-green);
+  padding: 0.2rem 0;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer !important;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.Media .media-grid .media-grid-item:hover,
+.Media .media-grid .media-grid-item:focus-visible {
+  color: #2b7a55 !important;
+  outline: none;
+}
+
+.Media .media-grid .media-grid-item:hover .media-grid-item-title,
+.Media .media-grid .media-grid-item:focus-visible .media-grid-item-title {
+  text-decoration: underline;
+}
+
+.media-grid-item-icon-wrapper {
+  width: var(--kg-icon-w);
+  padding: 4px;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: left;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.media-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.Media .media-grid .media-grid-item:hover .media-grid-item-icon-wrapper .media-arrow-icon,
+.Media .media-grid .media-grid-item:focus-visible .media-grid-item-icon-wrapper .media-arrow-icon {
+  transform: translateX(2px);
+}
+
+.media-grid-item[aria-expanded="true"] .media-arrow-icon { transform: translateX(2px); }
+
+.media-grid-item-text { flex: 1; }
+
+.media-grid-item-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: currentColor;
+}
+
+.media-details {
+  margin: 6px 0 14px calc(var(--kg-icon-w) + var(--kg-gap));
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: #444;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 220ms ease, opacity 180ms ease;
+}
+
+.media-details.open { max-height: 200px; opacity: 1; }
+
+.media-details li + li { margin-top: 6px; }
+.media-details a { text-decoration: underline; color: inherit; }
+
+@media (max-width: 992px) {
+  .media-top-wrapper .media-container { padding-inline: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .media-top { align-items: center; text-align: center; }
+  .media-content { align-items: center; text-align: center; }
+  .media-top-wrapper .media-container { padding-top: 16px; padding-bottom: 16px; }
+  .media-description { margin-bottom: 16px; }
+  .media-grid-wrapper { padding: 16px 0 56px; }
+  .media-grid { grid-template-columns: 1fr; gap: 16px 0; }
+  .Media .media-grid .media-grid-item { padding: 0.15rem 0; }
+  .media-details { margin: 0 0 0 calc(var(--kg-icon-w) + var(--kg-gap)); }
+  .media-details.open { margin: 6px 0 12px calc(var(--kg-icon-w) + var(--kg-gap)); }
+}
+
+@media (max-width: 480px) {
+  .media-top-wrapper .media-container,
+  .media-container { padding-inline: 1rem; }
+}

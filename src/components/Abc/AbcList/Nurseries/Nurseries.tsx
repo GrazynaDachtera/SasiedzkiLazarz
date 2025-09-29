@@ -21,32 +21,44 @@ const ArrowIcon = () => (
   </svg>
 );
 
+type Nursery = {
+  title: string;
+  address: string;
+  email?: string;
+  website?: string;
+};
+
 export default function NurseriesPage() {
-  const nurseries = [
+  const nurseries: Nursery[] = [
     {
-      title: 'Żłobek "Jacek i Agatka"',
-      contact: "jacekiagatka@zlobekpoznan.pl",
+      title: "Żłobek „Jacek i Agatka”",
       address: "ul. Winklera 8, 60-246 Poznań",
+      email: "jacekiagatka@zlobekpoznan.pl",
+      website: "https://zlobekpoznan.pl/zlobki/zlobek-jacek-i-agatka/",
     },
     {
-      title: "Zespół Żłobków Żłobek Czerwony Kapturek",
-      contact: "czerwonykapturek@zlobekpoznan.pl",
+      title: "Żłobek „Czerwony Kapturek”",
       address: "ul. Klonowica 3, 60-747 Poznań",
+      email: "czerwonykapturek@zlobekpoznan.pl",
+      website: "https://zlobekpoznan.pl/zlobki/zlobek-czerwony-kapturek/",
     },
     {
-      title: 'Żłobek "Królewna Śnieżka"',
-      contact: "krolewnasniezka@zlobekpoznan.pl",
+      title: "Żłobek „Królewna Śnieżka”",
       address: "ul. Grunwaldzka 34, 60-786 Poznań",
+      email: "krolewnasniezka@zlobekpoznan.pl",
+      website: "https://zlobekpoznan.pl/zlobki/zlobek-krolewna-sniezka/",
     },
     {
-      title: 'Żłobek "Kolorowy Domek"',
-      contact: "biuropoznankolorowydomek@wp.pl",
+      title: "Żłobek „Kolorowy Domek”",
       address: "ul. Ułańska 15/64, 60-748 Poznań",
+      email: "biuropoznankolorowydomek@wp.pl",
+      website: "https://kolorowydomek.com.pl/",
     },
     {
-      title: 'Żłobek "Tygryskowa Chatka"',
-      contact: "j.piechniak@firs.org.pl",
+      title: "Żłobek „Tygryskowa Chatka”",
       address: "ul. Głogowska 18, 60-734 Poznań",
+      email: "j.piechniak@firs.org.pl",
+      website: "https://www.facebook.com/tygryskowachatka/",
     },
   ];
 
@@ -58,17 +70,17 @@ export default function NurseriesPage() {
       return next;
     });
 
-  const renderContact = (value: string) => {
-    if (!value) return <span>brak e-maila</span>;
-    const isEmail = value.includes("@") && !value.startsWith("http");
-    return isEmail ? (
-      <a href={`mailto:${value}`}>{value}</a>
-    ) : (
-      <a href={value} target="_blank" rel="noopener noreferrer">
-        {value}
+  const renderWebsite = (url?: string) =>
+    url ? (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {url}
       </a>
+    ) : (
+      <span>brak strony</span>
     );
-  };
+
+  const renderEmail = (email?: string) =>
+    email ? <a href={`mailto:${email}`}>{email}</a> : <span>brak e-maila</span>;
 
   return (
     <section className="Nurseries">
@@ -114,7 +126,8 @@ export default function NurseriesPage() {
                     id={detailsId}
                     className={`nurseries-details ${expanded ? "open" : ""}`}
                   >
-                    <li>{renderContact(n.contact)}</li>
+                    <li>{renderWebsite(n.website)}</li>
+                    <li>{renderEmail(n.email)}</li>
                     <li>{n.address}</li>
                   </ul>
                 </div>

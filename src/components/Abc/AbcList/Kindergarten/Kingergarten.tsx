@@ -21,47 +21,63 @@ const ArrowIcon = () => (
   </svg>
 );
 
+type KG = {
+  title: string;
+  address: string;
+  email?: string;
+  website?: string;
+};
+
 export default function AbcPage() {
-  const features = [
-    {
-      title: "Przedszkole nr 48",
-      email: "p48@poznan.interklasa.pl",
-      address: "Łukaszewicza 35, 60-729 Poznań",
-    },
-    {
-      title: "Przedszkole nr 51",
-      email: "przedszkole51@zsipopoznan.pl",
-      address: "Głogowska 40, 60-736 Poznań",
-    },
-    {
-      title: 'Przedszkole nr 39 "Leśne Ludki"',
-      email: "p39@poznan.interklasa.pl",
-      address: "Limanowskiego 23B, 60-744 Poznań",
-    },
+  // Order follows the sheet: 25, 32, 39, 44, 48, 51, 89, 90
+  const features: KG[] = [
     {
       title: "Przedszkole nr 25",
+      address: "ul. Głogowska 97, 60-265 Poznań",
       email: "p25@poznan.interklasa.pl",
-      address: "Głogowska 97, 60-265 Poznań",
+      website: "https://p25-poznan.pl/",
     },
     {
       title: 'Przedszkole nr 32 "Świerszczykowe Nutki"',
+      address: "ul. Chociszewskiego 44c, 60-259 Poznań",
       email: "sekretariat@p32poznan.pl",
-      address: "Chociszewskiego 44c, 60-259 Poznań",
+      website: "https://www.facebook.com/swierszczykowenutki/",
+    },
+    {
+      title: 'Przedszkole nr 39 "Leśne Ludki"',
+      address: "ul. Limanowskiego 23B, 60-744 Poznań",
+      email: "p39@poznan.interklasa.pl",
+      website: "https://lesneludki39.poznan.pl/",
     },
     {
       title: "Przedszkole nr 44 im. J. Korczaka",
+      address: "ul. Dmowskiego 17, 60-222 Poznań",
       email: "ps44@o2.pl",
-      address: "Dmowskiego 17, 60-222 Poznań",
+      website: "https://www.facebook.com/profile.php?id=100048408651912",
+    },
+    {
+      title: "Przedszkole nr 48",
+      address: "ul. Łukaszewicza 35, 60-729 Poznań",
+      email: "p48@poznan.interklasa.pl",
+      website: "https://p48poznan.szkolnastrona.pl/",
+    },
+    {
+      title: "Przedszkole nr 51",
+      address: "ul. Głogowska 40, 60-736 Poznań",
+      email: "przedszkole51@zsipopoznan.pl",
+      website: "https://p51.zsjpopoznan.pl/",
     },
     {
       title: "Przedszkole nr 89",
+      address: "ul. Kasprzaka 46, 60-245 Poznań",
       email: "p89@onet.eu",
-      address: "Kasprzaka 46, 60-245 Poznań",
+      website: "https://p89poznan.szkolnastrona.pl/",
     },
     {
       title: "Przedszkole nr 90 im. J. Brzechwy",
+      address: "ul. Winklera 9, 60-246 Poznań",
       email: "",
-      address: "Winklera 9, 60-246 Poznań",
+      website: "https://www.facebook.com/przedszkole90poznan/?locale=pl_PL",
     },
   ];
 
@@ -72,6 +88,18 @@ export default function AbcPage() {
       next.has(i) ? next.delete(i) : next.add(i);
       return next;
     });
+
+  const renderWebsite = (url?: string) =>
+    url ? (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {url}
+      </a>
+    ) : (
+      <span>brak strony</span>
+    );
+
+  const renderEmail = (email?: string) =>
+    email ? <a href={`mailto:${email}`}>{email}</a> : <span>brak e-maila</span>;
 
   return (
     <section className="Kindergarten">
@@ -119,13 +147,8 @@ export default function AbcPage() {
                     id={detailsId}
                     className={`kindergarten-details ${expanded ? "open" : ""}`}
                   >
-                    <li>
-                      {feature.email ? (
-                        <a href={`mailto:${feature.email}`}>{feature.email}</a>
-                      ) : (
-                        <span>brak e-maila</span>
-                      )}
-                    </li>
+                    <li>{renderWebsite(feature.website)}</li>
+                    <li>{renderEmail(feature.email)}</li>
                     <li>{feature.address}</li>
                   </ul>
                 </div>

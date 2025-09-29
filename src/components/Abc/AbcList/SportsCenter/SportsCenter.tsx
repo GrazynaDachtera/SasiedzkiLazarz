@@ -24,54 +24,19 @@ const ArrowIcon = () => (
 export default function SportsCenterPage() {
   const items = [
     {
-      title: "Młodzieżowy Dom Kultury nr 3",
-      contact: "mdk3@tmpsc.pl",
-      address: "Jarochowskiego 1, 60-235 Poznań",
-    },
-    {
-      title: "Klub Osiedlowy KRĄG",
-      contact: "klubkrag@osiedlelazarz.pl",
-      address: "Dmowskiego 37, 60-222 Poznań",
-    },
-    {
-      title: "Przystanek Pireus",
-      contact: "przystanekpireus@gmail.com",
-      address: "Głogowska 35, 60-736 Poznań",
-    },
-    {
-      title: "Biblioteka Raczyńskich - Filia nr 4",
-      contact: "filia4@bracz.edu.pl",
-      address: "Lodowa 4, 60-226 Poznań",
-    },
-    {
-      title: "Biblioteka Raczyńskich Filia 12 i 46",
-      contact: "filia12@bracz.edu.pl, filia46@bracz.edu.pl",
-      address: "Arciszewskiego 27, 60-271 Poznań",
-    },
-    {
-      title: "Biblioteka Raczyńskich Filia 22",
-      contact: "filia22@bracz.edu.pl",
-      address: "Dmowskiego 37, 60-222 Poznań",
-    },
-    {
-      title: "Biblioteka Raczyńskich Filia 23",
-      contact: "filia23@bracz.edu.pl",
-      address: "Hetmańska 41, 60-251 Poznań",
-    },
-    {
-      title: "Radio Poznań",
-      contact: "radiopoznan24@radiopoznan.fm",
-      address: "ul. Berwińskiego 5, 60-765 Poznań",
-    },
-    {
       title: "Poznański Klub Brydżowy",
-      contact: "kontakt@brydz.pl",
-      address: "Grunwaldzka 41b/1, 61-001 Poznań",
+      contact: "https://brydz.pl/",
+      address: "ul. Grunwaldzka 41b/1, 61-001 Poznań",
     },
     {
       title: "Fabryka Formy Korty Poznań",
-      contact: "arena@fabryka-formy.pl",
-      address: "Reymonta 35, 60-791 Poznań",
+      contact: "https://fabryka-formy.pl/kluby-fitness/poznan-korty-arena/",
+      address: "ul. Reymonta 35, 60-791 Poznań",
+    },
+    {
+      title: "Pływalnia letnia POSiR – Park Kasprowicza",
+      contact: "https://posir.poznan.pl/obiekty/kasprowicza/plywalnia-letnia",
+      address: "ul. Jarochowskiego 5/5a, 60-235 Poznań",
     },
   ];
 

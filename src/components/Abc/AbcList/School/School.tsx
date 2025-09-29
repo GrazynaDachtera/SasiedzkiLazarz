@@ -21,8 +21,11 @@ const ArrowIcon = () => (
   </svg>
 );
 
+type Item = { title: string; contact: string; address: string };
+
 export default function SchoolPage() {
-  const schools = [
+  const schools: Item[] = [
+    // SZKOŁY
     {
       title:
         "Zespół Szkół nr 8: Szkoła Podstawowa nr 69 im. Jarogniewa Drwęskiego (SMS)",
@@ -31,22 +34,22 @@ export default function SchoolPage() {
     },
     {
       title: "Szkoła Podstawowa nr 9 im. dr. Franciszka Witaszka",
-      contact: "sekretariat@sp9.eu",
+      contact: "https://sp9poznan.edupage.org/",
       address: "ul. Łukaszewicza 9/13, 61-001 Poznań",
     },
     {
       title: "Szkoła Podstawowa nr 26 im. R. Berwińskiego",
-      contact: "sekretariat@zsjpopoznan.pl",
+      contact: "https://www.zsjpopoznan.pl/",
       address: "ul. Berwińskiego 2, 60-765 Poznań",
     },
     {
       title: "Zespół Szkół Ogólnokształcących nr 33 w Poznaniu",
-      contact: "sekretariat@33.poznan.pl",
+      contact: "https://33.poznan.pl/",
       address: "ul. Wyspiańskiego 27, 60-751 Poznań",
     },
     {
       title: "Szkoła Podstawowa nr 77 im. 15 Pułku Ułanów Poznańskich",
-      contact: "sekretariat@sp77poznan.pl",
+      contact: "https://sp77poznan.pl/",
       address: "ul. Dmowskiego 50, 60-204 Poznań",
     },
     {
@@ -56,30 +59,30 @@ export default function SchoolPage() {
     },
     {
       title: "I Liceum Ogólnokształcące im. K. Marcinkowskiego",
-      contact: "marcinek@marcinek.poznan.pl",
+      contact: "https://marcinek.poznan.pl/",
       address: "ul. Bukowska 16, 60-809 Poznań",
     },
     {
       title:
         "II Liceum Ogólnokształcące im. Generałowej Zamoyskiej i Heleny Modrzejewskiej w Poznaniu",
-      contact: "sekretariat@2lo.poznan.pl",
+      contact: "https://lo2.poznan.pl/",
       address: "ul. Matejki 8/10, 60-995 Poznań",
     },
     {
       title: "Zespół Szkół Handlowych",
-      contact: "szkola@zsh.edu.pl",
+      contact: "https://www.zsh.edu.pl/",
       address: "ul. Śniadeckich 54/58, 60-774 Poznań",
     },
     {
       title:
         "XXXVII Liceum Ogólnokształcące z Oddziałami Terapeutycznymi im. Jana Pawła II w Poznaniu",
-      contact: "sekretariat@37lo.poznan.pl",
+      contact: "http://37lo.poznan.pl/",
       address: "ul. Potockiej 38, 60-211 Poznań",
     },
     {
       title:
         "Publiczne Liceum Ogólnokształcące Katolickiego Stowarzyszenia Wychowawców im. bł. Natalii Tułasiewicz w Poznaniu",
-      contact: "sekretariat@dobrelieceum.pl",
+      contact: "https://dobrelieceum.pl/",
       address: "ul. Głogowska 92, 60-262 Poznań",
     },
     {
@@ -88,10 +91,80 @@ export default function SchoolPage() {
       contact: "sekretariat@gloszp.pl",
       address: "ul. Głogowska 147, 60-206 Poznań",
     },
+
+    // UCZELNIE
     {
       title: "Wyższa Szkoła Bezpieczeństwa",
-      contact: "kierownik.dziekanatu.poznan@wsb.net.pl",
+      contact: "https://www.wsb.net.pl/",
       address: "ul. Orzeszkowej 1, 60-778 Poznań",
+    },
+    {
+      title:
+        "Collegium Heliodori Święcicki Uniwersytetu im. Adama Mickiewicza w Poznaniu",
+      contact: "",
+      address: "ul. Grunwaldzka 6, 60-780 Poznań",
+    },
+    {
+      title: "Wydział Anglistyki UAM w Poznaniu",
+      contact: "https://anglistyka.amu.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title: "Centrum Językowe UAM w Poznaniu",
+      contact: "https://sj.amu.edu.pl/kursy_jezykowe",
+      address: "adres na stronie",
+    },
+    {
+      title: "Instytut Konfucjusza UAM w Poznaniu",
+      contact: "http://konfucjusz.amu.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title:
+        "Collegium Anatomicum Uniwersytetu Medycznego im. Karola Marcinkowskiego w Poznaniu",
+      contact: "",
+      address: "ul. Święcickiego 6, 60-781 Poznań",
+    },
+    {
+      title:
+        "Collegium Stomatologicum Uniwersytetu Medycznego im. Karola Marcinkowskiego w Poznaniu",
+      contact: "",
+      address: "ul. Bukowska 70, 60-812 Poznań",
+    },
+    {
+      title: "Wydział Lekarski (UMP)",
+      contact: "https://wi.ump.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title: "Wydział Medyczny (UMP)",
+      contact: "https://wm.ump.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title: "Wydział Farmaceutyczny (UMP)",
+      contact: "https://wf.ump.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title: "Wydział Nauk o Zdrowiu (UMP)",
+      contact: "https://wnoz.ump.edu.pl/",
+      address: "adres na stronie",
+    },
+    {
+      title: "Centrum Biologii Medycznej UMP",
+      contact: "https://ump.edu.pl/uniwersyteckie-centrum-biologii-medycznej",
+      address: "ul. Rokietnicka 8, 60-806 Poznań",
+    },
+    {
+      title: "Centrum Symulacji Medycznej UMP",
+      contact: "https://csm.ump.edu.pl/",
+      address: "ul. Rokietnicka 7, 60-608 Poznań",
+    },
+    {
+      title: "Centrum Kongresowo-Dydaktyczne i Biblioteka Uniwersytecka UMP",
+      contact: "https://bg.ump.edu.pl/",
+      address: "ul. Przybyszewskiego 37a, 60-356 Poznań",
     },
   ];
 
