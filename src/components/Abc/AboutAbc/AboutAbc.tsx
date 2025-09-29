@@ -8,8 +8,8 @@ import "./AboutAbc.scss";
 const ArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -17,6 +17,7 @@ const ArrowIcon = () => (
     strokeLinecap="butt"
     strokeLinejoin="miter"
     className="arrow-icon"
+    aria-hidden="true"
   >
     <path d="M7 7 L17 17" />
     <path d="M17 7 L17 17 L7 17" />
@@ -43,30 +44,30 @@ export default function AbcPage() {
   ];
 
   return (
-    <section className="AbcHeading">
-      <div className="abc-heading-top-wrapper">
-        <div className="abc-heading-container">
-          <div className="abc-heading-top">
-            <div className="abc-heading-image-wrapper">
+    <section className="Abc">
+      <div className="abc-hero">
+        <div className="abc-container">
+          <div className="abc-hero-grid">
+            <div className="abc-hero-media">
               <Image
-                src="/Abc/person.png"
+                src="/Abc/person.jpg"
                 alt="Portret osoby"
                 width={652}
                 height={336}
-                className="abc-heading-image"
+                className="abc-hero-img"
                 priority
-                sizes="(max-width:700px) 90vw, (max-width:1200px) 50vw, 33vw"
+                sizes="(max-width:700px) 92vw, (max-width:1200px) 50vw, 560px"
               />
             </div>
-
-            <div className="abc-heading-content">
-              <h2 className="abc-heading-title">Osiedlowe ABC</h2>
-              <p className="abc-heading-description">
+            <div className="abc-hero-copy">
+              <p className="abc-eyebrow">Przewodnik mieszkańca</p>
+              <h1 className="abc-title">Osiedlowe ABC</h1>
+              <p className="abc-desc">
                 Osiedlowe ABC to praktyczny przewodnik po najważniejszych
                 miejscach i usługach w naszej okolicy. W jednym miejscu
                 zebraliśmy informacje o szkołach, przedszkolach i żłobkach,
-                SOR-ze i wieczorynce, ośrodkach kultury i sportu, parkach,
-                muzeach oraz innych ważnych obiektach - z adresami i przydatnymi
+                SOR-ze i wieczorynce, ośrodkach kultury i sporcie, parkach,
+                muzeach oraz innych ważnych obiektach – z adresami i przydatnymi
                 linkami.
               </p>
             </div>
@@ -74,20 +75,24 @@ export default function AbcPage() {
         </div>
       </div>
 
-      <div className="abc-heading-grid-wrapper">
-        <div className="abc-heading-container">
-          <div className="abc-heading-grid">
-            {features.map((feature) => (
+      <div id="kategorie" className="abc-categories">
+        <div className="abc-container">
+          <div className="abc-cats-header">
+            <h2>Kategorie</h2>
+            <p>Wybierz interesującą Cię sekcję</p>
+          </div>
+          <div className="abc-cats-grid" role="list">
+            {features.map((f) => (
               <Link
-                href={feature.href}
-                className="grid-item"
-                key={feature.href}
+                href={f.href}
+                key={f.href}
+                className="abc-card"
+                role="listitem"
+                aria-label={f.title}
               >
-                <span className="grid-item-icon-wrapper">
+                <span className="abc-card-title">{f.title}</span>
+                <span className="abc-card-icon">
                   <ArrowIcon />
-                </span>
-                <span className="grid-item-text">
-                  <h3 className="grid-item-title">{feature.title}</h3>
                 </span>
               </Link>
             ))}
