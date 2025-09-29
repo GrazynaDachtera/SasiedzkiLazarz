@@ -1,10 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 :root {
   --section-py: clamp(2rem, 5vw, 6rem);
   --brand-green: #2e9c6a;
+  --brand-green-strong: #278a61;
   --text-color: #6a7280;
-  --body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
+  --radius-md: 14px;
+  --shadow-sm: 0 6px 18px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.06);
+  --muted: #f6faf8;
   font-family: "Poppins", sans-serif;
 }
 
@@ -12,16 +15,16 @@
   width: 100%;
   color: var(--brand-green);
   font-family: "Poppins", sans-serif;
+  overflow-x: clip;
 }
 
 .projects-heading-container {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1180px;
   margin: 0 auto;
-  padding-inline: 2rem;
+  padding-inline: clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
 }
-@media (max-width: 992px) { .projects-heading-container { padding-inline: 2rem; } }
-@media (max-width: 480px) { .projects-heading-container { padding-inline: 1rem; } }
 
 .projects-heading-grid-wrapper {
   background-color: #fff;
@@ -31,69 +34,66 @@
 
 .projects-heading-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 40px 30px;
-  width: min(100%, 900px);
-  margin-inline: auto;
-  justify-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 20px);
+  width: 100%;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1024px) {
+  .projects-heading-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
   .projects-heading-grid {
     grid-template-columns: 1fr;
-    width: min(100%, 520px);
+    justify-items: center;
   }
 }
 
-.projects-heading .projects-heading-grid .projects-grid-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
+.projects-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 72px;
+  width: 100%;
+  padding: 16px 16px 16px 18px;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  color: var(--brand-green);
-  padding: 0.25rem 0;
-  border-radius: 6px;
-  transition: color .2s ease, background-color .2s ease;
-  cursor: pointer !important;
+  background: var(--muted);
+  border: 1px solid rgba(46, 156, 106, .15);
+  color: var(--text-color);
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease, color .18s ease;
+  box-sizing: border-box;
 }
 
-.projects-heading .projects-heading-grid .projects-grid-item:hover,
-.projects-heading .projects-heading-grid .projects-grid-item:focus-visible {
-  color: #2b7a55 !important;
+.projects-card:link,
+.projects-card:visited { color: var(--text-color); }
+
+.projects-card:hover,
+.projects-card:focus-visible {
+  background: #eaf6f1;
+  border-color: rgba(46, 156, 106, .35);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
   outline: none;
+  color: var(--text-color);
 }
 
-.projects-heading .projects-heading-grid .projects-grid-item:hover .projects-grid-item-title,
-.projects-heading .projects-heading-grid .projects-grid-item:focus-visible .projects-grid-item-title {
-  text-decoration: underline;
-}
-
-.projects-grid-item-icon-wrapper .projects-arrow-icon {
-  width: 20px;
-  height: 20px;
-  color: currentColor;
-  transition: transform .2s ease, color .2s ease;
-}
-
-.projects-heading .projects-heading-grid .projects-grid-item:hover .projects-grid-item-icon-wrapper .projects-arrow-icon,
-.projects-heading .projects-heading-grid .projects-grid-item:focus-visible .projects-grid-item-icon-wrapper .projects-arrow-icon {
-  transform: translateX(2px);
-}
-
-.projects-grid-item-icon-wrapper {
-  border: none;
-  padding: 4px;
-  display: inline-flex;
-  align-items: flex-start;
-  justify-content: left;
-  border-radius: 4px;
-  margin-top: 5px;
-}
-
-.projects-grid-item-text { flex: 1; }
-
-.projects-grid-item-title {
+.projects-card-title {
   font-weight: 700;
-  font-size: clamp(1.1rem, 0.6vw + 1rem, 1.5rem);
-  margin: 0 0 8px 0;
-  color: currentColor;
+  font-size: clamp(1.02rem, .4vw + 1rem, 1.12rem);
+  line-height: 1.2;
+  color: inherit;
 }
+
+.projects-card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(46,156,106,.12);
+}
+
+.projects-arrow-icon { color: var(--brand-green-strong); }

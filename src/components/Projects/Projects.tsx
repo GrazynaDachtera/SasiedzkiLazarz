@@ -7,8 +7,8 @@ import "./Projects.scss";
 const ArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -16,13 +16,14 @@ const ArrowIcon = () => (
     strokeLinecap="butt"
     strokeLinejoin="miter"
     className="projects-arrow-icon"
+    aria-hidden="true"
   >
     <path d="M7 7 L17 17" />
     <path d="M17 7 L17 17 L7 17" />
   </svg>
 );
 
-export default function AbcPage() {
+export default function ProjectsPage() {
   const features = [
     { title: "Park-sad przy Hetmańskiej", href: "/Projects/Project1" },
     { title: "Sąsiedzkie sprzątanie Łazarza", href: "/Projects/Project2" },
@@ -42,18 +43,18 @@ export default function AbcPage() {
     <section className="projects-heading">
       <div className="projects-heading-grid-wrapper">
         <div className="projects-heading-container">
-          <div className="projects-heading-grid">
+          <div className="projects-heading-grid" role="list">
             {features.map((feature) => (
               <Link
                 href={feature.href}
-                className="projects-grid-item"
+                className="projects-card"
                 key={feature.href}
+                role="listitem"
+                aria-label={feature.title}
               >
-                <span className="projects-grid-item-icon-wrapper">
+                <span className="projects-card-title">{feature.title}</span>
+                <span className="projects-card-icon">
                   <ArrowIcon />
-                </span>
-                <span className="projects-grid-item-text">
-                  <h3 className="projects-grid-item-title">{feature.title}</h3>
                 </span>
               </Link>
             ))}
