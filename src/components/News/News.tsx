@@ -13,24 +13,27 @@ type Article = {
 export default function News() {
   const articles: Article[] = [
     {
-      href: "https://www.facebook.com/photo/?fbid=731160189901239&set=a.182448548105742&locale=pl_PL",
+      href: "https://www.facebook.com/photo?fbid=765844246432833&set=a.182448548105742&locale=pl_PL",
       thumbnail: "/News/smallimage1.jpg",
-      category: "PRACE · TRAMWAJE · UTRUDNIENIA",
+      category: "PETYCJE · PARK · HETMAŃSKA",
+      title: `🌳Aktualizacja! 📩
+19 września petycje w sprawie parku–sadu na południe od ulicy Hetmańskiej trafiły do:
+✅️ Rady Miasta Poznania
+✅️ oraz do Prezydenta Poznania.`,
+    },
+    {
+      href: "https://www.facebook.com/sasiedzkilazarz/videos/1620423938934155/?locale=pl_PL",
+      thumbnail: "/News/smallimage2.png",
+      category: "REWITALIZACJA · WIELKOPOLSKA · KONFERENCJA",
       title:
-        "🚊🚌 Status prac na torach? W poniedziałek 18 sierpnia: ➡️  przywrócone zostaje funkcjonowanie linii 1️⃣ i 7️⃣na trasach stałych, ➡️ 1️⃣0️⃣ będzie jeździła przez Łazarz. A to dlatego, że przez Hetmańską tramwaje będą mogły jeździć na wprost, ale jeszcze będą utrudnienia dla 🚗aut z powodu zamknięcia ulicy 28 czerwca 1956 na odcinku od Hetmańskiej do Traugutta. ⚠️ Węzeł Bałtyk nadal rozkopany, obowiązują objazdy tramwajowe przez Towarową. 1️⃣6️⃣4️⃣ wróciło na zwykłą trasę 🙌 Wszystkie szczegóły znajdziecie na stronie MPK Poznań Sp. z o.o., link w komentarzu ⬇️⬇️⬇️ PS Wiecie o łące i ulach na zajezdni Franowo?",
+        "Dzisiaj mieliśmy okazję posłuchać o rewitalizacji w Wielkopolsce, dzięki udziałowi w konferencji „Rewitalizacja się opłaca! Jak inwestować w odnowę przestrzeni i rozwój społeczności”, zorganizowanej przez Wielkopolski Fundusz Rozwoju.",
     },
     {
-      href: "https://www.facebook.com/photo/?fbid=122112297740958380&set=a.122111249054958380&locale=pl_PL",
-      thumbnail: "/News/smallimage2.jpg",
-      category: "PIKNIKI · POŻARY · NAUKA",
-      title: "Już wkrótce nasze sasiedzkie pikniki! Sprawdź Wydarzenia 👇👇👇",
-    },
-    {
-      href: "https://www.facebook.com/photo?fbid=728726370144621&set=a.182448548105742&locale=pl_PL",
+      href: "https://www.facebook.com/photo.php?fbid=762593770091214&set=pb.100090217936902.-2207520000&type=3&locale=pl_PL",
       thumbnail: "/News/smallimage3.jpg",
-      category: "KONCERTY · FYRTEL · WARSZTATY",
-      title:
-        '🎉 W tym tygodniu piątek wypada już w czwartek, więc naszą listę wydłużyliśmy o jeden dzień, ale i tak wszystko się nie zmieściło: sprawdźcie w komentarzach szczegóły. Jest też link do informatora, co będzie w długi weekend działało na naszym fyrtlu👇👇 Dodaliśmy też kilka pomysłów "z dojazdem", m.in. na placu Wolności.',
+      category: "JESIEŃ · BLAJBA · WERNISAŻ",
+      title: `🍂 No i mamy jesień! 🌥️
+Słońce wstaje później, dzień robi się coraz krótszy, a wieczory z cieplym kocem wygrywają z innymi rozrywkami☕🍁`,
     },
   ];
 
@@ -38,7 +41,7 @@ export default function News() {
     <section className="News">
       <div className="news-container">
         <div className="news-left">
-          <span className="news-tagline">bądź na bieżąco!</span>
+          <span className="news-tagline">Przegląd wydarzeń</span>
           <h2 className="news-heading">Blog</h2>
           <div className="news-list">
             {articles.map((a, i) => (
