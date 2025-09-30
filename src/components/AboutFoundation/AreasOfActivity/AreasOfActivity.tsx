@@ -28,7 +28,7 @@ type AreasOfActivityProps = {
 const DEFAULT_ITEMS: ActivityItem[] = [
   {
     title: "Robimy Porzundek!",
-    text: "chodzimy po Łazarzu wzdłuż i wszerz – nieporządek zgłaszamy komu trzeba i pilnujemy realizacji zadań porządkowych przez służby miejskie",
+    text: "chodzimy po Łazarzu wzdłuż i wszerz - nieporządek zgłaszamy komu trzeba i pilnujemy realizacji zadań porządkowych przez służby miejskie",
   },
   {
     title: "Integrujemy Łazarz i sąsiedztwo!",
@@ -36,7 +36,7 @@ const DEFAULT_ITEMS: ActivityItem[] = [
   },
   {
     title: "Zieleń i zwierzęta, natura!",
-    text: "naszym priorytetem jest jeszcze więcej dobrze zaplanowanej zieleni na Łazarzu, miejsc przyjemnych dla ludzi i innych stworków – zawsze to uwzględniamy w naszych opiniach i projektach",
+    text: "naszym priorytetem jest jeszcze więcej dobrze zaplanowanej zieleni na Łazarzu, miejsc przyjemnych dla ludzi i innych stworków - zawsze to uwzględniamy w naszych opiniach i projektach",
   },
   {
     title: "Inwestycje!",
@@ -44,7 +44,7 @@ const DEFAULT_ITEMS: ActivityItem[] = [
   },
   {
     title: "Kultura i historia!",
-    text: "co, gdzie, kiedy – uważnie śledzimy i nagłaśniamy informacje o wydarzeniach na Łazarzu, a także w całym Poznaniu: takich które właśnie się dzieją i takich które już się działy. Organizujemy spacery z historią Łazarza w tle",
+    text: "co, gdzie, kiedy - uważnie śledzimy i nagłaśniamy informacje o wydarzeniach na Łazarzu, a także w całym Poznaniu: takich które właśnie się dzieją i takich które już się działy. Organizujemy spacery z historią Łazarza w tle",
   },
   { title: "… i wiele więcej!" },
 ];
