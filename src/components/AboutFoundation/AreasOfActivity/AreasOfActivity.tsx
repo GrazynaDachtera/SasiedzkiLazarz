@@ -1,3 +1,4 @@
+// AreasOfActivity.tsx
 "use client";
 
 import Image from "next/image";
@@ -45,16 +46,14 @@ const DEFAULT_ITEMS: ActivityItem[] = [
     title: "Kultura i historia!",
     text: "co, gdzie, kiedy – uważnie śledzimy i nagłaśniamy informacje o wydarzeniach na Łazarzu, a także w całym Poznaniu: takich które właśnie się dzieją i takich które już się działy. Organizujemy spacery z historią Łazarza w tle",
   },
-  {
-    title: "… i wiele więcej!",
-  },
+  { title: "… i wiele więcej!" },
 ];
 
 export default function AreasOfActivity({
   title = "Obszary działalności",
   items = DEFAULT_ITEMS,
   image = {
-    src: "/AboutFoundation/person.png",
+    src: "/AboutFoundation/person.jpg",
     alt: "Portret osoby",
     width: 652,
     height: 336,

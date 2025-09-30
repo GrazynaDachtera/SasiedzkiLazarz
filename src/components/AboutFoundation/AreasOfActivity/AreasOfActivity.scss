@@ -1,3 +1,4 @@
+/* AreasOfActivity.scss */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 :root {
@@ -5,6 +6,10 @@
   --brand-green: #2e9c6a;
   --text-color: #6a7280;
   --body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
+
+  /* new: match attached image style */
+  --image-radius: 22px;
+  --image-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .areas-top-wrapper {
@@ -50,7 +55,6 @@
   color: var(--text-color);
 }
 
-/* New, semantic list-based layout (no <p>/<strong>) */
 .areas-list {
   list-style: none;
   padding: 0;
@@ -63,7 +67,7 @@
 
 .areas-item-title {
   font-weight: 700;
-  color: var(--brand-green); /* formerly <strong> → now green */
+  color: var(--brand-green);
   font-size: inherit;
   line-height: 1.5;
   margin: 0;
@@ -73,7 +77,6 @@
   margin-top: 2px;
 }
 
-/* Keep image + CTA as-is */
 .areas-image-wrapper {
   flex: 1;
   display: flex;
@@ -81,10 +84,15 @@
   align-items: center;
 }
 
+/* apply rounded corners + soft shadow like in the reference image */
 .areas-image {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--image-radius);
+  box-shadow: var(--image-shadow);
+  background: #fff;
 }
 
 .areas-cta {
@@ -97,7 +105,7 @@
   font-size: clamp(1.1rem, 0.6vw + 1rem, 1.5rem);
   color: var(--brand-green);
   text-decoration: none;
-  transition: filter .2s ease, transform .2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 .areas-cta-icon {
@@ -112,8 +120,12 @@
   transform: translateY(1px);
 }
 
-.areas-cta:hover { filter: brightness(.9); }
-.areas-cta:hover .areas-cta-icon { transform: translate(2px, 1px); }
+.areas-cta:hover {
+  filter: brightness(0.9);
+}
+.areas-cta:hover .areas-cta-icon {
+  transform: translate(2px, 1px);
+}
 
 @media (min-width: 992px) {
   .areas-content,
@@ -141,7 +153,9 @@
     align-items: center;
     text-align: center;
   }
-  .areas-cta { justify-content: center; }
+  .areas-cta {
+    justify-content: center;
+  }
   .areas-image-wrapper {
     width: 100%;
     margin-top: 1rem;
@@ -155,7 +169,11 @@
 }
 
 @media (max-width: 480px) {
-  .areas-container { padding-inline: 1rem; }
+  .areas-container {
+    padding-inline: 1rem;
+  }
 }
 
-.areas-description strong { color: var(--brand-green); }
+.areas-description strong {
+  color: var(--brand-green);
+}
