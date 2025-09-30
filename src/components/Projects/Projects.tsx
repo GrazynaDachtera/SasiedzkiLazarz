@@ -37,6 +37,14 @@ export default function ProjectsPage() {
       title: "Wiosenne nasadzenia drzew owocowych",
       href: "/Projects/Project6",
     },
+    {
+      title: "Spacery z historią w tle",
+      href: "/Projects/Project7",
+    },
+    {
+      title: "Sąsiedzkie spacery ze sprzątaniem",
+      href: "/Projects/Project8",
+    },
   ];
 
   return (

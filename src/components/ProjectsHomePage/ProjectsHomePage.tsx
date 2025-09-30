@@ -60,6 +60,18 @@ export default function ProjectsHomePage() {
         "Z inicjatywy naszej członkini Pauliny Prusieckiej Stowarzyszenie Sąsiedzki Łazarz zrealizowało piękną, wiosenną akcję – nasadzenia drzew owocowych.",
       link: "/Projects/Project6",
     },
+    {
+      title: "Spacery z historią w tle",
+      description:
+        "„Spacery z historią w tle” to projekt, dzięki któremu chcemy pokazać, jak niezwykła i pełna tajemnic jest nasza dzielnica – Święty Łazarz. Członkowie i członkinie stowarzyszenia – Joanna Kamińska, Paulina Prusiecka i Roman Modrzyński – zapraszają mieszkańców do wspólnych odkryć, podczas których historia splata się z teraźniejszością, a codzienne miejsca nabierają nowego znaczenia.",
+      link: "/Projects/Project7",
+    },
+    {
+      title: "Sąsiedzkie spacery ze sprzątaniem",
+      description:
+        "W ramach inicjatyw zorganizowaliśmy dwa sąsiedzkie spacery po terenach, które chcielibyśmy widzieć w przyszłości jako park-sad. Pierwszy spacer poprowadzili Bartosz Kolenda i Łukasz Maćkowiak, dzieląc się swoją wiedzą botaniczno-przyrodniczą. Wspólnie odwiedziliśmy miejsce planowanego parku, a przy okazji zadbaliśmy o okolicę – zbierając zalegające śmieci. ",
+      link: "/Projects/Project8",
+    },
   ];
 
   return (
