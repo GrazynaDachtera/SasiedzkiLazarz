@@ -27,8 +27,9 @@ const SECTIONS: Section[] = [
     body: (
       <p>
         Administratorem Państwa danych osobowych jest{" "}
-        <strong>Magda Krawczyk</strong>, ul. Ułańska 5, 60-748 Poznań, tel.{" "}
-        <a href="tel:+48605550370">605&nbsp;550&nbsp;370</a>,{" "}
+        <strong>Magda Krawczyk</strong>, adres korespondencyjny: ul. Ułańska 5,
+        60-748 Poznań, tel. <a href="tel:+48605550370">605&nbsp;550&nbsp;370</a>
+        ,{" "}
         <a href="mailto:kontakt@sasiedzkilazarz.pl">
           kontakt@sasiedzkilazarz.pl
         </a>
@@ -62,7 +63,7 @@ const SECTIONS: Section[] = [
         <ul className="rodo-sublist">
           <li>
             świadczenie usług drogą elektroniczną oraz obsługa zapytań
-            ofertowych, rezerwacji online, zamówień i reklamacji —{" "}
+            ofertowych i reklamacji —{" "}
             <em>podstawa: art. 6 ust. 1 lit. b RODO (wykonanie umowy)</em>;
           </li>
           <li>
