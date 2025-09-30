@@ -1,8 +1,13 @@
+/* Mission.scss — shrink Misja/Wizja to match "Obszary działalności" */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 :root {
   --section-py: clamp(2rem, 4vw, 5rem);
   --mv-bg: #114538;
+  --mv-fg: #f6fffb;
+  --mv-fg-muted: #eaf7f2;
+  --mv-accent: rgba(255, 255, 255, 0.9);
+  --mv-maxw: 1320px;
 }
 
 .sr-only {
@@ -19,39 +24,61 @@
 
 .mission-top-wrapper {
   background: var(--mv-bg);
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  padding-block: 0 var(--section-py) !important;
+  color: var(--mv-fg);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  padding-block: var(--section-py);
   margin: 0 !important;
-  display: flow-root;
 }
 
 .mission-container {
-  width: min(96%, 1320px);
-  margin: 0 auto;
-  padding: 0;
+  width: min(96%, var(--mv-maxw));
+  margin-inline: auto;
 }
 
 .mv-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(16px, 3vw, 32px);
+  gap: clamp(24px, 3vw, 48px);
   justify-items: center;
 }
 
 .mv-card {
-  position: relative;
   width: 100%;
-  max-width: 620px;
-  aspect-ratio: 1545 / 2000;
-  overflow: hidden;
+  max-width: 680px;
+  position: relative;
+  padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(28px, 4vw, 36px);
 }
 
-.mv-image {
-  object-fit: contain;
-  object-position: center;
+.mv-header {
+  margin-bottom: clamp(6px, 1vw, 8px);
+}
+
+.mv-title {
+  /* smaller than before to align with "Obszary działalności" */
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  margin: 0;
+  color: var(--mv-fg);
+}
+
+.mv-title::after {
+  content: "";
   display: block;
-  background: transparent;
+  height: 2px;
+  width: clamp(32px, 7vw, 56px);
+  background: var(--mv-accent);
+  margin-top: clamp(6px, 1vw, 8px);
+  border-radius: 2px;
+}
+
+.mv-text {
+  margin: 0;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.8;
+  max-width: 62ch;
+  color: var(--mv-fg-muted);
 }
 
 @media (min-width: 820px) {
@@ -59,10 +86,13 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
   }
+  .mv-text {
+    max-width: 52ch;
+  }
 }
 
 @media (min-width: 1280px) {
   .mv-card {
-    max-width: 680px;
+    max-width: 720px;
   }
 }
