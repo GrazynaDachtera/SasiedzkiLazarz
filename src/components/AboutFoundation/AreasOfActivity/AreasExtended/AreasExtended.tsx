@@ -1,26 +1,11 @@
+// AreasExtended.tsx
 "use client";
 
-import Image from "next/image";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import "./AreasExtended.scss";
 
-type Img = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  priority?: boolean;
-};
-
-type ActivityItem = {
-  title: string;
-  text?: string;
-};
-
-type AreasOfActivityProps = {
-  items?: ActivityItem[];
-  image?: Img;
-};
+type ActivityItem = { title: string; text?: string };
+type AreasOfActivityProps = { items?: ActivityItem[] };
 
 const DEFAULT_ITEMS: ActivityItem[] = [
   {
@@ -169,52 +154,97 @@ const DEFAULT_ITEMS: ActivityItem[] = [
   },
 ];
 
+function highlight(text: string, q: string) {
+  if (!q.trim()) return text;
+  const parts = text.split(
+    new RegExp(`(${q.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")})`, "ig")
+  );
+  return parts.map((part, i) =>
+    part.toLowerCase() === q.toLowerCase() ? (
+      <mark key={i}>{part}</mark>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
+
 export default function AreasOfActivity({
   items = DEFAULT_ITEMS,
-  image = {
-    src: "/News/matejki-poznan.png",
-    alt: "obszary działalności",
-    width: 652,
-    height: 336,
-    priority: true,
-  },
 }: AreasOfActivityProps) {
+  const [q, setQ] = useState("");
+  const [showAll, setShowAll] = useState(false);
+
+  const filtered = useMemo(() => {
+    if (!q.trim()) return items;
+    const needle = q.toLowerCase();
+    return items.filter((i) =>
+      (i.title + " " + (i.text ?? "")).toLowerCase().includes(needle)
+    );
+  }, [items, q]);
+
+  const INITIAL = 10;
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL);
+
   return (
     <section className="areasextended-top-wrapper">
       <div className="areasextended-container">
-        <div className="areasextended-top">
-          <div className="areasextended-content">
-            <div className="areasextended-description">
-              <ul className="areasextended-list" role="list">
-                {items.map((item, idx) => (
-                  <li key={idx} className="areasextended-item">
-                    <h3 className="areasextended-item-title">
-                      <span className="areasextended-item-number">
-                        {idx + 1}.
-                      </span>
-                      {item.title}
-                    </h3>
-                    {item.text ? (
-                      <div className="areasextended-item-text">{item.text}</div>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="areasextended-image-wrapper">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="areasextended-image"
-              priority={image.priority}
-              sizes="(max-width:700px) 90vw, (max-width:1200px) 50vw, 33vw"
-            />
-          </div>
+        <div className="areasextended-controls">
+          <input
+            className="areasextended-search"
+            type="search"
+            placeholder="Szukaj w obszarach…"
+            value={q}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setShowAll(false);
+            }}
+            aria-label="Szukaj w obszarach działalności"
+          />
+          <span className="areasextended-count" aria-live="polite">
+            {filtered.length} wyników
+          </span>
         </div>
+
+        <ol className="areasextended-list enhanced" role="list">
+          {visible.map((item, idx) => {
+            const absoluteIndex = items.indexOf(item) + 1;
+            const id = `obszar-${absoluteIndex}`;
+            return (
+              <li key={id} id={id} className="areasextended-card">
+                <a
+                  className="areasextended-permalink"
+                  href={`#${id}`}
+                  aria-label={`Link do pozycji ${absoluteIndex}`}
+                >
+                  #
+                </a>
+                <h3 className="areasextended-card-title">
+                  {highlight(item.title, q)}
+                </h3>
+                {item.text && (
+                  <p className="areasextended-card-text">
+                    {highlight(item.text, q)}
+                  </p>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+
+        {!showAll && filtered.length > INITIAL && (
+          <button
+            className="areasextended-more"
+            onClick={() => setShowAll(true)}
+          >
+            Pokaż wszystko ({filtered.length})
+          </button>
+        )}
+
+        {filtered.length === 0 && (
+          <p className="areasextended-empty">
+            Brak wyników. Spróbuj innego hasła lub wyczyść wyszukiwanie.
+          </p>
+        )}
       </div>
     </section>
   );
