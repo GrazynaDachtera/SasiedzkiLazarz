@@ -110,29 +110,42 @@ export default function ProjectsHomePage() {
 
       <div className="projectsHomePage-grid-wrapper">
         <div className="projectsHomePage-container">
-          <div className="projectsHomePage-grid">
-            {features.map((feature, index) => (
-              <div className="grid-item" key={index}>
-                <div className="grid-item-icon-wrapper">
-                  <ArrowIcon />
-                </div>
-                <div className="grid-item-text">
-                  {feature.link ? (
-                    <h3 className="grid-item-title">
-                      <Link href={feature.link}>{feature.title}</Link>
-                    </h3>
-                  ) : (
-                    <h3 className="grid-item-title">{feature.title}</h3>
-                  )}
-                  {feature.description && (
-                    <p className="grid-item-description">
-                      {feature.description}
-                    </p>
-                  )}
-                </div>
-              </div>
+          <ul className="projectsHomePage-grid" role="list">
+            {features.map((f, i) => (
+              <li key={i} className="feature-li">
+                <article className="feature-card">
+                  <Link
+                    href={f.link}
+                    className="feature-link"
+                    aria-label={f.title}
+                  >
+                    <span className="feature-icon" aria-hidden="true">
+                      <ArrowIcon />
+                    </span>
+                    <span className="feature-text">
+                      <h3 className="feature-title">{f.title}</h3>
+                      <p className="feature-desc">{f.description}</p>
+                      <span className="feature-cta">
+                        Zobacz projekt
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="chevron"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M9 6l6 6-6 6"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </Link>
+                </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
