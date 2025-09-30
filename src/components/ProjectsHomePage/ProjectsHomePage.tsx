@@ -110,7 +110,7 @@ export default function ProjectsHomePage() {
 
       <div className="projectsHomePage-grid-wrapper">
         <div className="projectsHomePage-container">
-          <ul className="projectsHomePage-grid" role="list">
+          <ul className="projectsHomePage-grid two-col" role="list">
             {features.map((f, i) => (
               <li key={i} className="feature-li">
                 <article className="feature-card">

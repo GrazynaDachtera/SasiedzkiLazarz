@@ -4,7 +4,7 @@
   --cta-green: #2e7d57;
   --cta-green-hover: #276b49;
   --radius: 16px;
-  --card-bg: color-mix(in oklab, var(--brand-green) 5%, #ffffff);
+  --card-bg: color-mix(in oklab, var(--brand-green) 4%, #ffffff);
   --card-brd: color-mix(in oklab, var(--brand-green) 10%, #e9eef2);
   --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.06);
   --shadow-lg: 0 2px 20px rgba(16, 24, 40, 0.12);
@@ -142,7 +142,7 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .projectsHomePage-grid {
-  --cols: 3;
+  --cols: 2;
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   gap: clamp(16px, 2.4vw, 28px);
@@ -150,33 +150,44 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   padding: 0;
   margin: 0;
   padding-top: 6px;
+  align-items: stretch;
+}
+
+.projectsHomePage-grid.two-col {
+  --cols: 2;
 }
 
 @media (max-width: 992px) {
-  .projectsHomePage-grid { --cols: 2; }
+  .projectsHomePage-grid {
+    --cols: 2;
+  }
 }
 
 @media (max-width: 768px) {
-  .projectsHomePage-grid { --cols: 1; }
+  .projectsHomePage-grid {
+    --cols: 1;
+  }
 }
-
-.projectsHomePage-grid.max-2 { --cols: 2; }
 
 .feature-li {
   margin: 0;
+  height: 100%;
 }
 
 .feature-card {
   border-radius: var(--radius);
-  border: 0.5px solid var(--card-brd);
+  border: 0.2px solid var(--card-brd);
   background: var(--card-bg);
   box-shadow: var(--shadow-sm);
   overflow: clip;
+  height: 100%;
+  display: flex;
+  min-height: clamp(220px, 18rem, 260px);
 }
 
 .feature-link {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 44px 1fr;
   gap: 14px;
   align-items: start;
   padding: clamp(14px, 1.8vw, 18px);
@@ -184,6 +195,8 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   color: inherit;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
   will-change: transform;
+  height: 100%;
+  width: 100%;
 }
 
 @media (hover: hover) {
@@ -200,8 +213,8 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .feature-icon {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
   display: grid;
   place-items: center;
@@ -217,7 +230,10 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 
 .feature-text {
   display: grid;
-  gap: 6px;
+  grid-template-rows: auto 1fr auto;
+  gap: 8px;
+  min-width: 0;
+  height: 100%;
 }
 
 .feature-title {
@@ -226,6 +242,10 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   font-weight: 700;
   color: var(--brand-green);
   line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .feature-desc {
@@ -240,13 +260,14 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .feature-cta {
-  margin-top: 2px;
+  margin-top: 0;
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--cta-green);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  align-self: end;
 }
 
 @media (hover: hover) {
