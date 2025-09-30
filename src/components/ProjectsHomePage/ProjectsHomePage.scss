@@ -40,26 +40,19 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 .projectsHomePage-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: flex-start;
+  gap: clamp(20px, 3vw, 36px);
 }
 
 @media (min-width: 992px) {
-  .projectsHomePage-content,
-  .projectsHomePage-image-wrapper {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
   .projectsHomePage-content {
-    max-width: 50%;
+    flex: 0 0 56%;
+    max-width: 56%;
   }
 
-  .projectsHomePage-image {
-    width: 95%;
-    max-width: 620px;
-    height: auto;
-    object-fit: contain;
+  .projectsHomePage-image-wrapper {
+    flex: 0 0 44%;
+    max-width: 44%;
   }
 }
 
@@ -72,13 +65,12 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .projectsHomePage-content {
-  flex: 1;
-  max-width: 500px;
+  flex: 1 1 auto;
 }
 
 @media (max-width: 992px) {
   .projectsHomePage-content {
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -124,17 +116,24 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .projectsHomePage-image-wrapper {
-  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  max-width: 100%;
+  align-items: center;
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12), 0 2px 8px rgba(16, 24, 40, 0.06);
+  aspect-ratio: 652 / 336;
+  max-width: clamp(360px, 38vw, 540px);
 }
 
 .projectsHomePage-image {
+  display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .projectsHomePage-grid {
@@ -229,13 +228,10 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-  }
-
-  .projectsHomePage-image {
-    width: min(85vw, 520px);
-    height: auto;
+    max-width: min(85vw, 520px);
   }
 }
+
 @media (max-width: 480px) {
   .projectsHomePage-top-wrapper .projectsHomePage-container,
   .projectsHomePage-container {

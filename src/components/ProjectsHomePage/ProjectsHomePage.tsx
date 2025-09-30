@@ -76,8 +76,6 @@ export default function ProjectsHomePage() {
                 warsztaty, po działania integrujące sąsiadów. Zobacz, nad czym
                 pracujemy i dołącz do nas!
               </p>
-
-              {/* ✅ Link styled as a button */}
               <Link href="/Projects" className="projectsHomePage-button">
                 Sprawdź
               </Link>
@@ -85,10 +83,11 @@ export default function ProjectsHomePage() {
 
             <div className="projectsHomePage-image-wrapper">
               <Image
-                src="/ProjectsHomePage/person.png"
+                src="/ProjectsHomePage/person.jpg"
                 alt="Portret osoby"
                 width={652}
                 height={336}
+                sizes="(max-width: 768px) 85vw, 560px"
                 className="projectsHomePage-image"
                 priority
               />

@@ -39,7 +39,7 @@ export default function News() {
       <div className="news-container">
         <div className="news-left">
           <span className="news-tagline">bądź na bieżąco!</span>
-          <h2 className="news-heading">Aktualności</h2>
+          <h2 className="news-heading">Blog</h2>
           <div className="news-list">
             {articles.map((a, i) => (
               <a
