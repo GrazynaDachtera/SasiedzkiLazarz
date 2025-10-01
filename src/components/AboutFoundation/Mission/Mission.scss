@@ -96,3 +96,40 @@
     max-width: 720px;
   }
 }
+
+@media (max-width: 819px) {
+  .mission-top-wrapper {
+    text-align: center;
+    padding-block: var(--section-py);
+  }
+
+  .mission-container {
+    width: min(92%, var(--mv-maxw));
+    margin-inline: auto;
+  }
+
+  .mv-grid {
+    justify-items: center;
+  }
+
+  .mv-card {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding-inline: clamp(18px, 5vw, 24px);
+    margin-inline: auto;
+  }
+
+  .mv-title {
+    text-align: center;
+  }
+
+  .mv-title::after {
+    margin-inline: auto;
+  }
+
+  .mv-text {
+    text-align: center;
+    margin-inline: auto;
+  }
+}

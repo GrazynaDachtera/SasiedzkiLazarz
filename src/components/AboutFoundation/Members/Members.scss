@@ -39,6 +39,7 @@
   scroll-snap-type: x mandatory; scroll-snap-stop: always;
   scroll-padding-left: var(--side-pad); scroll-padding-right: var(--side-pad);
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 .members-track::-webkit-scrollbar { display: none; }
 
@@ -85,6 +86,8 @@
   box-shadow: 0 6px 18px rgba(0,0,0,.08);
   cursor: pointer;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .members-more:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.12); background: #f7fffb; }
 .members-more:active { transform: translateY(0); }
@@ -105,32 +108,36 @@
 .members-nav-right { right: 8px; }
 .members-nav.is-disabled { opacity: .4; pointer-events: none; }
 
-/* Modal */
 .members-dialog::backdrop { background: rgba(0,0,0,.6); }
+
 .members-dialog {
   border: none;
   padding: 0;
   background: transparent;
   position: fixed;
   inset: 0;
+  margin: 0;
   width: 100vw;
   height: 100dvh;
-  margin: 0;
-  display: grid;
+  display: none;
   place-items: center;
+  z-index: 9999;
 }
+.members-dialog[open] { display: grid; }
+
 .members-dialog-content {
   position: relative;
   width: min(92vw, 720px);
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0,0,0,.25);
-  overflow: hidden; /* ensures rounded corners on all sides */
+  overflow: hidden;
 }
 .members-dialog-scroll {
   max-height: 85dvh;
   overflow: auto;
   padding: 20px 20px 24px;
+  overscroll-behavior: contain;
 }
 .members-dialog-close {
   position: absolute;
@@ -146,6 +153,7 @@
   padding: 4px 8px;
   cursor: pointer;
 }
+
 .members-dialog-header {
   display: grid; grid-template-columns: 96px 1fr;
   gap: 14px; align-items: center; margin-bottom: 10px;
@@ -161,3 +169,31 @@
 .members-dialog-name { margin: 0; font-size: 1.25rem; font-weight: 800; color: var(--brand-green); }
 .members-dialog-role { margin: 0; color: var(--text-mid); font-weight: 700; }
 .members-dialog-bio { margin-top: 12px; color: var(--text-mid); line-height: 1.6; font-size: 0.98rem; }
+
+@media (max-width: 768px) {
+  .members-dialog-content { width: min(92vw, 560px); border-radius: 14px; }
+  .members-dialog-header { grid-template-columns: 80px 1fr; gap: 12px; }
+  .members-dialog-avatar { width: 80px; height: 80px; border-radius: 10px; }
+}
+
+.members-dialog-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.6);
+  display: grid;
+  place-items: center;
+}
+.members-dialog-fallback .members-dialog-content {
+  width: min(92vw, 720px);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+.members-modal-open,
+.members-modal-open body,
+.members-modal-open #__next {
+  transform: none !important;
+}

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { createPortal } from "react-dom";
 import "./Members.scss";
 
 type MemberImage = { src?: string; alt?: string };
@@ -82,10 +83,7 @@ const defaultMembers: Member[] = [
     name: "Michał Turno",
     role: "Członek Stowarzyszenia",
     bio: "Członek stowarzyszenia, radny osiedlowy, pracownik Wydziału Sportu Urzędu Miasta Poznania. Świetnie zna strukturę i funkcjonowanie miejskich jednostek. Posiada doświadczenie w działalności w samorządach szkolnych, Młodzieżowej Radzie Miasta Poznania, Stowarzyszeniu Młodzi Demokraci, kółkach studenckich oraz Stowarzyszeniu Nowa Generacja.",
-    image: {
-      src: "/AboutFoundation/MichałTurno.png",
-      alt: "Michał Turno",
-    },
+    image: { src: "/AboutFoundation/MichałTurno.png", alt: "Michał Turno" },
   },
 ];
 
@@ -186,13 +184,10 @@ export default function Members({
     updateNavState();
     const el = trackRef.current;
     if (!el) return;
-
     const onScroll = () => updateNavState();
     el.addEventListener("scroll", onScroll, { passive: true });
-
     const ro = new ResizeObserver(() => updateNavState());
     ro.observe(el);
-
     return () => {
       el.removeEventListener("scroll", onScroll);
       ro.disconnect();
@@ -201,27 +196,136 @@ export default function Members({
 
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState<Member | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const supportsDialog =
+    typeof window !== "undefined" &&
+    typeof HTMLDialogElement !== "undefined" &&
+    "showModal" in HTMLDialogElement.prototype;
+
+  useEffect(() => setMounted(true), []);
 
   const openDialog = (m: Member) => {
     setActive(m);
-    dialogRef.current?.showModal();
+    if (supportsDialog) {
+      requestAnimationFrame(() => dialogRef.current?.showModal());
+    }
+    document.documentElement.classList.add("members-modal-open");
     document.body.style.overflow = "hidden";
   };
 
   const closeDialog = () => {
-    dialogRef.current?.close();
+    if (supportsDialog) dialogRef.current?.close();
     setActive(null);
     document.body.style.overflow = "";
+    document.documentElement.classList.remove("members-modal-open");
   };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (!dialogRef.current?.open) return;
       if (e.key === "Escape") closeDialog();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    return () =>
+      document.documentElement.classList.remove("members-modal-open");
+  }, []);
+
+  const dialogUI =
+    active &&
+    (supportsDialog ? (
+      <dialog
+        ref={dialogRef}
+        className="members-dialog"
+        aria-labelledby="members-dialog-title"
+        onClick={(e) => {
+          if (e.currentTarget === e.target) closeDialog();
+        }}
+      >
+        <div className="members-dialog-content">
+          <button
+            className="members-dialog-close"
+            onClick={closeDialog}
+            aria-label="Zamknij"
+          >
+            ×
+          </button>
+          <div className="members-dialog-scroll">
+            <div className="members-dialog-header">
+              <div className="members-dialog-avatar">
+                {active.image?.src ? (
+                  <Image
+                    src={active.image.src}
+                    alt={active.image.alt || active.name}
+                    fill
+                    sizes="96px"
+                    className="members-dialog-avatar-img"
+                  />
+                ) : (
+                  <div className="members-dialog-avatar-fallback">
+                    {initialsOf(active.name)}
+                  </div>
+                )}
+              </div>
+              <div className="members-dialog-meta">
+                <h3 id="members-dialog-title" className="members-dialog-name">
+                  {active.name}
+                </h3>
+                <p className="members-dialog-role">{active.role}</p>
+              </div>
+            </div>
+            <p className="members-dialog-bio">{active.bio}</p>
+          </div>
+        </div>
+      </dialog>
+    ) : (
+      <div
+        role="dialog"
+        aria-modal="true"
+        className="members-dialog-fallback"
+        onClick={(e) => {
+          if (e.currentTarget === e.target) closeDialog();
+        }}
+      >
+        <div className="members-dialog-content">
+          <button
+            className="members-dialog-close"
+            onClick={closeDialog}
+            aria-label="Zamknij"
+          >
+            ×
+          </button>
+          <div className="members-dialog-scroll">
+            <div className="members-dialog-header">
+              <div className="members-dialog-avatar">
+                {active.image?.src ? (
+                  <Image
+                    src={active.image.src}
+                    alt={active.image.alt || active.name}
+                    fill
+                    sizes="96px"
+                    className="members-dialog-avatar-img"
+                  />
+                ) : (
+                  <div className="members-dialog-avatar-fallback">
+                    {initialsOf(active.name)}
+                  </div>
+                )}
+              </div>
+              <div className="members-dialog-meta">
+                <h3 id="members-dialog-title" className="members-dialog-name">
+                  {active.name}
+                </h3>
+                <p className="members-dialog-role">{active.role}</p>
+              </div>
+            </div>
+            <p className="members-dialog-bio">{active.bio}</p>
+          </div>
+        </div>
+      </div>
+    ));
 
   return (
     <section
@@ -274,49 +378,9 @@ export default function Members({
         </div>
       </div>
 
-      <dialog
-        ref={dialogRef}
-        className="members-dialog"
-        aria-labelledby="members-dialog-title"
-      >
-        {active && (
-          <div className="members-dialog-content">
-            <button
-              className="members-dialog-close"
-              onClick={closeDialog}
-              aria-label="Zamknij"
-            >
-              ×
-            </button>
-            <div className="members-dialog-scroll">
-              <div className="members-dialog-header">
-                <div className="members-dialog-avatar">
-                  {active.image?.src ? (
-                    <Image
-                      src={active.image.src}
-                      alt={active.image.alt || active.name}
-                      fill
-                      sizes="96px"
-                      className="members-dialog-avatar-img"
-                    />
-                  ) : (
-                    <div className="members-dialog-avatar-fallback">
-                      {initialsOf(active.name)}
-                    </div>
-                  )}
-                </div>
-                <div className="members-dialog-meta">
-                  <h3 id="members-dialog-title" className="members-dialog-name">
-                    {active.name}
-                  </h3>
-                  <p className="members-dialog-role">{active.role}</p>
-                </div>
-              </div>
-              <p className="members-dialog-bio">{active.bio}</p>
-            </div>
-          </div>
-        )}
-      </dialog>
+      {mounted
+        ? createPortal(dialogUI as React.ReactNode, document.body)
+        : null}
     </section>
   );
 }
