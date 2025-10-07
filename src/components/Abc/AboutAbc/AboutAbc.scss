@@ -190,18 +190,6 @@
 
 .abc-card .arrow-icon { color: var(--card-accent); }
 
-.theme-school { --card-accent: #2e9c6a; }
-.theme-kindergarten { --card-accent: #0ea5a5; }
-.theme-nursery { --card-accent: #16a34a; }
-.theme-health { --card-accent: #0e7490; }
-.theme-library { --card-accent: #2563eb; }
-.theme-sport { --card-accent: #15803d; }
-.theme-religion { --card-accent: #6b21a8; }
-.theme-media { --card-accent: #0369a1; }
-.theme-parks { --card-accent: #166534; }
-.theme-culture { --card-accent: #b45309; }
-.theme-offices { --card-accent: #0f766e; }
-.theme-mustsee { --card-accent: #be123c; }
 
 @media (prefers-reduced-motion: reduce) {
   .abc-card { transition: none; }
