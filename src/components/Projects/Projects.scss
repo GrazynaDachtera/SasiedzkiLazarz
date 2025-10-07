@@ -1,23 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
-:root {
-  --section-py: clamp(2rem, 5vw, 6rem);
-  --brand-green: #114538;
-  --brand-green-strong: #0f3b30;
-  --card-bg: #e6f1ec;
-  --card-bg-hover: #deebe5;
-  --card-border: rgba(46, 156, 106, 0.28);
-  --card-border-hover: rgba(46, 156, 106, 0.42);
-  --card-icon-bg: rgba(46, 156, 106, 0.14);
-  --text-color: #143e31;
-  --radius-md: 14px;
-  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.06);
-  font-family: "Poppins", sans-serif;
-}
-
 .projects-heading {
   width: 100%;
-  color: var(--brand-green);
+  color: #114538;
   font-family: "Poppins", sans-serif;
   overflow-x: clip;
 }
@@ -33,7 +18,7 @@
 
 .projects-heading-grid-wrapper {
   background-color: #fff;
-  padding-block: var(--section-py);
+  padding-block: clamp(2rem, 5vw, 6rem);
   width: 100%;
   color: #114538;
 }
@@ -44,7 +29,6 @@
   gap: clamp(14px, 1.8vw, 20px);
   width: 100%;
   color: #114538;
-
 }
 
 @media (max-width: 1024px) {
@@ -66,11 +50,11 @@
   min-height: 80px;
   width: 100%;
   padding: 18px 18px 18px 22px;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   text-decoration: none;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--text-color);
+  background: #e6f1ec;
+  border: 1px solid rgba(46, 156, 106, 0.28);
+  color: #143e31;
   transition:
     background .18s ease,
     border-color .18s ease,
@@ -81,13 +65,13 @@
 }
 
 .projects-card:link,
-.projects-card:visited { color: var(--text-color); }
+.projects-card:visited { color: #143e31; }
 
 .projects-card:hover,
 .projects-card:focus-visible {
-  background: var(--card-bg-hover);
-  border-color: var(--card-border-hover);
-  box-shadow: var(--shadow-sm);
+  background: #deebe5;
+  border-color: rgba(46, 156, 106, 0.42);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.06);
   transform: translateY(-1px);
   outline: none;
 }
@@ -96,7 +80,6 @@
   font-weight: 700;
   font-size: clamp(1.02rem, .4vw + 1rem, 1.12rem);
   line-height: 1.2;
-  color: inherit;
   color: #114538;
 }
 
@@ -106,11 +89,11 @@
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: var(--card-icon-bg);
+  background: rgba(46, 156, 106, 0.14);
 }
 
 .projects-arrow-icon {
-  color: var(--brand-green-strong);
+  color: #0f3b30;
   width: 18px;
   height: 18px;
   transition: transform .18s ease;
