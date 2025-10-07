@@ -419,9 +419,7 @@ export default function Members({
     ));
 
   return (
-    <section
-      className={`members-wrapper ${bg === "gray" ? "is-gray" : "is-white"}`}
-    >
+    <section className="members-wrapper">
       <div className="members-container">
         <header className="members-header">
           <h2 className="members-title">{title}</h2>
