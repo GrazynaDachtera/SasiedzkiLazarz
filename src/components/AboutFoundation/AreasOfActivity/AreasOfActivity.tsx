@@ -23,42 +23,47 @@ type AreasOfActivityProps = {
   title?: string;
   items?: ActivityItem[];
   image?: Img;
+  lead?: string;
 };
 
 const DEFAULT_ITEMS: ActivityItem[] = [
   {
     title: "Robimy Porzundek!",
-    text: "chodzimy po Łazarzu wzdłuż i wszerz - nieporządek zgłaszamy komu trzeba i pilnujemy realizacji zadań porządkowych przez służby miejskie",
+    text: "Patrolujemy Łazarz. Zgłaszamy bałagan, pilnujemy realizacji i chwalimy dobre praktyki służb miejskich.",
   },
   {
-    title: "Integrujemy Łazarz i sąsiedztwo!",
-    text: "organizujemy wydarzenia sąsiedzkie, od spacerów po pikniki i warsztaty dla mieszkańców, dbając o walor edukacyjny",
+    title: "Integrujemy Łazarz i sąsiedztwo",
+    text: "Spacery, pikniki i warsztaty. Łączymy sąsiadów, a dobre pomysły przekuwamy w konkretne działania.",
   },
   {
-    title: "Zieleń i zwierzęta, natura!",
-    text: "naszym priorytetem jest jeszcze więcej dobrze zaplanowanej zieleni na Łazarzu, miejsc przyjemnych dla ludzi i innych stworków - zawsze to uwzględniamy w naszych opiniach i projektach",
+    title: "Zieleń, zwierzęta, natura",
+    text: "Walczymy o mądrą zieleń: cień na ulicach, drzewa przy szkołach, przyjazne skwery i miski z wodą latem. Projektujemy z myślą o ludziach i futrzastych sąsiadach.",
   },
   {
-    title: "Inwestycje!",
-    text: "wiemy jak dobrze planować, wydawać pieniądze i pilnować trwałości inwestycji. Staramy się o kompromis dla potrzeb pieszych, rowerzystów, kierowców, młodszych, starszych, chytrych i estetów",
+    title: "Inwestycje z sensem",
+    text: "Pilnujemy planów i budżetów. Szukamy balansu między pieszymi, rowerami, komunikacją i kierowcami. Stawiamy na trwałość i estetykę.",
   },
   {
-    title: "Kultura i historia!",
-    text: "co, gdzie, kiedy - uważnie śledzimy i nagłaśniamy informacje o wydarzeniach na Łazarzu, a także w całym Poznaniu: takich które właśnie się dzieją i takich które już się działy. Organizujemy spacery z historią Łazarza w tle",
+    title: "Kultura i historia",
+    text: "Kalendarz wydarzeń, mikro-wycieczki i spacery z historią Łazarza. Opowiadamy o tym, co było i co dopiero będzie.",
   },
-  { title: "… i wiele więcej!" },
+  {
+    title: "…i dużo więcej",
+    text: "Akcje sąsiedzkie, konsultacje, porady. Jeśli coś poprawia codzienność na Łazarzu — wchodzimy w to.",
+  },
 ];
 
 export default function AreasOfActivity({
-  title = "Obszary działalności",
+  title = "Czym się zajmujemy",
   items = DEFAULT_ITEMS,
   image = {
-    src: "/AboutFoundation/person.jpg",
-    alt: "Portret osoby",
+    src: "/AboutFoundation/AreasOfActivity.jpeg",
+    alt: "Spacer po Łazarzu – sąsiadka z psem na łące",
     width: 652,
     height: 336,
     priority: true,
   },
+  lead = "Na co dzień robimy małe i duże rzeczy, które realnie poprawiają życie na Łazarzu. Oto kilka naszych kierunków:",
 }: AreasOfActivityProps) {
   return (
     <section className="areas-top-wrapper">
@@ -66,6 +71,7 @@ export default function AreasOfActivity({
         <div className="areas-top">
           <div className="areas-content">
             <h2 className="areas-title">{title}</h2>
+            <p className="areas-lead">{lead}</p>
 
             <div className="areas-description">
               <ul className="areas-list" role="list">
@@ -79,16 +85,20 @@ export default function AreasOfActivity({
                 ))}
               </ul>
 
-              <Link href="/AreasOfActivity" className="areas-cta">
-                Poznaj wszystkie obszary naszej działalności
+              <Link
+                href="/AreasOfActivity"
+                className="areas-btn"
+                aria-label="Zobacz pełną listę działań"
+              >
+                <span>Zobacz pełną listę działań</span>
                 <svg
-                  className="areas-cta-icon"
+                  className="areas-btn-icon"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                   focusable="false"
                 >
-                  <path d="M6 6 L18 18" />
-                  <path d="M12 18 H18 V12" />
+                  <path d="M5 12 H19" />
+                  <path d="M13 6 L19 12 L13 18" />
                 </svg>
               </Link>
             </div>

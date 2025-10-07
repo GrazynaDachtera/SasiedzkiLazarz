@@ -7,6 +7,7 @@
   --body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   --image-radius: 22px;
   --image-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
+  --muted: #98a2b3;
 }
 
 .areas-top-wrapper {
@@ -33,15 +34,22 @@
 
 .areas-content {
   flex: 1;
-  max-width: 500px;
+  max-width: 520px;
   text-align: left;
 }
 
 .areas-title {
   font-weight: 800;
-  font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.8rem);
+  font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.9rem);
   color: var(--brand-green);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.areas-lead {
+  font-size: clamp(1rem, 0.6vw + 1rem, 1.15rem);
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 1.1rem 0;
 }
 
 .areas-description {
@@ -59,7 +67,26 @@
 }
 
 .areas-item {
-  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 1.6rem;
+  margin: 0.55rem 0;
+  transition: transform 0.2s ease;
+}
+
+.areas-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand-green);
+  box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.08);
+}
+
+.areas-item:hover {
+  transform: translateX(2px);
 }
 
 .areas-item-title {
@@ -91,37 +118,50 @@
   background: #fff;
 }
 
-.areas-cta {
+.areas-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 22px;
-  padding: 8px 0;
-  font-weight: 700;
-  font-size: clamp(1.1rem, 0.6vw + 1rem, 1.5rem);
-  color: var(--brand-green);
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--brand-green);
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.6vw + 1rem, 1.1rem);
   text-decoration: none;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(17, 69, 56, 0.18);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  margin-top: 22px;
 }
 
-.areas-cta-icon {
-  order: -1;
-  width: 18px;
-  height: 18px;
+.areas-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(17, 69, 56, 0.22);
+}
+
+.areas-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(17, 69, 56, 0.16);
+}
+
+.areas-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.25), 0 8px 20px rgba(17, 69, 56, 0.18);
+}
+
+.areas-btn-icon {
+  width: 20px;
+  height: 20px;
   stroke: currentColor;
   stroke-width: 2.2;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transform: translateY(1px);
+  transition: transform 0.15s ease;
 }
 
-.areas-cta:hover {
-  filter: brightness(0.9);
-}
-
-.areas-cta:hover .areas-cta-icon {
-  transform: translate(2px, 1px);
+.areas-btn:hover .areas-btn-icon {
+  transform: translateX(2px);
 }
 
 @media (min-width: 992px) {
@@ -155,23 +195,22 @@
     z-index: 2;
   }
 
-  .areas-cta {
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-    position: relative;
-    z-index: 3;
-    pointer-events: auto;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
+  .areas-lead {
+    max-width: 42ch;
   }
 
-  .areas-cta-icon {
-    order: 0;
-    margin-left: 6px;
-    transform: translateY(1px);
+  .areas-item {
+    padding-left: 0;
+  }
+
+  .areas-item::before {
+    display: none;
+  }
+
+  .areas-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 18px;
   }
 
   .areas-image-wrapper {
