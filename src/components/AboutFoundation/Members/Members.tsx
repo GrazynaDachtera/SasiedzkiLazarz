@@ -132,7 +132,16 @@ function MemberCard({ m, onOpen }: { m: Member; onOpen: () => void }) {
             onClick={onOpen}
             aria-label={`Zobacz opis: ${m.name}`}
           >
-            Zobacz opis
+            <span>Zobacz opis</span>
+            <svg
+              className="members-more-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M5 12 H19" />
+              <path d="M13 6 L19 12 L13 18" />
+            </svg>
           </button>
         </div>
       </div>
