@@ -1,14 +1,4 @@
-/* Mission.scss — shrink Misja/Wizja to match "Obszary działalności" */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-
-:root {
-  --section-py: clamp(2rem, 4vw, 5rem);
-  --mv-bg: #114538;
-  --mv-fg: #f6fffb;
-  --mv-fg-muted: #eaf7f2;
-  --mv-accent: rgba(255, 255, 255, 0.9);
-  --mv-maxw: 1320px;
-}
 
 .sr-only {
   position: absolute !important;
@@ -23,113 +13,119 @@
 }
 
 .mission-top-wrapper {
-  background: var(--mv-bg);
-  color: var(--mv-fg);
+  background: #ffffff;
+  color: #114538;
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  padding-block: var(--section-py);
-  margin: 0 !important;
+  padding-block: clamp(2rem, 3.6vw, 4rem);
 }
 
 .mission-container {
-  width: min(96%, var(--mv-maxw));
+  width: min(96%, 1120px);
   margin-inline: auto;
 }
 
 .mv-grid {
   display: grid;
+  gap: clamp(14px, 2vw, 24px);
   grid-template-columns: 1fr;
-  gap: clamp(24px, 3vw, 48px);
   justify-items: center;
 }
 
 .mv-card {
-  width: 100%;
-  max-width: 680px;
+  width: min(520px, 100%);
+  min-height: 0;
+  height: 100%;
   position: relative;
-  padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(28px, 4vw, 36px);
+  background: #114538;
+  color: #f6fffb;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(9, 60, 41, 0.18);
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+}
+
+.mv-card__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: clamp(12px, 1.6vw, 16px);
 }
 
 .mv-header {
-  margin-bottom: clamp(6px, 1vw, 8px);
+  margin: 0 0 clamp(2px, 0.6vw, 6px) 0;
 }
 
 .mv-title {
-  /* smaller than before to align with "Obszary działalności" */
-  font-size: clamp(20px, 2.2vw, 28px);
+  margin: 0;
   font-weight: 800;
+  font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1.2;
   letter-spacing: 0.2px;
-  margin: 0;
-  color: var(--mv-fg);
+  color: #f6fffb;
 }
 
 .mv-title::after {
   content: "";
   display: block;
   height: 2px;
-  width: clamp(32px, 7vw, 56px);
-  background: var(--mv-accent);
-  margin-top: clamp(6px, 1vw, 8px);
+  width: clamp(28px, 4.5vw, 44px);
+  margin-top: 4px;
   border-radius: 2px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.mv-body {
+  margin-top: 2px;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mv-text {
   margin: 0;
-  font-size: clamp(15px, 1.4vw, 17px);
-  line-height: 1.8;
-  max-width: 62ch;
-  color: var(--mv-fg-muted);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.55;
+  color: #eaf7f2;
 }
 
-@media (min-width: 820px) {
+.mv-card--mission {
+  box-shadow: 0 12px 24px rgba(9, 60, 41, 0.18), 0 -2px 0 inset #0f3b30;
+}
+
+.mv-card--vision {
+  box-shadow: 0 12px 24px rgba(9, 60, 41, 0.18), 0 -2px 0 inset #0f3b30;
+}
+
+@media (min-width: 860px) {
   .mv-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-  }
-  .mv-text {
-    max-width: 52ch;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    align-items: stretch;
   }
 }
 
-@media (min-width: 1280px) {
-  .mv-card {
-    max-width: 720px;
-  }
-}
-
-@media (max-width: 819px) {
-  .mission-top-wrapper {
-    text-align: center;
-    padding-block: var(--section-py);
-  }
-
+@media (max-width: 859.98px) {
   .mission-container {
-    width: min(92%, var(--mv-maxw));
-    margin-inline: auto;
+    width: min(92%, 1120px);
   }
-
   .mv-grid {
-    justify-items: center;
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
-
   .mv-card {
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    padding-inline: clamp(18px, 5vw, 24px);
-    margin-inline: auto;
+    height: auto;
   }
+  .mv-card__inner {
+    padding: 14px 14px 16px;
+  }
+}
 
+@media (max-width: 859.98px) {
   .mv-title {
     text-align: center;
   }
-
   .mv-title::after {
-    margin-inline: auto;
-  }
-
-  .mv-text {
-    text-align: center;
     margin-inline: auto;
   }
 }

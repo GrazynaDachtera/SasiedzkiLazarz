@@ -1,4 +1,3 @@
-// Mission.tsx
 "use client";
 
 import React from "react";
@@ -36,18 +35,38 @@ export default function Mission({
 
       <div className="mission-container">
         <div className="mv-grid">
-          <article className="mv-card mv-card--left">
-            <header className="mv-header">
-              <h3 className="mv-title">{missionTitle}</h3>
-            </header>
-            <p className="mv-text">{missionText}</p>
+          {/* Misja */}
+          <article
+            className="mv-card mv-card--mission"
+            aria-labelledby="mv-mission-title"
+          >
+            <div className="mv-card__inner">
+              <header className="mv-header">
+                <h3 id="mv-mission-title" className="mv-title">
+                  {missionTitle}
+                </h3>
+              </header>
+              <div className="mv-body" role="region" aria-label="Treść: Misja">
+                <p className="mv-text">{missionText}</p>
+              </div>
+            </div>
           </article>
 
-          <article className="mv-card mv-card--right">
-            <header className="mv-header">
-              <h3 className="mv-title">{visionTitle}</h3>
-            </header>
-            <p className="mv-text">{visionText}</p>
+          {/* Wizja */}
+          <article
+            className="mv-card mv-card--vision"
+            aria-labelledby="mv-vision-title"
+          >
+            <div className="mv-card__inner">
+              <header className="mv-header">
+                <h3 id="mv-vision-title" className="mv-title">
+                  {visionTitle}
+                </h3>
+              </header>
+              <div className="mv-body" role="region" aria-label="Treść: Wizja">
+                <p className="mv-text">{visionText}</p>
+              </div>
+            </div>
           </article>
         </div>
       </div>
