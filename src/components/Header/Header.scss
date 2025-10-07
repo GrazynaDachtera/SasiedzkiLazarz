@@ -1,7 +1,7 @@
 :root {
   --brand-green: #3da575;
-  --cta-green: #2e7d57;
-  --cta-green-hover: #276b49;
+  --cta-green: #114538;
+  --cta-green-hover: #0f3b30;
   --slide-overlay: rgba(0, 0, 0, 0.35);
 }
 
@@ -89,7 +89,7 @@ p {
   font-size: clamp(1rem, 3.4cqw, 1.3rem);
   font-weight: 600;
   color: #eeeeee;
-  background-color: var(--cta-green);
+  background-color: #114538;
   border: none;
   border-radius: clamp(0.55rem, 2cqw, 0.9rem);
   cursor: pointer;
@@ -100,7 +100,7 @@ p {
 
 .slide__cta:hover,
 .slide__cta:focus-visible {
-  background-color: var(--cta-green-hover);
+  background-color: #0f3b30;
 }
 
 .slide__cta:active {

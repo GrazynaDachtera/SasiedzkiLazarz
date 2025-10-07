@@ -290,8 +290,8 @@ export default function ContactComponent() {
 
           <div className="contact-hero">
             <Image
-              src="/Contact/building.jpeg"
-              alt="Budynek siedziby stowarzyszenia"
+              src="/Contact/kontakt.webp"
+              alt="Zdjęcie kontaktu - wspólne rozmowy"
               width={960}
               height={868}
               priority
@@ -309,9 +309,9 @@ export default function ContactComponent() {
               <PhoneIcon />
             </div>
             <div className="meta">
-              <p className="label">Telefon:</p>
-              <a href="tel:605550370" className="value">
-                605 550 370
+              <p className="label">Adres do e-Doręczeń:</p>
+              <a href="AE:PL-76651-22453-HCARI-33" className="value">
+                AE:PL-76651-22453-HCARI-33
               </a>
             </div>
           </div>

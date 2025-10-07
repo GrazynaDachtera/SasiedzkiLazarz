@@ -5,7 +5,7 @@
   --brand-green-strong: #278a61;
   --brand-green-dark: #227a56;
   --text-color: #6a7280;
-  --title-color: #6a7280;
+  --title-color: #114538;
   --section-py: clamp(2rem, 5vw, 6rem);
   --radius-lg: 24px;
   --radius-md: 14px;
@@ -109,7 +109,7 @@
 
 .abc-cats-header h2 {
   margin: 0 0 .25rem;
-  color: var(--brand-green);
+  color: var(--title-color);
   font-weight: 800;
   font-size: clamp(1.25rem, .6vw + 1.1rem, 1.6rem);
 }
@@ -140,6 +140,7 @@
 }
 
 .abc-card {
+  --card-accent: #2e9c6a;
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -150,8 +151,8 @@
   padding: 16px 16px 16px 18px;
   border-radius: var(--radius-md);
   text-decoration: none;
-  background: var(--muted);
-  border: 1px solid rgba(46, 156, 106, .15);
+  background: color-mix(in oklab, var(--card-accent) 14%, #fff);
+  border: 1px solid color-mix(in oklab, var(--card-accent) 35%, #e6ece9);
   color: var(--text-color);
   transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease, color .18s ease;
   box-sizing: border-box;
@@ -162,8 +163,8 @@
 
 .abc-card:hover,
 .abc-card:focus-visible {
-  background: #eaf6f1;
-  border-color: rgba(46, 156, 106, .35);
+  background: color-mix(in oklab, var(--card-accent) 22%, #fff);
+  border-color: color-mix(in oklab, var(--card-accent) 48%, #e6ece9);
   box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
   outline: none;
@@ -174,7 +175,7 @@
   font-weight: 700;
   font-size: clamp(1.02rem, .4vw + 1rem, 1.12rem);
   line-height: 1.2;
-  color: inherit;
+  color: var(--title-color);
 }
 
 .abc-card-icon {
@@ -183,10 +184,23 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: rgba(46,156,106,.12);
+  background: color-mix(in oklab, var(--card-accent) 22%, #fff);
 }
 
-.abc-card .arrow-icon { color: var(--brand-green-strong); }
+.abc-card .arrow-icon { color: var(--card-accent); }
+
+.theme-school { --card-accent: #2e9c6a; }
+.theme-kindergarten { --card-accent: #0ea5a5; }
+.theme-nursery { --card-accent: #16a34a; }
+.theme-health { --card-accent: #0e7490; }
+.theme-library { --card-accent: #2563eb; }
+.theme-sport { --card-accent: #15803d; }
+.theme-religion { --card-accent: #6b21a8; }
+.theme-media { --card-accent: #0369a1; }
+.theme-parks { --card-accent: #166534; }
+.theme-culture { --card-accent: #b45309; }
+.theme-offices { --card-accent: #0f766e; }
+.theme-mustsee { --card-accent: #be123c; }
 
 @media (prefers-reduced-motion: reduce) {
   .abc-card { transition: none; }

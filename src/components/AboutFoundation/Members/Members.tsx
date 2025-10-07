@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import Image from "next/image";
 import { createPortal } from "react-dom";
 import "./Members.scss";
@@ -35,6 +41,7 @@ const defaultMembers: Member[] = [
     name: "Sylwia Badzińska",
     role: "Wiceprezeska Stowarzyszenia",
     bio: "Wiceprezeska stowarzyszenia, radna osiedlowa drugiej kadencji oraz współzałożycielka Stowarzyszenia Łazarz Pomaga. W 2022 roku uhonorowana tytułem Przyjaciel Łazarza za wieloletnie zaangażowanie na rzecz lokalnej społeczności. Od 14 lat aktywnie i z wielkim zaangażowaniem działa w Fundacji dla Zwierząt Animalia, gdzie ratuje bezdomne i porzucone psy oraz koty, prowadzi również dom tymczasowy dla kotów. Posiada bogate doświadczenie w organizacji wydarzeń integrujących mieszkańców Łazarza – pomysłodawczyni m.in. festynu „Łazarskie pożegnanie lata” (koncerty, animacje, prezentacje lokalnych organizacji). Koncerty młodych talentów w ramach Dni Łazarza, a także warsztatów ekologicznych. Każdego roku koordynuje osiedlowy etap miejskiego konkursu Zielony Poznań. Z determinacją walczy o zachowanie i rozwój terenów zielonych na Łazarzu – m.in. terenów po dawnych ogródkach działkowych na południe od ul. Hetmańskiej. Dzięki jej zaangażowaniu w Studium Uwarunkowań i Kierunków Zagospodarowania Przestrzennego udało się zachować jako tereny zielone/działkowe ROD im. O. Kopczyńskiego oraz Marii Curie-Skłodowskiej. Angażuje się również w ochronę lokalnych zabytków – od lat walczy o ocalenie historycznego budynku Sołtysówki przy ul. Głogowskiej 35, a w 2022 roku współorganizowała pierwszy okrągły stół w sprawie ratowania tego obiektu. Walka o zachowanie Sołtysówki trwa i podejmowane są kolejne kroki, by uchronić ją przed zniszczeniem i przywróceniem jej należne miejsca w przestrzeni Łazarza. Współtworzy w Poznaniu miejski Program opieki nad zwierzętami bezdomnymi, a w najbliższym czasie przygotowuje się do udziału w Ogólnopolskim Kongresie Praw Zwierząt organizowanym przez posłanki Sejmu RP.",
+    image: { src: "/AboutFoundation/sylwia.jpeg", alt: "Sylwia Badzińska" },
   },
   {
     name: "Agnieszka Michalak",
@@ -73,11 +80,16 @@ const defaultMembers: Member[] = [
     name: "Paulina Prusiecka",
     role: "Członkini Stowarzyszenia",
     bio: "Członkini stowarzyszenia, radna osiedlowa, absolwentka Uniwersytetu Artystycznego w Poznaniu oraz Uniwersytetu Warszawskiego. Zawodowo zajmuje się marketingiem nieruchomości oraz sektora HORECA. Jej pasją jest łączenie sztuk pięknych, biznesu i działań społecznych. Jest współzałożycielką galerii sztuki i od lat prowadzi rodzinną fundację. Organizatorka wystaw malarstwa i fotografii, wydarzeń charytatywnych na rzecz seniorów i osób z niepełnosprawnościami oraz akcji nasadzania drzew w lokalnych szkołach, przedszkolach i domach opieki.",
+    image: {
+      src: "/AboutFoundation/PaulinaPrusiecka.png",
+      alt: "Paulina Prusiecka",
+    },
   },
   {
     name: "Natalia Gielniak",
     role: "Członkini Stowarzyszenia",
     bio: 'Członkini stowarzyszenia, radna osiedlowa, aktywnie działa także w stowarzyszeniu „Młodzi Razem". Nieocenione wsparcie w organizacji wydarzeń. Brała udział w reprezentacji Łazarza w konkursie Wianki’24 (3 miejsce) oraz w Kulinarnym Turnieju Dzielnic’25.',
+    image: { src: "/AboutFoundation/natalia.JPG", alt: "Natalia Gielniak" },
   },
   {
     name: "Michał Turno",
@@ -149,8 +161,27 @@ export default function Members({
     const first = track.querySelector<HTMLElement>(".members-card");
     const card = first?.getBoundingClientRect().width ?? 0;
     const styles = window.getComputedStyle(track);
-    const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    const gapRaw =
+      styles.getPropertyValue("column-gap") ||
+      styles.getPropertyValue("gap") ||
+      "0";
+    const gap = Number.parseFloat(gapRaw) || 0;
     return { gap, card };
+  };
+
+  const getScrollPadding = () => {
+    const el = trackRef.current;
+    if (!el) return { left: 0, right: 0 };
+    const styles = window.getComputedStyle(el);
+    const left =
+      Number.parseFloat(
+        styles.getPropertyValue("scroll-padding-left") || "0"
+      ) || 0;
+    const right =
+      Number.parseFloat(
+        styles.getPropertyValue("scroll-padding-right") || "0"
+      ) || 0;
+    return { left, right };
   };
 
   const visibleCount = () => {
@@ -159,35 +190,85 @@ export default function Members({
     const { gap, card } = getGapAndCard();
     const per = card + gap;
     if (!per) return 1;
-    return Math.max(1, Math.round(track.clientWidth / per));
+    return Math.max(1, Math.round((track.clientWidth + 0.5) / per));
   };
 
   const updateNavState = () => {
     const el = trackRef.current;
     if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth - 1;
+    const maxScroll = el.scrollWidth - el.clientWidth - 0.5;
     setCanPrev(el.scrollLeft > 0);
     setCanNext(el.scrollLeft < maxScroll);
+  };
+
+  const nearestIndex = (): number => {
+    const el = trackRef.current;
+    if (!el) return 0;
+    const cards = Array.from(el.querySelectorAll<HTMLElement>(".members-card"));
+    if (!cards.length) return 0;
+
+    const pad = getScrollPadding();
+    const leftEdge = el.scrollLeft + pad.left;
+
+    let idx = 0;
+    let min = Number.POSITIVE_INFINITY;
+    for (let i = 0; i < cards.length; i++) {
+      const diff = Math.abs(leftEdge - cards[i].offsetLeft);
+      if (diff < min) {
+        min = diff;
+        idx = i;
+      }
+    }
+    return idx;
+  };
+
+  const snapToNearest = (behavior: ScrollBehavior = "auto") => {
+    const el = trackRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll<HTMLElement>(".members-card"));
+    const idx = nearestIndex();
+    const target = cards[idx];
+    if (target) {
+      target.scrollIntoView({ behavior, inline: "start", block: "nearest" });
+    }
   };
 
   const scrollByVisible = (dir: "left" | "right") => {
     const el = trackRef.current;
     if (!el) return;
-    const { gap, card } = getGapAndCard();
-    const per = card + gap || el.clientWidth;
+
+    const cards = Array.from(el.querySelectorAll<HTMLElement>(".members-card"));
+    if (!cards.length) return;
+
+    const currentIndex = nearestIndex();
     const n = visibleCount();
-    const delta = per * n * (dir === "left" ? -1 : 1);
-    el.scrollBy({ left: delta, behavior: "smooth" });
+    const delta = dir === "left" ? -n : n;
+    const targetIndex = Math.max(
+      0,
+      Math.min(currentIndex + delta, cards.length - 1)
+    );
+
+    cards[targetIndex].scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+      block: "nearest",
+    });
   };
 
   useEffect(() => {
     updateNavState();
     const el = trackRef.current;
     if (!el) return;
+
     const onScroll = () => updateNavState();
     el.addEventListener("scroll", onScroll, { passive: true });
-    const ro = new ResizeObserver(() => updateNavState());
+
+    const ro = new ResizeObserver(() => {
+      updateNavState();
+      snapToNearest("auto");
+    });
     ro.observe(el);
+
     return () => {
       el.removeEventListener("scroll", onScroll);
       ro.disconnect();
@@ -197,6 +278,7 @@ export default function Members({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState<Member | null>(null);
   const [mounted, setMounted] = useState(false);
+
   const supportsDialog =
     typeof window !== "undefined" &&
     typeof HTMLDialogElement !== "undefined" &&
@@ -213,12 +295,12 @@ export default function Members({
     document.body.style.overflow = "hidden";
   };
 
-  const closeDialog = () => {
+  const closeDialog = useCallback(() => {
     if (supportsDialog) dialogRef.current?.close();
     setActive(null);
     document.body.style.overflow = "";
     document.documentElement.classList.remove("members-modal-open");
-  };
+  }, [supportsDialog]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -226,14 +308,14 @@ export default function Members({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [closeDialog]);
 
   useEffect(() => {
     return () =>
       document.documentElement.classList.remove("members-modal-open");
   }, []);
 
-  const dialogUI =
+  const dialogNode: React.ReactNode =
     active &&
     (supportsDialog ? (
       <dialog
@@ -378,9 +460,7 @@ export default function Members({
         </div>
       </div>
 
-      {mounted
-        ? createPortal(dialogUI as React.ReactNode, document.body)
-        : null}
+      {mounted ? createPortal(dialogNode, document.body) : null}
     </section>
   );
 }

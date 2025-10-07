@@ -24,8 +24,10 @@ const ArrowIcon = () => (
   </svg>
 );
 
+type Feature = { title: string; href: string };
+
 export default function AbcPage() {
-  const features = [
+  const features: Feature[] = [
     { title: "Szkoły", href: "/Abc/List/School" },
     { title: "Przedszkola", href: "/Abc/List/Kindergarten" },
     { title: "Żłobki", href: "/Abc/List/Nurseries" },
@@ -82,11 +84,11 @@ export default function AbcPage() {
             <p>Wybierz interesującą Cię sekcję</p>
           </div>
           <div className="abc-cats-grid" role="list">
-            {features.map((f) => (
+            {features.map((f, i) => (
               <Link
                 href={f.href}
                 key={f.href}
-                className="abc-card"
+                className={`abc-card tone-${i + 1}`}
                 role="listitem"
                 aria-label={f.title}
               >

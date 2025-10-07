@@ -383,9 +383,6 @@ export default function PrivacyPolicyPage() {
           <button className="btn" onClick={() => setShowAll((v) => !v)}>
             {showAll ? "Pokaż tylko wybraną" : "Pokaż wszystko"}
           </button>
-          <button className="btn" onClick={() => window.print()}>
-            Drukuj PDF
-          </button>
           <button className="btn" onClick={copyLink}>
             {copied ? "Skopiowano" : "Kopiuj link do sekcji"}
           </button>

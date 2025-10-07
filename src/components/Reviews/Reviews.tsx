@@ -68,9 +68,9 @@ export default function Reviews() {
             <PhoneIcon />
           </div>
           <div className="meta">
-            <p className="label">Telefon:</p>
-            <a href="tel:605550370" className="value">
-              605 550 370
+            <p className="label">Adres do e-Doręczeń:</p>
+            <a href="AE:PL-76651-22453-HCARI-33" className="value">
+              AE:PL-76651-22453-HCARI-33
             </a>
           </div>
         </div>
