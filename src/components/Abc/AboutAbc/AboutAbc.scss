@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 :root {
-  --brand-green: #2e9c6a;
-  --brand-green-strong: #278a61;
-  --brand-green-dark: #227a56;
+  --brand-green: #114538;
+  --brand-green-strong: #114538;
+  --brand-green-dark: #114538;
   --text-color: #6a7280;
   --title-color: #114538;
   --section-py: clamp(2rem, 5vw, 6rem);
@@ -141,7 +141,7 @@
 }
 
 .abc-card {
-  --card-accent: #2e9c6a;
+  --card-accent: #114538;
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
