@@ -43,6 +43,7 @@
   scroll-snap-stop: always;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  background: #fff;
 }
 .members-track::-webkit-scrollbar { display: none; }
 
@@ -55,18 +56,17 @@
 .members-card {
   scroll-snap-align: start;
   border-radius: var(--card-radius);
-  background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
-  border: 1px solid rgba(17, 69, 56, 0.10);
+  background: #fff;
+  border: none;
   box-shadow: var(--shadow);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 .members-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(17, 69, 56, 0.18);
 }
 
 /* Photo */
@@ -93,6 +93,7 @@
   font-weight: 800;
   font-size: clamp(24px, 6vw, 42px);
   color: #fff;
+  background: linear-gradient(135deg, #62b190, #2e7a64);
 }
 
 /* Meta */
@@ -237,6 +238,7 @@
   height: 100%;
   display: grid;
   place-items: center;
+  background: linear-gradient(135deg, #62b190, #2e7a64);
   color: #fff;
   font-weight: 800;
   font-size: 36px;
