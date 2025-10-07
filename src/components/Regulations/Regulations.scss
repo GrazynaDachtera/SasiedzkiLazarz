@@ -119,7 +119,7 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 .regulations-navitem:hover,
 .regulations-navitem:focus-visible { background: #f3f4f6; }
-.regulations-navitem.is-active { background: #eef2f7; color: $text; }
+.regulations-navitem.is-active { background: #e5f6eb; color: #14532d; }
 
 .regulations-navmarker { font-weight: 800; color: inherit; }
 .regulations-navtitle { color: inherit; }
@@ -175,7 +175,10 @@ mark { background: #fff3bf; padding: 0 2px; border-radius: 3px; color: inherit; 
   }
 }
 
-.regulations-sublist { list-style: disc; }
+.regulations-sublist {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
 
 .regulations-content a {
   color: inherit;
@@ -206,7 +209,7 @@ mark { background: #fff3bf; padding: 0 2px; border-radius: 3px; color: inherit; 
 }
 
 @media print {
-  .regulations-wrapper { padding-bottom: 0; color: #6a7280; }
+  .regulations-wrapper { padding-bottom: 0; color: #000; }
   .regulations-actions, .regulations-sidenav, .back-btn { display: none !important; }
   .regulations-grid { display: block; padding: 0; }
   .regulations-content { width: 100%; margin: 0; }
