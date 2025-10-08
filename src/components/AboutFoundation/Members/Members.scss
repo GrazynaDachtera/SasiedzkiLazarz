@@ -323,3 +323,11 @@
 .members-modal-open #__next {
   transform: none !important;
 }
+
+@media (max-width: 768px) {
+  .members-card::before,
+  .members-card:hover::before,
+  .members-card:focus-within::before {
+    border-color: var(--brand-green);
+  }
+}
