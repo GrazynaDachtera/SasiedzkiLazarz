@@ -16,12 +16,17 @@
   background: #ffffff;
   color: #114538;
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  padding-block: clamp(2rem, 3.6vw, 4rem);
+  padding-block: clamp(1rem, 3vw, 3rem) !important;
+  margin-top: clamp(-16px, -2vw, -28px);
+  padding-inline: clamp(16px, 4vw, 32px);
 }
 
 .mission-container {
-  width: min(96%, 1120px);
-  margin-inline: auto;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
 }
 
 .mv-grid {
@@ -106,9 +111,6 @@
 }
 
 @media (max-width: 859.98px) {
-  .mission-container {
-    width: min(92%, 1120px);
-  }
   .mv-grid {
     grid-template-columns: 1fr;
     align-items: stretch;

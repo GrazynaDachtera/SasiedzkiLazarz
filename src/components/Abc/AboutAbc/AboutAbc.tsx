@@ -13,11 +13,12 @@ const ArrowIcon = () => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="butt"
-    strokeLinejoin="miter"
+    strokeWidth="2.25"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className="arrow-icon"
     aria-hidden="true"
+    focusable="false"
   >
     <path d="M7 7 L17 17" />
     <path d="M17 7 L17 17 L7 17" />
@@ -46,14 +47,14 @@ export default function AbcPage() {
   ];
 
   return (
-    <section className="Abc">
+    <section className="Abc" aria-labelledby="abc-title">
       <div className="abc-hero">
         <div className="abc-container">
           <div className="abc-hero-grid">
             <div className="abc-hero-media">
               <Image
-                src="/Abc/person.jpg"
-                alt="Portret osoby"
+                src="/Abc/people.jpeg"
+                alt="Portret osoby stojącej wśród kwiatów"
                 width={652}
                 height={336}
                 className="abc-hero-img"
@@ -63,7 +64,9 @@ export default function AbcPage() {
             </div>
             <div className="abc-hero-copy">
               <p className="abc-eyebrow">Przewodnik mieszkańca</p>
-              <h1 className="abc-title">Osiedlowe ABC</h1>
+              <h1 id="abc-title" className="abc-title">
+                Osiedlowe ABC
+              </h1>
               <p className="abc-desc">
                 Osiedlowe ABC to praktyczny przewodnik po najważniejszych
                 miejscach i usługach w naszej okolicy. W jednym miejscu
@@ -83,17 +86,18 @@ export default function AbcPage() {
             <h2>Kategorie</h2>
             <p>Wybierz interesującą Cię sekcję</p>
           </div>
+
           <div className="abc-cats-grid" role="list">
-            {features.map((f, i) => (
+            {features.map((f) => (
               <Link
                 href={f.href}
                 key={f.href}
-                className={`abc-card tone-${i + 1}`}
+                className="abc-card"
                 role="listitem"
                 aria-label={f.title}
               >
                 <span className="abc-card-title">{f.title}</span>
-                <span className="abc-card-icon">
+                <span className="abc-card-icon" aria-hidden>
                   <ArrowIcon />
                 </span>
               </Link>
