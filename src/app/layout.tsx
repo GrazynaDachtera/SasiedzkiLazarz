@@ -1,15 +1,13 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import GAReporter from "./GAReporter";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
-  title: {
-    default: "Sąsiedzki Łazarz",
-    template: "%s | Sąsiedzki Łazarz",
-  },
+  title: { default: "Sąsiedzki Łazarz", template: "%s | Sąsiedzki Łazarz" },
   description: "Łazarski portal sąsiedzki.",
   icons: { icon: "/icon.png" },
 };
@@ -22,7 +20,6 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body>
-        {/* Loader i inicjalizacja GA4 */}
         {GA_ID && (
           <>
             <Script
@@ -44,8 +41,10 @@ export default function RootLayout({
           </>
         )}
 
-        {/* Rejestrowanie odsłon przy zmianach tras w App Router */}
-        <GAReporter />
+        {/* wrap hooks-based client component in Suspense */}
+        <Suspense fallback={null}>
+          <GAReporter />
+        </Suspense>
 
         {children}
       </body>
