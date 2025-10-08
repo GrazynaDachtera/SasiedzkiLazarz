@@ -10,16 +10,28 @@ $accent: #114538;
   margin-top: clamp(-16px, -2vw, -28px);
 }
 
-/* shared container */
-.projects-container {
+/* Container — fixed roomy padding on desktop */
+.Projects .projects-container {
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  padding-left: 72px;
+  padding-right: 72px;
   box-sizing: border-box;
 }
 
-/* HERO (matches ABC hero) */
+/* Keep it generous on tablets; compact on phones */
+@media (max-width: 1024px) {
+  .Projects .projects-container { padding-inline: 56px; }
+}
+@media (max-width: 768px) {
+  .Projects .projects-container { padding-inline: 28px; }
+}
+@media (max-width: 480px) {
+  .Projects .projects-container { padding-inline: 16px; }
+}
+
+/* HERO */
 .projects-hero {
   background: #ffffff;
   padding-block: clamp(1rem, 3vw, 3rem);
@@ -99,7 +111,7 @@ $accent: #114538;
   width: 100%;
 }
 
-/* card style = same as ABC cards */
+/* cards */
 .projects-card {
   position: relative;
   display: grid;
