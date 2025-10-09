@@ -1,21 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
-:root {
-  --section-py: clamp(2rem, 5vw, 6rem);
-  --brand-green: #114538;
-  --text-color: #6a7280;
-  --body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
-  --image-radius: 22px;
-  --image-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
-  --muted: #98a2b3;
-}
-
 .areas-top-wrapper {
   width: 100%;
   background: #f8f9fa;
-  padding-block: var(--section-py);
+  padding-block: clamp(2rem, 5vw, 6rem);
   font-family: "Poppins", sans-serif;
-  color: var(--text-color);
+  color: #6a7280;
 }
 
 .areas-container {
@@ -41,23 +31,24 @@
 .areas-title {
   font-weight: 800;
   font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.9rem);
-  color: var(--brand-green);
+  color: #114538;
   margin-bottom: 0.6rem;
+  line-height: 1.15; /* tighter heading */
 }
 
 .areas-lead {
   font-size: clamp(1rem, 0.6vw + 1rem, 1.15rem);
-  color: var(--muted);
-  line-height: 1.7;
+  color: #6a7280;
+  line-height: 1.5; /* was 1.7 */
   margin: 0 0 1.1rem 0;
 }
 
 .areas-description {
   font-weight: 400;
-  font-size: var(--body-fs);
-  line-height: 1.7;
+  font-size: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
+  line-height: 1.55; /* was 1.7 */
   margin: 0;
-  color: var(--text-color);
+  color: #6a7280;
 }
 
 .areas-list {
@@ -69,7 +60,7 @@
 .areas-item {
   position: relative;
   padding-left: 1.6rem;
-  margin: 0.55rem 0;
+  margin: 0.5rem 0;
   transition: transform 0.2s ease;
 }
 
@@ -81,7 +72,7 @@
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: var(--brand-green);
+  background: #114538;
   box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.08);
 }
 
@@ -91,14 +82,15 @@
 
 .areas-item-title {
   font-weight: 700;
-  color: var(--brand-green);
+  color: #114538;
   font-size: inherit;
-  line-height: 1.5;
+  line-height: 1.25; /* was 1.5 */
   margin: 0;
 }
 
 .areas-item-text {
   margin-top: 2px;
+  line-height: 1.55; /* match body rhythm */
 }
 
 .areas-image-wrapper {
@@ -113,8 +105,8 @@
   height: auto;
   object-fit: cover;
   display: block;
-  border-radius: var(--image-radius);
-  box-shadow: var(--image-shadow);
+  border-radius: 22px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
   background: #fff;
 }
 
@@ -124,7 +116,7 @@
   gap: 10px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: var(--brand-green);
+  background: #114538;
   color: #fff;
   font-weight: 600;
   font-size: clamp(1rem, 0.6vw + 1rem, 1.1rem);
@@ -235,5 +227,5 @@
 }
 
 .areas-description strong {
-  color: var(--brand-green);
+  color: #114538;
 }
