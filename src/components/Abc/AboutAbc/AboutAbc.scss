@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 $accent: #114538;
+$abc-gap: clamp(1rem, 3vw, 3rem);
 
 .Abc {
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #114538;
-    padding-block: clamp(1rem, 3vw, 3rem);
+  padding-block: 0 $abc-gap;
   margin-top: clamp(-16px, -2vw, -28px);
 }
 
@@ -19,8 +20,7 @@ $accent: #114538;
 
 .abc-hero {
   background: #ffffff;
-  padding-block: clamp(1rem, 3vw, 3rem);
-  padding-top: clamp(1rem, 2.2vw, 1.6rem);
+  padding-block: 0 $abc-gap;
 }
 
 .abc-hero-grid {
@@ -30,10 +30,7 @@ $accent: #114538;
   align-items: center;
 }
 
-.abc-hero-media {
-  display: grid;
-  place-items: center;
-}
+.abc-hero-media { display: grid; place-items: center; }
 
 .abc-hero-img {
   display: block;
@@ -45,9 +42,7 @@ $accent: #114538;
   object-fit: cover;
 }
 
-.abc-hero-copy {
-  color: #114538;
-}
+.abc-hero-copy { color: #114538; }
 
 .abc-eyebrow {
   margin: 0 0 6px 0;
@@ -74,11 +69,7 @@ $accent: #114538;
 
 .abc-categories {
   background: #ffffff;
-  padding-block: clamp(1rem, 3vw, 3rem);
-}
-
-.abc-hero + .abc-categories {
-  padding-top: clamp(0.75rem, 2vw, 1.5rem);
+  padding-block: 0;
 }
 
 .abc-cats-header {
@@ -141,9 +132,7 @@ $accent: #114538;
 }
 
 .abc-card:link,
-.abc-card:visited {
-  color: #0f3b30;
-}
+.abc-card:visited { color: #0f3b30; }
 
 .abc-card:hover {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.06);
@@ -191,26 +180,14 @@ $accent: #114538;
 }
 
 @media (max-width: 859.98px) {
-  .abc-hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .abc-hero-img {
-    border-radius: 16px;
-  }
-  .abc-hero-copy {
-    max-width: 60ch;
-    margin-inline: auto;
-  }
-  .abc-cats-header {
-    text-align: center;
-  }
+  .abc-hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .abc-hero-img { border-radius: 16px; }
+  .abc-hero-copy { max-width: 60ch; margin-inline: auto; }
+  .abc-cats-header { text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .abc-card {
-    transition: none;
-  }
+  .abc-card { transition: none; }
 }
 
 .abc-card:hover,

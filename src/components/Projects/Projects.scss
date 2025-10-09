@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
 $accent: #114538;
+$projects-gap: clamp(1rem, 3vw, 3rem);
 
 .Projects {
   background: #ffffff;
   color: #114538;
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  padding-block: clamp(1rem, 3vw, 3rem);
+  padding-block: 0 $projects-gap;
   margin-top: clamp(-16px, -2vw, -28px);
 }
 
-/* Container — fixed roomy padding on desktop */
 .Projects .projects-container {
   width: 100%;
   max-width: 1180px;
@@ -20,7 +20,6 @@ $accent: #114538;
   box-sizing: border-box;
 }
 
-/* Keep it generous on tablets; compact on phones */
 @media (max-width: 1024px) {
   .Projects .projects-container { padding-inline: 56px; }
 }
@@ -31,11 +30,9 @@ $accent: #114538;
   .Projects .projects-container { padding-inline: 16px; }
 }
 
-/* HERO */
 .projects-hero {
   background: #ffffff;
-  padding-block: clamp(1rem, 3vw, 3rem);
-  padding-top: clamp(0.75rem, 1.6vw, 1.25rem);
+  padding-block: 0 $projects-gap;
 }
 
 .projects-hero-grid {
@@ -82,7 +79,6 @@ $accent: #114538;
   color: #6a7280;
 }
 
-/* LIST header */
 .projects-header {
   text-align: left;
   margin-bottom: clamp(10px, 1.4vw, 14px);
@@ -103,7 +99,6 @@ $accent: #114538;
   font-weight: 600;
 }
 
-/* grid for cards */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -111,7 +106,6 @@ $accent: #114538;
   width: 100%;
 }
 
-/* cards */
 .projects-card {
   position: relative;
   display: grid;
@@ -185,7 +179,6 @@ $accent: #114538;
   height: 18px;
 }
 
-/* responsive tweaks */
 @media (min-width: 860px) {
   .projects-hero-grid {
     grid-template-columns: 1.05fr 1fr;
