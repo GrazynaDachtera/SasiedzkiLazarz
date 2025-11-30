@@ -6,6 +6,7 @@
   padding-block: clamp(2rem, 5vw, 6rem);
   font-family: "Poppins", sans-serif;
   color: #6a7280;
+  --areas-item-text-size: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 .areas-container {
@@ -33,20 +34,20 @@
   font-size: clamp(1.2rem, 2.2vw + 0.5rem, 1.9rem);
   color: #114538;
   margin-bottom: 0.6rem;
-  line-height: 1.15; /* tighter heading */
+  line-height: 1.15;
 }
 
 .areas-lead {
-  font-size: clamp(1rem, 0.6vw + 1rem, 1.15rem);
+  font-size: var(--areas-item-text-size);
   color: #6a7280;
-  line-height: 1.5; /* was 1.7 */
+  line-height: 1.5;
   margin: 0 0 1.1rem 0;
 }
 
 .areas-description {
   font-weight: 400;
   font-size: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
-  line-height: 1.55; /* was 1.7 */
+  line-height: 1.55;
   margin: 0;
   color: #6a7280;
 }
@@ -84,13 +85,13 @@
   font-weight: 700;
   color: #114538;
   font-size: inherit;
-  line-height: 1.25; /* was 1.5 */
+  line-height: 1.25;
   margin: 0;
 }
 
 .areas-item-text {
   margin-top: 2px;
-  line-height: 1.55; /* match body rhythm */
+  line-height: 1.55;
 }
 
 .areas-image-wrapper {
@@ -122,7 +123,8 @@
   font-size: clamp(1rem, 0.6vw + 1rem, 1.1rem);
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(17, 69, 56, 0.18);
-  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
   margin-top: 22px;
 }
 
@@ -138,7 +140,8 @@
 
 .areas-btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.25), 0 8px 20px rgba(17, 69, 56, 0.18);
+  box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.25),
+    0 8px 20px rgba(17, 69, 56, 0.18);
 }
 
 .areas-btn-icon {
@@ -162,6 +165,7 @@
     flex: 0 0 50%;
     max-width: 50%;
   }
+
   .areas-image {
     width: 95%;
     max-width: 600px;

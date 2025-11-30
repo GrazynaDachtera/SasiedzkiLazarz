@@ -49,7 +49,7 @@ const DEFAULT_ITEMS: ActivityItem[] = [
   },
   {
     title: "…i dużo więcej",
-    text: "Akcje sąsiedzkie, konsultacje, porady. Jeśli coś poprawia codzienność na Łazarzu — wchodzimy w to.",
+    text: "Akcje sąsiedzkie, konsultacje, porady. Jeśli coś poprawia codzienność na Łazarzu - wchodzimy w to.",
   },
 ];
 
