@@ -35,7 +35,7 @@ $pad-desktop: 2rem;
   margin: 0;
   padding: clamp(1.25rem, 2.5vw, 2.5rem) $pad-desktop;
   font: 800 clamp(2rem, 4vw + 1rem, 3rem) "Poppins", sans-serif;
-  color: #6a7280; // grey text
+  color: #374151;
   background: #f1f1f1;
   padding-top: calc(var(--nav-h) + 4rem);
 }
@@ -46,6 +46,6 @@ $pad-desktop: 2rem;
 .ProjectsHeading-wrapper .ProjectsHeading-title a:visited,
 .ProjectsHeading-wrapper .ProjectsHeading-title a:hover,
 .ProjectsHeading-wrapper .ProjectsHeading-title a:active {
-  color: #6a7280 !important;
+  color: #374151 !important;
   text-decoration: none;
 }

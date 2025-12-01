@@ -4,13 +4,19 @@
   --nav-h: 80px;
 }
 @media (max-width: 1024px) {
-  :root { --nav-h: 72px; }
+  :root {
+    --nav-h: 72px;
+  }
 }
 @media (max-width: 480px) {
-  :root { --nav-h: 86px; }
+  :root {
+    --nav-h: 86px;
+  }
 }
 
-html { scroll-padding-top: calc(var(--nav-h) + 2rem); }
+html {
+  scroll-padding-top: calc(var(--nav-h) + 2rem);
+}
 
 $pad-desktop: 2rem;
 $pad-tablet: 2rem;
@@ -37,7 +43,7 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   padding: clamp(1.25rem, 2.5vw, 2.5rem) $pad-desktop;
   font-weight: 800;
   font-size: clamp(2rem, 4vw + 1rem, 3rem);
-  color: $text;
+  color: #374151;
   background: #f1f1f1;
   padding-top: calc(var(--nav-h) + 4rem);
 }
@@ -83,18 +89,24 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }
 
 @media (max-width: 1024px) {
-  .help-title, .help-subtitle, .help-text {
+  .help-title,
+  .help-subtitle,
+  .help-text {
     padding-left: $pad-tablet;
     padding-right: $pad-tablet;
   }
 }
 
 @media (max-width: 480px) {
-  .help-title, .help-subtitle, .help-text {
+  .help-title,
+  .help-subtitle,
+  .help-text {
     padding-left: $pad-phone;
     padding-right: $pad-phone;
   }
-  .help-subtitle { text-align: center; }
+  .help-subtitle {
+    text-align: center;
+  }
 }
 
 .sr-only {
@@ -128,8 +140,12 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   transition: background 0.2s ease, transform 0.05s ease;
 }
 
-.copy-btn:hover { background: rgba(46, 156, 106, 0.08); }
-.copy-btn:active { transform: translateY(1px); }
+.copy-btn:hover {
+  background: rgba(46, 156, 106, 0.08);
+}
+.copy-btn:active {
+  transform: translateY(1px);
+}
 .copy-btn.is-copied {
   background: rgba(46, 156, 106, 0.14);
   border-color: $green;
