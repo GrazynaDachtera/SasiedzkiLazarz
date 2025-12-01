@@ -1,4 +1,3 @@
-// MapComponent.tsx
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -119,14 +118,14 @@ export default function MapComponent({
         </div>
 
         <div className="list">
-          <div>
+          <div className="list-row list-row--accent">
             <b>NIP:</b> {nip}
           </div>
-          <div>
+          <div className="list-row list-row--accent">
             <b>REGON:</b> {regon}
           </div>
           {krs && (
-            <div>
+            <div className="list-row">
               <b>KRS:</b> {krs}
             </div>
           )}

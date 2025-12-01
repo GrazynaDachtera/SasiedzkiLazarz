@@ -37,7 +37,7 @@
   border-radius: 22px;
   padding: 26px 28px;
   line-height: 1.55;
-  color: #6a6a6a;
+  color: #4b4b4b;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06), 0 28px 60px rgba(0, 0, 0, 0.12);
   pointer-events: none;
 }
@@ -87,6 +87,10 @@
 
 .list > div b {
   font-weight: 700;
+}
+
+.list-row--accent b {
+  color: var(--accent);
 }
 
 .leaflet-right .leaflet-control-zoom {
