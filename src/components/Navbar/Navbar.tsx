@@ -58,7 +58,7 @@ export default function NavBar() {
   }, [close]);
 
   const items = [
-    { label: "O nas", path: "/AboutFoundation" },
+    { label: "O nas", path: "/AboutUs" },
     { label: "Aktualności", path: "/NewsPage" },
     { label: "Osiedlowe ABC", path: "/Abc" },
     { label: "Projekty", path: "/Projects" },

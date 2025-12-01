@@ -11,7 +11,7 @@ import Cookies from "@/components/Cookies/Cookies";
 import "@/app/globals.css";
 import { useSmoothScrollbar } from "@/components/hooks/useSmoothScrollbar";
 
-export default function AboutFoundationPage() {
+export default function AboutUsPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   useSmoothScrollbar(scrollRef);
 

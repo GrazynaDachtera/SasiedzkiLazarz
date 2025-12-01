@@ -48,7 +48,7 @@ const FooterFirstSection = () => {
     {
       header: "Sąsiedzki Łazarz",
       links: [
-        { text: "O nas", to: "/AboutFoundation" },
+        { text: "O nas", to: "/AboutUs" },
         { text: "Aktualności", to: "/NewsPage" },
         { text: "Osiedlowe ABC", to: "/Abc" },
         { text: "Projekty", to: "/Projects" },
