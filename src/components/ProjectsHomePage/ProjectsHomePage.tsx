@@ -15,7 +15,7 @@ const ProjectsHomePage: React.FC = () => {
               <h2 className="projectsHomePage-title">Projekty</h2>
               <p className="projectsHomePage-description">
                 Poznaj inicjatywy, które tworzymy razem z mieszkankami i
-                mieszkańcami Łazarza. Realizujemy projekty ożywiające okolicę —
+                mieszkańcami Łazarza. Realizujemy projekty ożywiające okolicę -
                 od zielonych nasadzeń i wspólnych przestrzeni, przez spacery i
                 warsztaty, po działania integrujące sąsiadów. Zobacz, nad czym
                 pracujemy i dołącz do nas!
