@@ -69,8 +69,6 @@ export default function DonationPage() {
 
   return (
     <main className="help-wrapper">
-      <h1 className="help-title">Ty też możesz pomóc</h1>
-
       <section className="help-content">
         <h2 className="help-subtitle">
           Wesprzyj Stowarzyszenie Sąsiedzki Łazarz
