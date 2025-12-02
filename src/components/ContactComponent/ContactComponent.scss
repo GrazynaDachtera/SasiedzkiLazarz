@@ -80,6 +80,11 @@ $pad-phone: 1rem;
   text-wrap: balance;
 }
 
+.contact-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .contact-hero {
   position: relative;
   pointer-events: none;

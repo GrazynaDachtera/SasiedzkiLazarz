@@ -3,6 +3,7 @@
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Poppins } from "next/font/google";
 import emailjs from "@emailjs/browser";
 import "./ContactComponent.scss";
@@ -178,7 +179,9 @@ export default function ContactComponent() {
       <div className="contact-top">
         <div className="contact-container contact-grid">
           <div className="contact-form">
-            <h1 className="contact-title">Kontakt</h1>
+            <h1 className="contact-title">
+              <Link href="/Contact">Kontakt</Link>
+            </h1>
 
             <form
               ref={formRef}
