@@ -1,24 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
-:root {
-  --nav-h: 80px;
-}
-@media (max-width: 1024px) {
-  :root {
-    --nav-h: 72px;
-  }
-}
-@media (max-width: 480px) {
-  :root {
-    --nav-h: 86px;
-  }
-}
-
-html {
-  scroll-padding-top: calc(var(--nav-h) + 2rem);
-}
-
 $pad-desktop: 2rem;
+
+$nav-h-desktop: 80px;
+$nav-h-tablet: 72px;
+$nav-h-mobile: 86px;
 
 .AboutFoundationHeading-wrapper {
   display: flex;
@@ -36,7 +22,19 @@ $pad-desktop: 2rem;
   font: 800 clamp(2rem, 4vw + 1rem, 3rem) "Poppins", sans-serif;
   color: #374151;
   background: #f1f1f1;
-  padding-top: calc(var(--nav-h) + 4rem);
+  padding-top: calc(#{$nav-h-desktop} + 4rem);
+}
+
+@media (max-width: 1024px) {
+  .AboutFoundationHeading-title {
+    padding-top: calc(#{$nav-h-tablet} + 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .AboutFoundationHeading-title {
+    padding-top: calc(#{$nav-h-mobile} + 4rem);
+  }
 }
 
 .AboutFoundationHeading-title a {

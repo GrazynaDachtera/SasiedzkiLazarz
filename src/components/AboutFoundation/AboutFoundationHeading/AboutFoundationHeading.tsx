@@ -7,7 +7,7 @@ export default function AboutFoundationHeading() {
   return (
     <main className="AboutFoundationHeading-wrapper">
       <h1 className="AboutFoundationHeading-title">
-        <Link href="/AboutFoundation">O nas</Link>
+        <Link href="/AboutUs">O nas</Link>
       </h1>
     </main>
   );
