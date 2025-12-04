@@ -1,10 +1,8 @@
-:root {
-  --section-py: clamp(1.5rem, 2vw, 3rem);
-  --brand-green: #114538;
-  --cta-green: #114538;
-  --cta-green-hover: #0f3b30;
-  font-family: "Poppins", sans-serif;
-}
+$section-py: clamp(1.5rem, 2vw, 3rem);
+$brand-green: #114538;
+$cta-green: #114538;
+$cta-green-hover: #0f3b30;
+$font-family: "Poppins", sans-serif;
 
 $text: #6a7280;
 $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
@@ -16,15 +14,13 @@ $bp-xs: 400px;
 
 .ProjectsHomePage {
   width: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: $font-family;
   color: $text;
 }
 
-/* ——— Hero/top section ——— */
-
 .projectsHomePage-top-wrapper {
   background-color: #f8f9fa;
-  padding-block: var(--section-py);
+  padding-block: $section-py;
 }
 
 .projectsHomePage-container {
@@ -98,7 +94,7 @@ $bp-xs: 400px;
   font-size: clamp(2rem, 4vw + 1rem, 3rem);
   font-weight: 700;
   margin-bottom: 20px;
-  color: #114538;
+  color: $brand-green;
 }
 
 .projectsHomePage-description {
@@ -113,7 +109,7 @@ $bp-xs: 400px;
   font-size: 1rem;
   font-weight: 600;
   color: #eeeeee;
-  background-color: var(--cta-green);
+  background-color: $cta-green;
   border: none;
   border-radius: 0.6rem;
   cursor: pointer;
@@ -123,7 +119,7 @@ $bp-xs: 400px;
 
 .projectsHomePage-button:hover,
 .projectsHomePage-button:focus-visible {
-  background-color: var(--cta-green-hover);
+  background-color: $cta-green-hover;
 }
 
 @media (max-width: $bp-lg) {
@@ -140,7 +136,8 @@ $bp-xs: 400px;
   border-radius: 1.25rem;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12), 0 2px 8px rgba(16, 24, 40, 0.06);
+  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12),
+    0 2px 8px rgba(16, 24, 40, 0.06);
   aspect-ratio: 652 / 336;
   max-width: clamp(360px, 38vw, 540px);
 }
@@ -152,8 +149,6 @@ $bp-xs: 400px;
   object-fit: cover;
   object-position: center;
 }
-
-/* ——— Tighten padding on smaller screens ——— */
 
 @media (max-width: $bp-xs) {
   .projectsHomePage-container {
