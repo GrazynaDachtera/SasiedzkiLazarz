@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Poppins } from "next/font/google";
 import "./MapComponent.scss";
 
@@ -18,6 +18,17 @@ type Props = {
 };
 
 type LeafletModule = typeof import("leaflet");
+type LeafletMap = import("leaflet").Map;
+type LeafletHandler = import("leaflet").Handler;
+
+type MapWithHandlers = LeafletMap & {
+  dragging: LeafletHandler;
+  touchZoom: LeafletHandler;
+  doubleClickZoom: LeafletHandler;
+  boxZoom: LeafletHandler;
+  keyboard: LeafletHandler;
+  scrollWheelZoom: LeafletHandler;
+};
 
 export default function MapComponent({
   company = "Sąsiedzki Łazarz",
@@ -27,6 +38,32 @@ export default function MapComponent({
   className = "",
 }: Props) {
   const mapEl = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<LeafletMap | null>(null);
+
+  const [mapUnlocked, setMapUnlocked] = useState(false);
+
+  const setInteractivity = useCallback((enabled: boolean) => {
+    const base = mapRef.current;
+    if (!base) return;
+
+    const map = base as MapWithHandlers;
+
+    if (enabled) {
+      map.dragging.enable();
+      map.touchZoom.enable();
+      map.doubleClickZoom.enable();
+      map.boxZoom.enable();
+      map.keyboard.enable();
+      map.scrollWheelZoom.enable();
+    } else {
+      map.dragging.disable();
+      map.touchZoom.disable();
+      map.doubleClickZoom.disable();
+      map.boxZoom.disable();
+      map.keyboard.disable();
+      map.scrollWheelZoom.disable();
+    }
+  }, []);
 
   useEffect(() => {
     if (!mapEl.current) return;
@@ -48,7 +85,15 @@ export default function MapComponent({
         center: [52.4064, 16.9252],
         zoom: 15,
         zoomControl: false,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false,
+        scrollWheelZoom: false,
+        boxZoom: false,
+        keyboard: false,
       });
+
+      mapRef.current = map;
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
@@ -70,13 +115,9 @@ export default function MapComponent({
 
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?${params.toString()}`,
-          {
-            headers: {
-              "Accept-Language": "pl",
-              "User-Agent": "MapComponent/1.0 (contact: example@example.com)",
-            },
-          }
+          { headers: { "Accept-Language": "pl" } },
         );
+
         const data: Array<{ lat: string; lon: string }> = await res.json();
         if (data[0]) {
           return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
@@ -89,11 +130,48 @@ export default function MapComponent({
     };
 
     void init();
+
+    return () => {
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
   }, []);
+
+  useEffect(() => {
+    setInteractivity(mapUnlocked);
+  }, [mapUnlocked, setInteractivity]);
 
   return (
     <section className={`MapComponent ${poppins.className} ${className}`}>
-      <div ref={mapEl} className="map-embed" />
+      <div
+        ref={mapEl}
+        className={`map-embed ${mapUnlocked ? "is-unlocked" : "is-locked"}`}
+      />
+
+      {!mapUnlocked && (
+        <div className="map-guard" aria-hidden="false">
+          <button
+            type="button"
+            className="map-guard__btn"
+            onClick={() => setMapUnlocked(true)}
+            aria-label="Enable map interactions"
+          >
+            Click to move the map
+          </button>
+        </div>
+      )}
+
+      {mapUnlocked && (
+        <button
+          type="button"
+          className="map-lock-btn"
+          onClick={() => setMapUnlocked(false)}
+          aria-label="Lock map to scroll the page"
+        >
+          Lock map (scroll page)
+        </button>
+      )}
+
       <div className="info-card" aria-label="Company contact card">
         <div className="card-header">
           <span className="pin">
