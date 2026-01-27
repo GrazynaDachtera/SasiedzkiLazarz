@@ -95,7 +95,9 @@ p {
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  transition: background-color 0.3s ease-in-out, transform 0.15s ease-in-out;
+  transition:
+    background-color 0.3s ease-in-out,
+    transform 0.15s ease-in-out;
 }
 
 .slide__cta:hover,
@@ -125,7 +127,10 @@ p {
   border: none;
   opacity: 0.7;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s, opacity 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .dot:hover {
@@ -177,11 +182,17 @@ p {
   }
 
   .slide__text h1 {
-    font-size: clamp(1.875rem, 14cqw, 3rem);
+    font-size: clamp(1.4rem, 8.5vw, 2.1rem);
     line-height: 1;
   }
 
   .dots {
     bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide__text h1 {
+    font-size: clamp(1.4rem, 9cqw, 2.2rem);
   }
 }
