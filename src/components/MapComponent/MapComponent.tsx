@@ -156,7 +156,7 @@ export default function MapComponent({
             onClick={() => setMapUnlocked(true)}
             aria-label="Enable map interactions"
           >
-            Click to move the map
+            Kliknij, aby przesunąć mapę
           </button>
         </div>
       )}
@@ -168,7 +168,7 @@ export default function MapComponent({
           onClick={() => setMapUnlocked(false)}
           aria-label="Lock map to scroll the page"
         >
-          Lock map (scroll page)
+          Zablokuj mapę
         </button>
       )}
 
