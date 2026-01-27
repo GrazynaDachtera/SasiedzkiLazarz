@@ -20,12 +20,17 @@ export default function NewsSubpage() {
   const renderPlugin = () => {
     const root = containerRef.current;
     if (!root) return;
+
     const el = root.querySelector(".fb-page") as HTMLElement | null;
     if (!el) return;
-    const width = root.clientWidth;
-    const height = Math.max(43.75 * 16, Math.floor(window.innerHeight * 0.9));
+
+    const containerWidth = root.clientWidth;
+    const width = Math.min(500, Math.max(180, containerWidth));
+    const height = Math.max(700, Math.floor(window.innerHeight * 0.85));
+
     el.setAttribute("data-width", String(width));
     el.setAttribute("data-height", String(height));
+
     if (window.FB) {
       window.FB.XFBML.parse(root);
       setLoaded(true);
@@ -59,7 +64,9 @@ export default function NewsSubpage() {
       window.clearTimeout(t);
       t = window.setTimeout(() => renderPlugin(), 150);
     };
+
     window.addEventListener("resize", onResize);
+
     return () => {
       window.removeEventListener("resize", onResize);
       window.clearTimeout(t);
@@ -70,46 +77,53 @@ export default function NewsSubpage() {
     <main className="newsPage-wrapper">
       <section className="newsPage-wall">
         <div className="newsPage-container">
-          {!loaded && (
-            <div className="newsPage-skeleton" aria-hidden="true">
-              <div className="skeleton-line" />
-              <div className="skeleton-line" />
-              <div className="skeleton-line" />
+          <div className="newsPage-card">
+            <div className="newsPage-cardHeader">
+              <h2 className="newsPage-cardTitle">Aktualności z Facebooka</h2>
+              <span className="newsPage-cardMeta">Sąsiedzki Łazarz</span>
             </div>
-          )}
 
-          <div ref={containerRef} className="fb-wrapper">
-            <div
-              className="fb-page"
-              data-href="https://www.facebook.com/sasiedzkilazarz"
-              data-tabs="timeline"
-              data-width=""
-              data-height=""
-              data-hide-cover="false"
-              data-show-facepile="true"
-              data-adapt-container-width="true"
-            >
-              <blockquote
-                cite="https://www.facebook.com/sasiedzkilazarz"
-                className="fb-xfbml-parse-ignore"
+            {!loaded && (
+              <div className="newsPage-skeleton" aria-hidden="true">
+                <div className="skeleton-line" />
+                <div className="skeleton-line" />
+                <div className="skeleton-line" />
+              </div>
+            )}
+
+            <div ref={containerRef} className="fb-wrapper">
+              <div
+                className="fb-page"
+                data-href="https://www.facebook.com/sasiedzkilazarz"
+                data-tabs="timeline"
+                data-width=""
+                data-height=""
+                data-hide-cover="false"
+                data-show-facepile="true"
+                data-adapt-container-width="true"
               >
-                <a href="https://www.facebook.com/sasiedzkilazarz">
-                  Sąsiedzki Łazarz na Facebooku
-                </a>
-              </blockquote>
+                <blockquote
+                  cite="https://www.facebook.com/sasiedzkilazarz"
+                  className="fb-xfbml-parse-ignore"
+                >
+                  <a href="https://www.facebook.com/sasiedzkilazarz">
+                    Sąsiedzki Łazarz na Facebooku
+                  </a>
+                </blockquote>
+              </div>
             </div>
-          </div>
 
-          <p className="newsPage-fallback">
-            Nie widzisz wtyczki?{" "}
-            <a
-              href="https://www.facebook.com/sasiedzkilazarz/?locale=pl_PL"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Otwórz stronę na Facebooku
-            </a>
-          </p>
+            <p className="newsPage-fallback">
+              Nie widzisz wtyczki?{" "}
+              <a
+                href="https://www.facebook.com/sasiedzkilazarz/?locale=pl_PL"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Otwórz stronę na Facebooku
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </main>

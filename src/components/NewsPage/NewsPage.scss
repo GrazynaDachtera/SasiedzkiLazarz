@@ -16,16 +16,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.newsPage-card {
+  width: 100%;
+  max-width: 36rem;
+  background: #fff;
+  border: 1px solid rgba(16, 24, 40, 0.12);
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 40px rgba(16, 24, 40, 0.12);
+  overflow: hidden;
+}
+
+.newsPage-cardHeader {
+  padding: 1rem 1.25rem;
+  background: #0f3d34;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.newsPage-cardTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.newsPage-cardMeta {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 700;
 }
 
 .fb-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
+  background: #fff;
+  margin: 0 auto;
 }
 
 .fb-page {
   width: 100% !important;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -34,12 +70,17 @@
 .fb_iframe_widget iframe {
   display: block !important;
   margin: 0 auto !important;
+  max-width: 100% !important;
+}
+
+.fb_iframe_widget iframe {
+  border: 0 !important;
 }
 
 .newsPage-skeleton {
+  padding: 1rem 1.25rem 0.5rem;
   display: grid;
   gap: 0.625rem;
-  margin: 0.375rem 0 1rem;
   width: 100%;
 }
 
@@ -55,24 +96,39 @@
   animation: shimmer 1.4s infinite linear;
 }
 
-.skeleton-line:nth-child(1) { width: 100%; }
-.skeleton-line:nth-child(2) { width: 92%; }
-.skeleton-line:nth-child(3) { width: 84%; }
+.skeleton-line:nth-child(1) {
+  width: 100%;
+}
+
+.skeleton-line:nth-child(2) {
+  width: 92%;
+}
+
+.skeleton-line:nth-child(3) {
+  width: 84%;
+}
 
 @keyframes shimmer {
-  0% { background-position: -12.5rem 0; }
-  100% { background-position: 12.5rem 0; }
+  0% {
+    background-position: -12.5rem 0;
+  }
+  100% {
+    background-position: 12.5rem 0;
+  }
 }
 
 .newsPage-fallback {
-  margin-top: 0.875rem;
+  margin: 0;
+  padding: 0.85rem 1.25rem 1.1rem;
   font-size: 0.95rem;
-  color: #555;
+  color: rgba(16, 24, 40, 0.72);
   text-align: center;
+  border-top: 1px solid rgba(16, 24, 40, 0.08);
 }
 
 .newsPage-fallback a {
-  color: #1778f2;
+  color: #0f3d34;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 0.125rem;
 }
