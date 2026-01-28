@@ -41,6 +41,12 @@ export default function ProjectsPage() {
     },
     { title: "Spacery z historią w tle", href: "/Projects/Project7" },
     { title: "Sąsiedzkie spacery ze sprzątaniem", href: "/Projects/Project8" },
+    {
+      title:
+        "Wystawa witrynowa „Dawny Łazarz” z okazji 125. rocznicy połączenia z Poznaniem",
+      href: "/Projects/Project9",
+    },
+    { title: "Rudery na Łazarzu", href: "/Projects/Project10" },
   ];
 
   return (

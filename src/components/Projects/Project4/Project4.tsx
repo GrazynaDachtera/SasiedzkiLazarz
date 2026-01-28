@@ -20,7 +20,11 @@ const DESCRIPTION: Block[] = [
   },
   {
     t: "p",
-    text: "W gwarze „blajba” jest używana w kilku znaczeniach, nam pasuje: blajba - fajrant, koniec pracy, czas wolny, odpoczynek",
+    text: "W gwarze „blajba” jest używana w kilku znaczeniach, nam pasuje: blajba - fajrant, koniec pracy, czas wolny, odpoczynek.",
+  },
+  {
+    t: "p",
+    text: `Wydarzenia kulturalne "Blajba" organizuje Magda Krawczyk.`,
   },
 ];
 

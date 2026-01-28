@@ -38,6 +38,10 @@ const DESCRIPTION: Block[] = [
     t: "p",
     text: "Wielkopolska Wiara jest realizowana przez Stowarzyszenie Centrum PISOP ze środków Narodowego Instytutu Wolności – Centrum Rozwoju Społeczeństwa Obywatelskiego w ramach Rządowego Programu Fundusz Inicjatyw Obywatelskich #NOWEFIO na lata 2021–2030. Częścią grantu jest opracowanie planu rozwoju stowarzyszenia. Właśnie widzicie stronę www, która jest jednym z etapów naszych zamierzeń.",
   },
+  {
+    t: "p",
+    text: "Ognioodporny Łazarz wymyśliła Magda Krawczyk, przygotowała też wniosek konkursowy.",
+  },
 ];
 
 function RichText({ blocks }: { blocks: Block[] }) {
