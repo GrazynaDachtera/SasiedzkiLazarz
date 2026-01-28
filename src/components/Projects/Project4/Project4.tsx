@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+  type SyntheticEvent as ReactSyntheticEvent,
+} from "react";
 import Image from "next/image";
 import "./Project4.scss";
 
@@ -58,19 +65,58 @@ const IMAGE = {
   h: 1067,
 } as const;
 
-export default function Project4Page() {
+function useSingleLightbox() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [openDialog, setOpenDialog] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const open = () => {
-    setOpenDialog(true);
+  const open = useCallback(() => {
+    setIsOpen(true);
     dialogRef.current?.showModal();
-  };
+  }, []);
 
-  const close = () => {
+  const close = useCallback(() => {
     dialogRef.current?.close();
-    setOpenDialog(false);
-  };
+    setIsOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const body = document.body;
+    const docEl = document.documentElement;
+    const scrollY = window.scrollY;
+
+    const prevStyles = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      paddingRight: body.style.paddingRight,
+    };
+
+    const scrollbarWidth = window.innerWidth - docEl.clientWidth;
+
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+
+    return () => {
+      body.style.overflow = prevStyles.overflow;
+      body.style.position = prevStyles.position;
+      body.style.top = prevStyles.top;
+      body.style.left = prevStyles.left;
+      body.style.right = prevStyles.right;
+      body.style.width = prevStyles.width;
+      body.style.paddingRight = prevStyles.paddingRight;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -79,7 +125,29 @@ export default function Project4Page() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [close]);
+
+  const onBackdropPointerDown = useCallback(
+    (e: ReactPointerEvent<HTMLDialogElement>) => {
+      if (e.target === e.currentTarget) close();
+    },
+    [close],
+  );
+
+  const onCancel = useCallback(
+    (e: ReactSyntheticEvent<HTMLDialogElement, Event>) => {
+      e.preventDefault();
+      close();
+    },
+    [close],
+  );
+
+  return { dialogRef, isOpen, open, close, onBackdropPointerDown, onCancel };
+}
+
+export default function Project4Page() {
+  const { dialogRef, isOpen, open, close, onBackdropPointerDown, onCancel } =
+    useSingleLightbox();
 
   return (
     <main className="project4-wrapper">
@@ -97,8 +165,7 @@ export default function Project4Page() {
             <Image
               src={IMAGE.src}
               alt={IMAGE.alt}
-              width={IMAGE.w}
-              height={IMAGE.h}
+              fill
               sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="project4-gallery-img"
             />
@@ -109,9 +176,11 @@ export default function Project4Page() {
           ref={dialogRef}
           className="project4-gallery-dialog"
           aria-label="Podgląd zdjęcia"
+          onPointerDown={onBackdropPointerDown}
+          onCancel={onCancel}
         >
-          {openDialog && (
-            <div className="project4-viewer">
+          {isOpen && (
+            <div className="project4-viewer" role="document">
               <button
                 className="project4-viewer-close"
                 onClick={close}
