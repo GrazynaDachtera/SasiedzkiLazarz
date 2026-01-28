@@ -73,7 +73,7 @@ export default function ProjectsPage() {
                 Projekty
               </h1>
               <p className="projects-desc">
-                Przegląd inicjatyw realizowanych przez społeczność – od akcji
+                Przegląd inicjatyw realizowanych przez społeczność - od akcji
                 sąsiedzkich, przez zielone nasadzenia, po wydarzenia integrujące
                 mieszkańców. Wybierz projekt, aby poznać szczegóły.
               </p>
