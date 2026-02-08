@@ -31,7 +31,7 @@ const DESCRIPTION: Block[] = [
   },
   {
     t: "p",
-    text: `Wydarzenia kulturalne "Blajba" organizuje Magda Krawczyk.`,
+    text: `Serwis przygotowuje Magda Krawczyk.`,
   },
 ];
 
