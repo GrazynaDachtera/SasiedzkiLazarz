@@ -86,10 +86,10 @@ const defaultMembers: Member[] = [
     },
   },
   {
-    name: "Natalia Gielniak",
+    name: "Natalia Pietruszka",
     role: "Członkini Stowarzyszenia",
     bio: 'Członkini stowarzyszenia, radna osiedlowa, aktywnie działa także w stowarzyszeniu „Młodzi Razem". Nieocenione wsparcie w organizacji wydarzeń. Brała udział w reprezentacji Łazarza w konkursie Wianki’24 (3 miejsce) oraz w Kulinarnym Turnieju Dzielnic’25.',
-    image: { src: "/AboutFoundation/natalia.JPG", alt: "Natalia Gielniak" },
+    image: { src: "/AboutFoundation/natalia.JPG", alt: "Natalia Pietruszka" },
   },
   {
     name: "Michał Turno",
@@ -157,7 +157,7 @@ export default function Members({
 }: MembersProps) {
   const data = useMemo(
     () => (members?.length ? members : defaultMembers),
-    [members]
+    [members],
   );
 
   const trackRef = useRef<HTMLDivElement>(null);
@@ -184,11 +184,11 @@ export default function Members({
     const styles = window.getComputedStyle(el);
     const left =
       Number.parseFloat(
-        styles.getPropertyValue("scroll-padding-left") || "0"
+        styles.getPropertyValue("scroll-padding-left") || "0",
       ) || 0;
     const right =
       Number.parseFloat(
-        styles.getPropertyValue("scroll-padding-right") || "0"
+        styles.getPropertyValue("scroll-padding-right") || "0",
       ) || 0;
     return { left, right };
   };
@@ -254,7 +254,7 @@ export default function Members({
     const delta = dir === "left" ? -n : n;
     const targetIndex = Math.max(
       0,
-      Math.min(currentIndex + delta, cards.length - 1)
+      Math.min(currentIndex + delta, cards.length - 1),
     );
 
     cards[targetIndex].scrollIntoView({
