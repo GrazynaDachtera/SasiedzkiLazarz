@@ -47,6 +47,7 @@ export default function ProjectsPage() {
       href: "/Projects/Project9",
     },
     { title: "Rudery na Łazarzu", href: "/Projects/Project10" },
+    { title: "Łazarska Mapa Dostępności", href: "/Projects/Project11" },
   ];
 
   return (

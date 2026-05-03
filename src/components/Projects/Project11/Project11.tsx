@@ -1,0 +1,457 @@
+"use client";
+
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+  type SyntheticEvent as ReactSyntheticEvent,
+} from "react";
+import Image from "next/image";
+import "./Project11.scss";
+
+type Paragraph = { t: "p"; text: string };
+type Heading = { t: "h3"; text: string };
+type LinkBlock = { t: "link"; label: string; href: string };
+
+type LegendItem = {
+  t: "legend";
+  color: "red" | "yellow" | "green" | "blue";
+  label: string;
+  text: string;
+};
+
+type Block = Paragraph | Heading | LinkBlock | LegendItem;
+
+const DESCRIPTION: Block[] = [
+  {
+    t: "p",
+    text: `14 lutego 2026 w naszych mediach społecznościowych opublikowaliśmy Łazarską Mapę Dostępności - praktyczne narzędzie pokazujące dostępność lokali gastronomicznych na Osiedlu Święty Łazarz dla osób z dysfunkcjami kończyn dolnych, poruszającymi się na wózku, ale też dla tych z wózkiem wypełnionym gzubkiem.`,
+  },
+  {
+    t: "p",
+    text: `Mapa została przygotowana przez Michała Frankiewicza, który osobiście przeprowadził społeczną „ewaluację dostępności” kawiarni, restauracji i barów działających w dzielnicy. Efektem tych działań jest interaktywna mapa dostępna w aplikacji Google Maps, na której lokale oznaczone są kolorami informującymi o poziomie trudności wejścia do lokalu.`,
+  },
+  {
+    t: "h3",
+    text: "Legenda mapy",
+  },
+  {
+    t: "legend",
+    color: "red",
+    label: "Czerwony",
+    text: "duże bariery architektoniczne, lokal generalnie niedostępny.",
+  },
+  {
+    t: "legend",
+    color: "yellow",
+    label: "Żółty",
+    text: "niewielkie bariery, większość osób poradzi sobie z pomocą.",
+  },
+  {
+    t: "legend",
+    color: "green",
+    label: "Zielony",
+    text: "brak barier, lokal dostępny bezproblemowo.",
+  },
+  {
+    t: "legend",
+    color: "blue",
+    label: "Niebieski",
+    text: "miejsca jeszcze niezainwentaryzowane.",
+  },
+  {
+    t: "p",
+    text: `Mapa powstała dla naszych sąsiadów, dla których takie informacje są niezbędne do podjęcia decyzji o wyjściu z domu, miejscu spotkania i obrania trasy. Łazarz to nasz wspólny fyrtel i każdy powinien mieć możliwość korzystania z życia w atak fajnej okolicy. Uważność, empatia i wzajemna pomoc to nasze zaklęcia w intencji lepszego i bezpiecznego fyrtla dla każdego.`,
+  },
+  {
+    t: "p",
+    text: `To inicjatywa oddolna - nie wynik nakazów czy regulacji instytucjonalnych, lecz efekt bezpośrednich relacji, rozmów i codziennych doświadczeń mieszkańców. Pomysł powstał po komentarzach pod postem o komfortce przy Rynku Łazarskim, o której mało kto wiedział.`,
+  },
+  {
+    t: "p",
+    text: `Projekt ma charakter otwarty i będzie sukcesywnie rozwijany, także o informacje o toaletach dla osób ze specjalnymi potrzebami. Jeśli macie pomysły, jak sprawić, żeby Mapa była doskonalsza, albo pomóc w jej uzupełnianiu - dajcie nam znać!`,
+  },
+  {
+    t: "h3",
+    text: "Linki",
+  },
+  {
+    t: "link",
+    label: "Link do Mapy",
+    href: "https://www.google.com/maps/d/u/1/edit?mid=1naiUuKEqX0RurvdUMmprXniI0MHXWm8&usp=sharing",
+  },
+  {
+    t: "link",
+    label: "Audycja w Radio Poznań „Co jest Duże, a co Małe?” - 23.02.2026",
+    href: "https://radiopoznan.fm/audycja/co-jest-duze-a-co-male/co-jest-duze-a-co-male-23-02-2026",
+  },
+  {
+    t: "link",
+    label: "Audycja w Codzienny Poznań „Hej, Poznań” - 30.03.2026",
+    href: "https://www.youtube.com/watch?v=Wrsd4oaaCt0&list=PL9h2XjnmePSwOLlc7xgy57hO0-oPxTZAx&index=2",
+  },
+];
+
+const normalize = (s: string) => s.replace(/\s+/g, " ").trim();
+
+function RichText({ blocks }: { blocks: Block[] }) {
+  return (
+    <>
+      {blocks.map((b, i) => {
+        if (b.t === "h3") {
+          return (
+            <h3 key={i} className="project11-subheading">
+              {b.text}
+            </h3>
+          );
+        }
+
+        if (b.t === "link") {
+          return (
+            <p key={i} className="project11-paragraph project11-link-row">
+              <a href={b.href} target="_blank" rel="noopener noreferrer">
+                {b.label}
+              </a>
+            </p>
+          );
+        }
+
+        if (b.t === "legend") {
+          return (
+            <p key={i} className="project11-paragraph project11-legend-item">
+              <span
+                className={`project11-legend-color project11-legend-color--${b.color}`}
+              >
+                {b.label}
+              </span>
+              {" - "}
+              {b.text}
+            </p>
+          );
+        }
+
+        return (
+          <p key={i} className="project11-paragraph">
+            {normalize(b.text)}
+          </p>
+        );
+      })}
+    </>
+  );
+}
+
+type GalleryImage = { src: string; alt: string; w: number; h: number };
+
+const IMAGES: readonly GalleryImage[] = [
+  {
+    src: "/Projects/Project11/Mapa_14_lutego_kw.jpg",
+    alt: "Łazarska Mapa Dostępności - zdjęcie 1",
+    w: 1600,
+    h: 1067,
+  },
+  {
+    src: "/Projects/Project11/Mapa_hej_poznan.png",
+    alt: "Łazarska Mapa Dostępności - zdjęcie 2",
+    w: 1600,
+    h: 1067,
+  },
+] as const;
+
+function useLightbox(total: number) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [index, setIndex] = useState<number | null>(null);
+
+  const isOpen = index !== null;
+
+  const open = useCallback((i: number) => {
+    setIndex(i);
+    dialogRef.current?.showModal();
+  }, []);
+
+  const close = useCallback(() => {
+    dialogRef.current?.close();
+    setIndex(null);
+  }, []);
+
+  const step = useCallback(
+    (delta: number) => {
+      setIndex((i) => {
+        if (i === null) return i;
+        return (i + delta + total) % total;
+      });
+    },
+    [total],
+  );
+
+  const prev = useCallback(() => step(-1), [step]);
+  const next = useCallback(() => step(1), [step]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const body = document.body;
+    const docEl = document.documentElement;
+    const scrollY = window.scrollY;
+
+    const prevStyles = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      paddingRight: body.style.paddingRight,
+    };
+
+    const scrollbarWidth = window.innerWidth - docEl.clientWidth;
+
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
+    if (scrollbarWidth > 0) {
+      body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      body.style.overflow = prevStyles.overflow;
+      body.style.position = prevStyles.position;
+      body.style.top = prevStyles.top;
+      body.style.left = prevStyles.left;
+      body.style.right = prevStyles.right;
+      body.style.width = prevStyles.width;
+      body.style.paddingRight = prevStyles.paddingRight;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (!dialogRef.current?.open) return;
+
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+
+    window.addEventListener("keydown", onKey);
+
+    return () => window.removeEventListener("keydown", onKey);
+  }, [close, next, prev]);
+
+  const onBackdropPointerDown = useCallback(
+    (e: ReactPointerEvent<HTMLDialogElement>) => {
+      if (e.target === e.currentTarget) close();
+    },
+    [close],
+  );
+
+  const onCancel = useCallback(
+    (e: ReactSyntheticEvent<HTMLDialogElement, Event>) => {
+      e.preventDefault();
+      close();
+    },
+    [close],
+  );
+
+  const swipe = useRef<{
+    x: number;
+    y: number;
+    pointerId: number | null;
+    active: boolean;
+  }>({ x: 0, y: 0, pointerId: null, active: false });
+
+  const onViewerPointerDown = useCallback(
+    (e: ReactPointerEvent<HTMLElement>) => {
+      if (e.pointerType === "mouse") return;
+
+      swipe.current = {
+        x: e.clientX,
+        y: e.clientY,
+        pointerId: e.pointerId,
+        active: true,
+      };
+
+      e.currentTarget.setPointerCapture?.(e.pointerId);
+    },
+    [],
+  );
+
+  const onViewerPointerUp = useCallback(
+    (e: ReactPointerEvent<HTMLElement>) => {
+      if (!swipe.current.active || swipe.current.pointerId !== e.pointerId) {
+        return;
+      }
+
+      swipe.current.active = false;
+
+      try {
+        e.currentTarget.releasePointerCapture?.(e.pointerId);
+      } catch {}
+
+      const dx = e.clientX - swipe.current.x;
+      const dy = e.clientY - swipe.current.y;
+
+      const min = 50;
+      const ratio = 1.2;
+
+      if (Math.abs(dx) >= min && Math.abs(dx) > Math.abs(dy) * ratio) {
+        if (dx > 0) prev();
+        else next();
+      }
+    },
+    [next, prev],
+  );
+
+  const onViewerPointerCancel = useCallback(
+    (e: ReactPointerEvent<HTMLElement>) => {
+      swipe.current.active = false;
+
+      try {
+        e.currentTarget.releasePointerCapture?.(e.pointerId);
+      } catch {}
+    },
+    [],
+  );
+
+  return {
+    dialogRef,
+    index,
+    open,
+    close,
+    prev,
+    next,
+    onBackdropPointerDown,
+    onCancel,
+    onViewerPointerDown,
+    onViewerPointerUp,
+    onViewerPointerCancel,
+  };
+}
+
+function Gallery({ images }: { images: readonly GalleryImage[] }) {
+  const {
+    dialogRef,
+    index,
+    open,
+    close,
+    prev,
+    next,
+    onBackdropPointerDown,
+    onCancel,
+    onViewerPointerDown,
+    onViewerPointerUp,
+    onViewerPointerCancel,
+  } = useLightbox(images.length);
+
+  const active = useMemo(
+    () => (index === null ? null : images[index]),
+    [images, index],
+  );
+
+  const showNav = images.length > 1;
+
+  return (
+    <>
+      <div className="project11-gallery" role="list">
+        {images.map((img, i) => (
+          <button
+            key={img.src}
+            className="project11-gallery-item"
+            onClick={() => open(i)}
+            aria-label={`Otwórz zdjęcie ${i + 1} z ${images.length}`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="project11-gallery-img"
+            />
+          </button>
+        ))}
+      </div>
+
+      <dialog
+        ref={dialogRef}
+        className="project11-gallery-dialog"
+        aria-label="Podgląd zdjęcia"
+        onPointerDown={onBackdropPointerDown}
+        onCancel={onCancel}
+      >
+        {active && (
+          <div
+            className="project11-viewer"
+            role="document"
+            onPointerDown={onViewerPointerDown}
+            onPointerUp={onViewerPointerUp}
+            onPointerCancel={onViewerPointerCancel}
+          >
+            <button
+              className="project11-viewer-close"
+              onClick={close}
+              aria-label="Zamknij"
+            >
+              ×
+            </button>
+
+            {showNav && (
+              <button
+                className="project11-viewer-nav project11-prev"
+                onClick={prev}
+                aria-label="Poprzednie zdjęcie"
+              >
+                ‹
+              </button>
+            )}
+
+            <Image
+              key={active.src}
+              src={active.src}
+              alt={active.alt}
+              width={active.w}
+              height={active.h}
+              sizes="90vw"
+              className="project11-viewer-img"
+              priority
+            />
+
+            {showNav && (
+              <button
+                className="project11-viewer-nav project11-next"
+                onClick={next}
+                aria-label="Następne zdjęcie"
+              >
+                ›
+              </button>
+            )}
+          </div>
+        )}
+      </dialog>
+    </>
+  );
+}
+
+export default function Project11Page() {
+  return (
+    <main className="project11-wrapper">
+      <section className="project11-content">
+        <h2 className="project11-subtitle">
+          Łazarska Mapa Dostępności - społeczna inicjatywa na rzecz inkluzywnego
+          Łazarza
+        </h2>
+
+        <RichText blocks={DESCRIPTION} />
+
+        <h3 className="project11-subheading">Galeria</h3>
+        <Gallery images={IMAGES} />
+      </section>
+    </main>
+  );
+}
