@@ -1,0 +1,256 @@
+:root {
+  --section-py: clamp(0rem, 2vw, 5rem);
+  --brand-green: #114538;
+  --cta-green-hover: #0f3b30;
+  --senior-clubs-gap: 15px;
+  --senior-clubs-icon-w: 28px;
+  font-family: "Poppins", sans-serif;
+}
+
+.SeniorClubs {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: var(--brand-green);
+}
+
+.senior-clubs-top-wrapper {
+  background-color: #fff;
+}
+
+.senior-clubs-top-wrapper .senior-clubs-container {
+  padding-block: var(--section-py);
+  padding-inline: 4rem;
+}
+
+.senior-clubs-grid-wrapper {
+  background-color: #ffffff;
+  padding: 32px 0 48px;
+  width: 100%;
+}
+
+.senior-clubs-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.senior-clubs-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.senior-clubs-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.senior-clubs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--brand-green);
+}
+
+.senior-clubs-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.senior-clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 24px;
+}
+
+.senior-clubs-grid-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.SeniorClubs .senior-clubs-grid .senior-clubs-grid-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--senior-clubs-gap);
+  color: var(--brand-green);
+  padding: 0.2rem 0;
+  border-radius: 6px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer !important;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.SeniorClubs .senior-clubs-grid .senior-clubs-grid-item:hover,
+.SeniorClubs .senior-clubs-grid .senior-clubs-grid-item:focus-visible {
+  color: #2b7a55 !important;
+  outline: none;
+}
+
+.SeniorClubs
+  .senior-clubs-grid
+  .senior-clubs-grid-item:hover
+  .senior-clubs-grid-item-title,
+.SeniorClubs
+  .senior-clubs-grid
+  .senior-clubs-grid-item:focus-visible
+  .senior-clubs-grid-item-title {
+  text-decoration: underline;
+}
+
+.senior-clubs-grid-item-icon-wrapper {
+  width: var(--senior-clubs-icon-w);
+  padding: 4px;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: left;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.senior-clubs-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.SeniorClubs
+  .senior-clubs-grid
+  .senior-clubs-grid-item:hover
+  .senior-clubs-grid-item-icon-wrapper
+  .senior-clubs-arrow-icon,
+.SeniorClubs
+  .senior-clubs-grid
+  .senior-clubs-grid-item:focus-visible
+  .senior-clubs-grid-item-icon-wrapper
+  .senior-clubs-arrow-icon {
+  transform: translateX(2px);
+}
+
+.senior-clubs-grid-item[aria-expanded="true"] .senior-clubs-arrow-icon {
+  transform: translateX(2px);
+}
+
+.senior-clubs-grid-item-text {
+  flex: 1;
+}
+
+.senior-clubs-grid-item-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: currentColor;
+}
+
+.senior-clubs-details {
+  margin: 6px 0 14px calc(var(--senior-clubs-icon-w) + var(--senior-clubs-gap));
+  padding-left: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: #444;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 220ms ease,
+    opacity 180ms ease;
+}
+
+.senior-clubs-details.open {
+  max-height: 260px;
+  opacity: 1;
+}
+
+.senior-clubs-details li + li {
+  margin-top: 6px;
+}
+
+.senior-clubs-details a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+@media (min-width: 992px) {
+  .senior-clubs-content {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .senior-clubs-top {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .senior-clubs-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .senior-clubs-top-wrapper .senior-clubs-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .senior-clubs-top {
+    align-items: center;
+    text-align: center;
+  }
+
+  .senior-clubs-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .senior-clubs-top-wrapper .senior-clubs-container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .senior-clubs-description {
+    margin-bottom: 16px;
+  }
+
+  .senior-clubs-grid-wrapper {
+    padding: 16px 0 56px;
+  }
+
+  .senior-clubs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+  }
+
+  .SeniorClubs .senior-clubs-grid .senior-clubs-grid-item {
+    padding: 0.15rem 0;
+  }
+
+  .senior-clubs-details {
+    margin: 0 0 0 calc(var(--senior-clubs-icon-w) + var(--senior-clubs-gap));
+  }
+
+  .senior-clubs-details.open {
+    margin: 6px 0 12px
+      calc(var(--senior-clubs-icon-w) + var(--senior-clubs-gap));
+  }
+}
+
+@media (max-width: 480px) {
+  .senior-clubs-top-wrapper .senior-clubs-container,
+  .senior-clubs-container {
+    padding-inline: 1rem;
+  }
+}

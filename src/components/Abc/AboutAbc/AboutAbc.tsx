@@ -43,6 +43,7 @@ export default function AbcPage() {
       title: "Urzędy, jednostki miejskie, służby mundurowe",
       href: "/Abc/List/Offices",
     },
+    { title: "Kluby Seniora", href: "/Abc/List/SeniorClubs" },
     { title: "Trzeba zobaczyć!", href: "/Abc/List/Objects" },
   ];
 
