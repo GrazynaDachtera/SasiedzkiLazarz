@@ -73,7 +73,7 @@ export default function AbcPage() {
                 miejscach i usługach w naszej okolicy. W jednym miejscu
                 zebraliśmy informacje o szkołach, przedszkolach i żłobkach,
                 SOR-ze i wieczorynce, ośrodkach kultury i sporcie, parkach,
-                muzeach oraz innych ważnych obiektach – z adresami i przydatnymi
+                muzeach oraz innych ważnych obiektach - z adresami i przydatnymi
                 linkami.
               </p>
             </div>
