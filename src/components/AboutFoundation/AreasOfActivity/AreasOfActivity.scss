@@ -45,7 +45,7 @@
 }
 
 .areas-description {
-  font-weight: 400;
+  font-weight: 420;
   font-size: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   line-height: 1.55;
   margin: 0;
@@ -103,7 +103,9 @@
   object-fit: cover;
   display: block;
   border-radius: 22px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.16),
+    0 6px 12px rgba(0, 0, 0, 0.08);
   background: #fff;
 }
 
@@ -119,7 +121,9 @@
   font-size: clamp(1rem, 0.6vw + 1rem, 1.1rem);
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(17, 69, 56, 0.18);
-  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
     transform 0.15s ease;
   margin-top: 22px;
 }
@@ -136,7 +140,8 @@
 
 .areas-btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(17, 69, 56, 0.25),
+  box-shadow:
+    0 0 0 4px rgba(17, 69, 56, 0.25),
     0 8px 20px rgba(17, 69, 56, 0.18);
 }
 
