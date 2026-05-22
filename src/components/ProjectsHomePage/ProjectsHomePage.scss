@@ -99,7 +99,8 @@ $bp-xs: 400px;
 
 .projectsHomePage-description {
   font-size: $body-fs;
-  line-height: 1.6;
+  font-weight: 420;
+  line-height: 1.55;
   margin-bottom: 30px;
   color: $text;
 }
@@ -136,7 +137,8 @@ $bp-xs: 400px;
   border-radius: 1.25rem;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12),
+  box-shadow:
+    0 20px 40px rgba(16, 24, 40, 0.12),
     0 2px 8px rgba(16, 24, 40, 0.06);
   aspect-ratio: 652 / 336;
   max-width: clamp(360px, 38vw, 540px);
