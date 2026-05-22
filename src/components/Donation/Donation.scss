@@ -66,10 +66,10 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 
 .help-text {
   padding: 0 $pad-desktop 2rem;
-  font-weight: 400;
+  font-weight: 420;
   font-size: $body-fs;
   color: $text;
-  line-height: 1.7;
+  line-height: 1.55;
   text-align: left;
 
   p {
@@ -137,7 +137,9 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   padding: 0.25rem 0.6rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.05s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.05s ease;
 }
 
 .copy-btn:hover {
