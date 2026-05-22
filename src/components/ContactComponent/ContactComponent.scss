@@ -18,19 +18,18 @@ $pad-phone: 1rem;
     "Noto Sans",
     "Liberation Sans",
     sans-serif;
-  --nav-h-desktop: 6.75rem;
-  --nav-h: var(--nav-h-desktop);
-  scroll-margin-top: calc(var(--nav-h) + 12px);
+  scroll-margin-top: calc(6.75rem + 12px);
 }
 
 @media (max-width: 1024px) {
   .Contact {
-    --nav-h: 6rem;
+    scroll-margin-top: calc(6rem + 12px);
   }
 }
+
 @media (max-width: 768px) {
   .Contact {
-    --nav-h: 6.75rem;
+    scroll-margin-top: calc(6.75rem + 12px);
   }
 }
 
@@ -43,9 +42,21 @@ $pad-phone: 1rem;
 
 .contact-top {
   background: #f4f6f9;
-  padding-top: calc(var(--nav-h) + clamp(2.5rem, 4vw, 3rem));
+  padding-top: calc(6.75rem + clamp(2.5rem, 4vw, 3rem));
   padding-bottom: clamp(1rem, 4vw, 2rem);
   overflow: visible;
+}
+
+@media (max-width: 1024px) {
+  .contact-top {
+    padding-top: calc(6rem + clamp(2.5rem, 4vw, 3rem));
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-top {
+    padding-top: calc(6.75rem + clamp(2.5rem, 4vw, 3rem));
+  }
 }
 
 .contact-grid {
@@ -86,9 +97,11 @@ $pad-phone: 1rem;
   display: flex;
   justify-content: center;
 }
+
 .contact-hero :where(img, span, picture) {
   pointer-events: none;
 }
+
 .contact-hero__img {
   width: 100%;
   max-width: clamp(560px, 54vw, 760px);
@@ -105,14 +118,17 @@ $pad-phone: 1rem;
     max-width: clamp(520px, 52vw, 700px);
   }
 }
+
 @media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: clamp(1rem, 4vw, 2rem);
   }
+
   .contact-hero {
     justify-self: center;
   }
+
   .contact-hero__img {
     max-width: min(90vw, 760px);
   }
@@ -129,6 +145,7 @@ $pad-phone: 1rem;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
 @media (max-width: 768px) {
   .row.two {
     grid-template-columns: 1fr;
@@ -153,6 +170,7 @@ textarea {
     box-shadow 0.2s,
     border-color 0.2s;
 }
+
 textarea {
   resize: vertical;
   min-height: 150px;
@@ -178,10 +196,39 @@ textarea:focus {
   font-size: clamp(0.9rem, 2.5vw, 0.95rem);
   font-weight: 420;
 }
-.form .consent input {
-  margin-top: 0.2rem;
-  accent-color: #114538;
+
+.form .consent input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.65rem;
+  height: 1.65rem;
+  min-width: 1.65rem;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  border: 2px solid #b5c8c2;
+  border-radius: 7px;
+  background-color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
+
+.form .consent input[type="checkbox"]:checked {
+  border-color: #114538;
+  background-color: #114538;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+.form .consent input[type="checkbox"]:focus {
+  border-color: #114538;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #114538 12%, transparent);
+}
+
 .required {
   color: #c00;
 }
@@ -193,6 +240,22 @@ textarea:focus {
   color: #114538;
   font-size: clamp(0.9rem, 2.5vw, 0.95rem);
   font-weight: 420;
+}
+
+.security svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 auto;
+  color: #114538;
+}
+
+.security svg,
+.security svg * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .submit {
@@ -214,18 +277,22 @@ textarea:focus {
   min-width: clamp(10rem, 45vw, 16rem);
   align-self: start;
 }
+
 @media (max-width: 768px) {
   .submit {
     width: auto;
     min-width: clamp(10rem, 70vw, 16rem);
   }
 }
+
 .submit:hover {
   background: #0f3b30;
 }
+
 .submit:active {
   transform: translateY(1px);
 }
+
 .arrow-icon {
   display: block;
 }
@@ -256,6 +323,7 @@ textarea:focus {
     row-gap: 0.75rem;
   }
 }
+
 @media (max-width: 560px) {
   .strip-grid {
     grid-template-columns: 1fr;
@@ -269,6 +337,7 @@ textarea:focus {
   padding: 0.75rem 1rem;
   border-right: 1px solid #e8e8ee;
 }
+
 .strip-item:last-child {
   border-right: 0;
 }
@@ -294,6 +363,7 @@ textarea:focus {
   font-size: 0.85rem;
   color: #6a7280;
 }
+
 .strip-item .meta .value {
   margin: 0;
   font-weight: 700;
@@ -301,6 +371,7 @@ textarea:focus {
   text-decoration: none;
   word-break: break-word;
 }
+
 .strip-item .meta .value:hover {
   text-decoration: underline;
 }
