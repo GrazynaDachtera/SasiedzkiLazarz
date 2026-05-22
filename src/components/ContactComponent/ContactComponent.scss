@@ -23,8 +23,16 @@ $pad-phone: 1rem;
 }
 
 .Contact {
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    "Noto Sans", "Liberation Sans", sans-serif;
+  font-family:
+    "Poppins",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    "Noto Sans",
+    "Liberation Sans",
+    sans-serif;
   --nav-h-desktop: 6.75rem;
   --nav-h: var(--nav-h-desktop);
   scroll-margin-top: calc(var(--nav-h) + 12px);
@@ -73,7 +81,9 @@ $pad-phone: 1rem;
   display: block;
   margin: 0 0 1rem;
   padding: 0;
-  font: 800 clamp(2rem, 4vw + 1rem, 3rem) "Poppins", sans-serif;
+  font:
+    800 clamp(2rem, 4vw + 1rem, 3rem) "Poppins",
+    sans-serif;
   color: #374151;
   line-height: 1.1;
   height: auto;
@@ -154,7 +164,9 @@ textarea {
   font: inherit;
   color: var(--text);
   outline: none;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 textarea {
   resize: vertical;
@@ -179,6 +191,7 @@ textarea:focus {
   column-gap: 0.6rem;
   color: var(--muted);
   font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+  font-weight: 420;
 }
 .form .consent input {
   margin-top: 0.2rem;
@@ -194,6 +207,7 @@ textarea:focus {
   gap: 0.5rem;
   color: #114538;
   font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+  font-weight: 420;
 }
 
 .submit {
@@ -208,7 +222,9 @@ textarea:focus {
   background: var(--brand);
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.05s;
+  transition:
+    background 0.2s,
+    transform 0.05s;
   width: auto;
   min-width: clamp(10rem, 45vw, 16rem);
   align-self: start;
