@@ -9,7 +9,7 @@ $pad-phone: 1rem;
 
 .Contact {
   font-family:
-    "Poppins",
+    var(--font-poppins),
     system-ui,
     -apple-system,
     Segoe UI,
@@ -78,7 +78,7 @@ $pad-phone: 1rem;
   margin: 0 0 1rem;
   padding: 0;
   font:
-    800 clamp(2rem, 4vw + 1rem, 3rem) "Poppins",
+    800 clamp(2rem, 4vw + 1rem, 3rem) var(--font-poppins),
     sans-serif;
   color: #374151;
   line-height: 1.1;

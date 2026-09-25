@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-
 :root {
   --nav-h: 80px;
 }
@@ -30,7 +28,7 @@ $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
   align-items: center;
   padding-bottom: 4rem;
   color: $text;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 .accDeclaration-title {

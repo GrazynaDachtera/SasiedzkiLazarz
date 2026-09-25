@@ -6,7 +6,7 @@
   width: 100%;
   background-color: #f8f9fa;
   padding-block: clamp(1rem, 4vw, 6rem);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 .news-container {

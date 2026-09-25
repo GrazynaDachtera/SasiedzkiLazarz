@@ -4,12 +4,12 @@
   --cta-green-hover: #0f3b30;
   --kg-gap: 15px;
   --kg-icon-w: 28px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 .Media {
   width: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   color: var(--brand-green);
 }
 

@@ -34,11 +34,14 @@
   display: flex;
   align-items: center;
   height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   isolation: isolate;
+}
+
+.slide__img {
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
 }
 
 .slide::before {
@@ -93,7 +96,7 @@ p {
   border: none;
   border-radius: clamp(0.55rem, 2cqw, 0.9rem);
   cursor: pointer;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   text-decoration: none;
   transition:
     background-color 0.3s ease-in-out,

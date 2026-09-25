@@ -4,14 +4,8 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Poppins } from "next/font/google";
 import emailjs from "@emailjs/browser";
 import "./ContactComponent.scss";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 const ArrowIcon = () => (
   <svg
@@ -175,7 +169,7 @@ export default function ContactComponent() {
     "https://www.google.com/maps/search/?api=1&query=ul.+U%C5%81a%C5%84ska+5%2C+60-748+Pozna%C5%84";
 
   return (
-    <section className={`Contact ${poppins.className}`}>
+    <section className="Contact">
       <div className="contact-top">
         <div className="contact-container contact-grid">
           <div className="contact-form">

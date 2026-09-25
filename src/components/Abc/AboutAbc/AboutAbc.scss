@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-
 $accent: #114538;
 $abc-gap: clamp(1rem, 3vw, 3rem);
 
 .Abc {
   font-family:
-    "Poppins",
+    var(--font-poppins),
     system-ui,
     -apple-system,
     Segoe UI,

@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-
 .areas-top-wrapper {
   width: 100%;
   background: #f8f9fa;
   padding-block: clamp(2rem, 5vw, 6rem);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   color: #6a7280;
   --areas-item-text-size: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);
 }

@@ -76,7 +76,7 @@
     font-weight: 700;
     border-radius: 0.9rem;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-poppins), sans-serif;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.15s ease-in-out;
     white-space: nowrap;

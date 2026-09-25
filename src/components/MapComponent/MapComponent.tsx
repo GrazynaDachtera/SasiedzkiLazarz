@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import { Poppins } from "next/font/google";
 import "./MapComponent.scss";
-
-const poppins = Poppins({
-  subsets: ["latin-ext"],
-  weight: ["400", "600", "700"],
-});
 
 type Props = {
   company?: string;
@@ -129,9 +123,20 @@ export default function MapComponent({
       map.setView([lat, lng], 17);
     };
 
-    void init();
+    // Load Leaflet, tiles and geocoding only when the map is about to scroll into view.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          observer.disconnect();
+          void init();
+        }
+      },
+      { rootMargin: "400px 0px" },
+    );
+    observer.observe(mapEl.current);
 
     return () => {
+      observer.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
     };
@@ -142,7 +147,7 @@ export default function MapComponent({
   }, [mapUnlocked, setInteractivity]);
 
   return (
-    <section className={`MapComponent ${poppins.className} ${className}`}>
+    <section className={`MapComponent ${className}`}>
       <div
         ref={mapEl}
         className={`map-embed ${mapUnlocked ? "is-unlocked" : "is-locked"}`}

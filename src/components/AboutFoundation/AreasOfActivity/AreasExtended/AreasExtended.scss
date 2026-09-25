@@ -1,6 +1,4 @@
 /* AreasExtended.scss */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
-
 :root{
   --section-py: clamp(2rem, 5vw, 6rem);
   --brand-green:#114538;
@@ -18,7 +16,7 @@
   width:100%;
   background:#fff;
   padding-block:var(--section-py);
-  font-family:"Poppins",sans-serif;
+  font-family:var(--font-poppins),sans-serif;
   color:var(--text-color);
 }
 

@@ -2,6 +2,7 @@
 
 import { useState, Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import "./Header.scss";
 
 interface Slide {
@@ -32,13 +33,17 @@ export default function HeroSlider() {
         }}
       >
         {slides.map((s, i) => (
-          <div
-            className="slide"
-            key={`slide-${i}`}
-            style={{ backgroundImage: `url(${s.img.src})` }}
-            aria-label={s.img.alt}
-            role="img"
-          >
+          <div className="slide" key={`slide-${i}`}>
+            <Image
+              src={s.img.src}
+              alt={s.img.alt}
+              fill
+              sizes="100vw"
+              quality={90}
+              preload={i === 0}
+              fetchPriority={i === 0 ? "high" : undefined}
+              className="slide__img"
+            />
             <div className="slide__text">
               <h1>
                 {s.titleLines.map((line, li) => (

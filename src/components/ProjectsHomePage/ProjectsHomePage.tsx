@@ -34,7 +34,6 @@ const ProjectsHomePage: React.FC = () => {
                 height={336}
                 sizes="(max-width: 768px) 85vw, 560px"
                 className="projectsHomePage-image"
-                priority
               />
             </div>
           </div>

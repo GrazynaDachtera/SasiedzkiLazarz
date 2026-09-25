@@ -2,7 +2,7 @@ $section-py: clamp(1.5rem, 2vw, 3rem);
 $brand-green: #114538;
 $cta-green: #114538;
 $cta-green-hover: #0f3b30;
-$font-family: "Poppins", sans-serif;
+$font-family: var(--font-poppins), sans-serif;
 
 $text: #6a7280;
 $body-fs: clamp(0.98rem, 2.1vw + 0rem, 1.08rem);

@@ -44,13 +44,13 @@
   .cookiesPopup h3 {
     margin-top: 0;
     margin-bottom: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins), sans-serif;
     font-size: 1.2rem;
   }
   
   .cookiesPopup p {
     margin-bottom: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins), sans-serif;
     font-size: 1rem;
   }
   
@@ -66,7 +66,7 @@
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-poppins), sans-serif;
   }
   
   .acceptBtn {
