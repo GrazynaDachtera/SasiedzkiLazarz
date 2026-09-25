@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
 import Reviews from "../components/Reviews/Reviews";
@@ -10,7 +10,6 @@ import Footer from "../components/Footer/Footer";
 import Cookies from "../components/Cookies/Cookies";
 import "../app/globals.css";
 import { Poppins } from "next/font/google";
-import { useSmoothScrollbar } from "@/components/hooks/useSmoothScrollbar";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -19,12 +18,9 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  useSmoothScrollbar(scrollRef);
-
   return (
     <>
-      <div ref={scrollRef} style={{ overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <section className={`kuziSport ${poppins.className}`}>
           <div className="main">
             <Navbar />

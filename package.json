@@ -17,7 +17,6 @@
     "react-dom": "19.1.0",
     "react-leaflet": "^5.0.0",
     "sass": "^1.89.2",
-    "smooth-scrollbar": "^8.8.4",
     "typeface-lato": "^1.1.13",
     "typeface-nunito-sans": "^1.1.13",
     "typeface-poppins": "^1.1.13"
